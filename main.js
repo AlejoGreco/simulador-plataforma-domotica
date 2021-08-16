@@ -3,13 +3,14 @@
 
 class Admin {
     constructor(){
-        this.membresias = [];
+        this.usuarios = [];
+        this.smartHomes = [];
         this.idUserOn;
         this.idHomeOn;
     }
 
-    crearUsuario(pUsuarios){
-        let nuevoId = pUsuarios.length + 1;
+    crearUsuario(){
+        let nuevoId = this.usuarios.length + 1;
         let nombre;
         let apellido;
         let email;
@@ -25,66 +26,60 @@ class Admin {
             password[0] = prompt('Error al ingresar su clave, intente nuevamente');
             password[1] = prompt('Ingrese nuevamente su clave');
         }
-        pUsuarios.push(new Usuario(nuevoId, nombre, apellido, email, password[0]));
+        this.usuarios.push(new Usuario(nuevoId, nombre, apellido, email, password[0]));
         return nuevoId;
     }
 
-    crearSmartHome(pSmartHome){
-        let nuevoId = pSmartHome.length + 1;
+    crearSmartHome(){
+        let nuevoId = this.smartHomes.length + 1;
         let respuesta = '';
 
-        pSmartHome.push(new SmartHome(nuevoId,[],[],[],[],[]));
+        this.smartHomes.push(new SmartHome(nuevoId,[],[],[],[],[]));
 
         // Carga de sistema de luminarias
         respuesta = prompt('Desea agregar luminarias inteligentes (s/n)?');
         while(respuesta == 's' || respuesta == 'S'){
-            pSmartHome[nuevoId - 1].agregarElementoDeSistema('luz');
+            this.smartHomes[nuevoId - 1].agregarElementoDeSistema('luz');
             respuesta = prompt('Desea agregar una nueva (s/n)?');
         }
 
         // Carga de estufas / caloventores / aires
         respuesta = prompt('Desea agregar elementos climatizadores (aires acondicionados / estufas)(s/n)?');
         while(respuesta == 's' || respuesta == 'S'){
-            pSmartHome[nuevoId - 1].agregarElementoDeSistema('climatizador');
+            this.smartHomes[nuevoId - 1].agregarElementoDeSistema('climatizador');
             respuesta = prompt('Desea agregar uno nuevo (s/n)?');
         }
 
         // Carga de cerraduras inteligentes
         respuesta = prompt('Desea agregar cerraduras inteligentes en los accesos al hogar(s/n)?');
         while(respuesta == 's' || respuesta == 'S'){
-            pSmartHome[nuevoId - 1].agregarElementoDeSistema('acceso');
+            this.smartHomes[nuevoId - 1].agregarElementoDeSistema('acceso');
             respuesta = prompt('Desea agregar uno nuevo (s/n)?');
         }
 
         respuesta = prompt('Desea agregar huerta inteligente (s/n)?');
         // Carga de huertas inteligentes
         while(respuesta == 's' || respuesta == 'S'){
-            pSmartHome[nuevoId - 1].agregarElementoDeSistema('huerta');
+            this.smartHomes[nuevoId - 1].agregarElementoDeSistema('huerta');
             respuesta = prompt('Desea agregar otra huerta inteligente (s/n)?');
         }
 
         respuesta = prompt('Desea agregar control de piscinas (s/n)?');
         // Carga de control de piscinas
         while(respuesta == 's' || respuesta == 'S'){
-            pSmartHome[nuevoId - 1].agregarElementoDeSistema('pool');
+            this.smartHomes[nuevoId - 1].agregarElementoDeSistema('pool');
             respuesta = prompt('Desea agregar otro control de piscinas (s/n)?');
         }
         return nuevoId;
     }
-
-    crearMembresia(pIdUser, pUsuarios, pIdHome, pSmartHome){
-        if(buscarPorId(pIdUser, pUsuarios) && buscarPorId(pIdHome, pSmartHome)){
-            this.membresias.push(new Membresia(pIdUser, pIdHome));
-            return true;
-        }
-        return false;
-    }
 }
 
 class Membresia {
-    constructor(pIdUsuario, pIdHouse){
-        this.idUser = pIdUsuario;
-        this.idHouse = pIdHouse;
+    constructor(pTipo, pDate, pDuracion){
+        this.idHome = -1;
+        this.tipo = pTipo;
+        this.date = pDate;
+        this.pDuracion = pDuracion;
     }
 
     costoSistema(pSistema){
@@ -94,16 +89,16 @@ class Membresia {
         return precio;
     }
     
-    costoTotal(pSmartHome){
+    costoTotal(pHome){
         let costos = [];
-        let actualSmartHome;
         let total = 0.0;
         let msg = '';
 
-        for(let sh of pSmartHome){
-            if(sh.id == this.idHouse)
-           actualSmartHome = sh;
-        }
+        const actualSmartHome = pHome;
+        //for(let sh of pSmartHomes){
+        //    if(sh.id == this.idHouse)
+        //   actualSmartHome = sh;
+        //}
 
         costos[0] = {costo : this.costoSistema(actualSmartHome.luces), sistema : 'luces'};
         costos[1] = {costo : this.costoSistema(actualSmartHome.climatizadores), sistema : 'climatizadores'};
@@ -130,7 +125,13 @@ class Usuario {
         this.apellido = pApellido;
         this.email = pEmail;
         this.password = pContra;
+        this.membresias = [];
         this.login = false;
+    }
+
+    crearMembresia(pTipo, pDate, pDuracion){
+        this.membresias.push(new Membresia(pTipo, pDate, pDuracion));
+        return true;
     }
 
     logIn(email, contra){
@@ -430,63 +431,73 @@ let clave;
 let idUser;
 let idHome;
 let respuesta = 's';
+let usuario;
+let home;
 
-let usuarios = [];
-let smartHomes = [];
 const admin = new Admin();
 
 // Creacion de usuarios
 while(respuesta == 's' || respuesta == 'S'){
-    if(idUser = admin.crearUsuario(usuarios))
+    if(idUser = admin.crearUsuario())
         respuesta = prompt('Usted ha agregado un nuevo usuario\nDesea ingresar uno nuevo (s/n)?');
     else
         alert('Error al crear el usuario');
 }
 
+// Creacion de membresia
+usuario = buscarPorId(idUser, admin.usuarios);
+usuario.crearMembresia('standar', '16/08/2021', '6 meses');
+
 // Creacion de Smart Homes
 respuesta = prompt('Desea crear una nueva Smart House (s/n)?');
 while(respuesta == 's' || respuesta == 'S'){
-    if(idHome = admin.crearSmartHome(smartHomes))
+    if(idHome = admin.crearSmartHome())
         respuesta = prompt('Usted ha agregado una nueva Smart Home\nDesea crear una nueva (s/n)?');
     else
         alert('Error al crear la nueva Smart Home');
 }
 
-// Creacion de membresia
-admin.crearMembresia(idUser, usuarios, idHome, smartHomes);
+// Vinculo membresia con el sistema creado
+usuario.membresias[usuario.membresias.length - 1].idHome = idHome;
 
-// Login
+// Login (falta implementar en el sistema real)
 respuesta = true;
 
 while(respuesta){
     mail = prompt('Login\nIngrese su Email');
     clave = prompt('Login\nIngrese su clave');
     let aux = 0;
-    for(let usuario of usuarios){
+    for(let user of admin.usuarios){
         aux++;
-        if(usuario.logIn(mail,clave)){
-            alert(`Bienvenido ${usuario.nombre} ${usuario.apellido}!`);
+        if(user.logIn(mail,clave)){
+            alert(`Bienvenido ${user.nombre} ${user.apellido}!`);
+            admin.idUserOn = user.id;
             respuesta = false;
         }
-        else if(aux == usuarios.length){
+        else if(aux == admin.usuarios.length){
             alert(`Nombre o clave incorrecta`);
         }
     }
 }
 
-// Visualizacion de sistema
-for (let usuario in usuarios){
-    if(usuarios[usuario].login && smartHomes[usuario] != undefined){
-        alert(`Sistema del usuario:
-        Id: ${usuarios[usuario].id}
-        Nombre: ${usuarios[usuario].nombre}
-        Apellido: ${usuarios[usuario].apellido}`);
-        alert('Sistema de iluminacion =>\n' + smartHomes[usuario].obtenerSistema('luz'));
-        alert('Sistema de climatizacion =>\n' + smartHomes[usuario].obtenerSistema('climatizador'));
-        alert('Puntos de acceso al hogar =>\n' + smartHomes[usuario].obtenerSistema('acceso'));
-        alert('Huerta inteligente =>\n' + smartHomes[usuario].obtenerSistema('huerta'));
-        alert('Control de piscina =>\n' + smartHomes[usuario].obtenerSistema('pool'));
-        alert(admin.membresias[0].costoTotal(smartHomes));
+// Visualizacion de sistema del user logueado(falta implementar en el sistema real)
+usuario = buscarPorId(admin.idUserOn, admin.usuarios)
+if(usuario.membresias.length > 0){
+    for(let membresia of usuario.membresias){
+        if(membresia.idHome != -1){
+            home = buscarPorId(membresia.idHome, admin.smartHomes);
+            alert(`Sistema del usuario:
+            Id: ${usuario.id}
+            Nombre: ${usuario.nombre}
+            Apellido: ${usuario.apellido}`);
+            alert('Sistema de iluminacion =>\n' + home.obtenerSistema('luz'));
+            alert('Sistema de climatizacion =>\n' + home.obtenerSistema('climatizador'));
+            alert('Puntos de acceso al hogar =>\n' + home.obtenerSistema('acceso'));
+            alert('Huerta inteligente =>\n' + home.obtenerSistema('huerta'));
+            alert('Control de piscina =>\n' + home.obtenerSistema('pool'));
+            alert(membresia.costoTotal(home));
+        }
     }
     
 }
+    
