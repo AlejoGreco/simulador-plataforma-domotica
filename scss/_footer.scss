@@ -1,0 +1,45 @@
+/* Footer */
+@import 'basis/variables';
+@import 'special/mixins';
+
+.footer {
+    .container {
+        .row {
+            div{
+                &:first-child {
+                    a {
+                        img {
+                            width: $social-size;
+                            border-radius: $social-size / 2;
+                            margin: nth($margin, 4) nth($margin, 1) nth($margin, 2);
+                            @include transition(all .5s);
+
+                            &:hover{
+                                @include transform(translateY(-12%));
+                                filter: grayscale(70%);
+                            }
+                        }
+                    }
+                }
+
+                &:last-child {
+                    li{
+                        @include transition(all .5s);
+
+                        &:hover{
+                            @media (min-width:992px) {
+                                @include transform(translateX(3%));
+
+                                a{
+                                    @include transition(.5s);
+                                    color: $font-hover !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* Fin footer */

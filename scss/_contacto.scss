@@ -1,0 +1,39 @@
+/* Contacto */
+@import 'basis/variables';
+
+#contacto {
+    /* Imagen de fondo */
+    /*background-image: url(../imagenes/imagen_formulario.png);*/
+    @include bg-img(url(../imagenes/imagen_formulario.jpeg), fixed);
+    min-height: 90vh;
+
+    .container {
+        .row {
+            div {
+                &:first-child {
+                    div {
+                        color: $font-primario;
+                        opacity: nth($opacity, 3);
+
+                        h4 {
+                            font-size: $font-size-section-titles + .2em;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    .map-container {
+                        /* Mapa */
+                        height: 18em;
+                        
+                        iframe {
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+                } 
+            }
+        }
+    }
+}
+/* Fin contacto */

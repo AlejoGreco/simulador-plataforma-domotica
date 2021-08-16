@@ -1,0 +1,60 @@
+@import 'basis/variables';
+@import 'special/mixins';
+
+/* Servicios */
+#servicios { 
+    .row {
+        .title-container {
+            margin: nth($margin, 4) 0;
+            padding: 0 nth($padding, 2);
+
+            @media (max-width:767px) {
+                margin: nth($margin, 2) 0 nth($margin, 3);
+            }
+
+            h3 {
+                color: $font-primario;
+                font-size: $font-size-section-titles * 1.5;
+                margin-bottom: nth($margin, 1);
+
+                @media (max-width:575px) {
+                    font-size: $font-size-section-titles * 1.10;
+                }
+                @media (min-width:576px) and (max-width:767px) {
+                    font-size: $font-size-section-titles * 1.25;
+                }
+            }
+            p {
+                font-size: $font-size-base + .2em;
+                margin-bottom: nth($margin, 4);
+
+                @media (max-width:767px) {
+                    font-size: $font-size-base;
+                }
+            }
+        }
+        
+        div {
+            .card {
+                margin-left: 3%;
+                margin-right: 3%;
+
+                @include transition (all .4s ease);
+                
+                &:hover {
+                    @include transform(scale(1.04));
+                }
+
+                .card-body {
+                    h3 {
+                        font-size: $font-size-cards-titles - .1em;
+                        color: $font-primario;
+                    }
+                    
+                }
+                
+            }
+        }
+    }
+}
+    

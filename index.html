@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="domótica, hogar inteligente, automatización del hogar, seguridad, 
+	monitoreo, parquizaciones inteligentes, seguridad del hogar, control de consumo energetico, confort"
+	>
+	<meta name="description" content="Empresa de domótica dedicada a brindar soluciones de 
+		automatización para hogares, edificios y parquizaciones. Nuestro servicio abarca desde 
+		el estudio y diseño de la solución hasta la puesta en marcha del sistema."
+	>
+	<!-- Open graph -->
+	<meta property="og:title" content="Mi Empresa - Automatización para el hogar">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="imagenes/domotica1.jpeg">
+	<meta property="og:url" content="file:///home/alejo/Documentos/Coder_desarrollo_web/Desafio_13/index.html">
+	<meta property="og:description" content="Empresa de domótica dedicada a brindar soluciones de automatización para hogares, 
+		edificios y parquizaciones. Contamos con nuestra propia aplicación de control y monitoreo que le permitirá 
+		al usuario acceder a toda la información de su instalación en tiempo real y de una manera simple."
+	>
+	<meta property="og:author" content="Alejo Greco - Desarrollador web">
+	<meta property="og:locate" content="en_ES">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<!-- Animaciones -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="imagenes/logo.ico">
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Fuentes -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+	<title>Mi Empresa - Domótica y automatización para el hogar</title>
+</head>
+
+<body>
+	<header id="header">
+		<div class="container-fluid d-flex align-items-center py-3 px-4">
+			<a href="index.html" class="logo-animation">
+				<img src="imagenes/logo.svg" alt="Mi Empresa domotica logo" class="logo">
+			</a>
+			<h1 class="display-lg-4 mx-4 animate__animated animate__backInRight">Mi Empresa - Domótica</h1>
+		</div>
+	</header>
+
+	<!-- Nav -->
+	<nav class="navbar navbar-expand-lg navbar-dark position-sticky top-0" data-aos="fade-down" data-aos-duration="1500" data-aos-once="true">
+		<div class="container py-1 bg-dark">
+			<p class="navbar-brand"> </p>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav d-flex justify-content-around w-100">
+					<a class="nav-link active" aria-current="page" href="index.html">Home</a>
+					<a class="nav-link active" href="#servicios">Servicios</a>
+					<a class="nav-link active" href="#sistema">Sistema</a>
+					<a class="nav-link active" href="galery.html">Trabajos</a>
+					<a class="nav-link active" href="#contacto">Contacto</a>
+					<a class="nav-link active" href="plataforma.html">Plataforma</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- Fin nav -->
+
+	<!-- Carrusel -->
+	<section id="carrusel" class="container my-3 py-2">
+		<div class="d-block d-md-none" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+			<div class="row align-items-start justify-content-around">
+				<div class="btn col-10 col-sm-5" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+					<p>La Domótica</p>
+					<p class="collapse multi-collapse" id="multiCollapseExample1">
+						<br>Es un conjunto de sistemas integrados
+						que controlan las diferentes instalaciones de un inmueble.
+						<br><br> Nos permite gestionar el consumo energético, el confort, la seguridad,
+						y comunicación del usuario con el sistema.
+					</p>
+				</div>
+	
+				<div class="btn col-10 col-sm-5" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">
+					<p>Nosotros</p>
+					<p class="collapse multi-collapse" id="multiCollapseExample2">
+						<br>Somos una empresa joven y en crecimiento, que tuvo su origen en la automatización y el
+						cuidado de parquizaciones. <br><br>
+						Desde entonces nos hemos enfocado en ofrecer soluciones integrales que abarquen la
+						totalidad de las necesidades del hogar.
+					</p>
+				</div>
+
+				<div class="btn col-10 col-sm-5" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">
+					<p>Sustentabilidad</p>
+					<p class="collapse multi-collapse" id="multiCollapseExample3">
+						<br>Nos preocupamos por el ambiente y el planeta que dejaremos a las futuras generaciones. 
+						<br><br>Por esta razón, todos nuestros desarrollos tienen como pilar fundamental el ahorro 
+						y uso sustentable de la energía. 
+					</p>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div id="carouselExampleDark" class="carousel carousel-dark slide d-none d-md-block" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button 
+					type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+					aria-current="true" aria-label="Slide 1"
+					>
+				</button>
+				<button 
+					type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+					aria-label="Slide 2"
+					>
+				</button>
+				<button 
+					type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+					aria-label="Slide 3"
+					>
+				</button>
+			</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="imagenes/domotica1.jpeg" class="d-block w-100" alt="Hogar inteligente - Mi Empresa" loading="lazy">
+					<div class="carousel-caption d-none d-md-block carrusel-text">
+						<h2>Qué es la domótica y sus beneficios?</h2>
+						<p>
+							El término dómotica engloba un conjunto de sistemas integrados
+							que controlan diferentes instalaciones de un inmueble.
+							<br><br> Estos sistemas nos permiten gestionar el consumo energético, el confort, la seguridad,
+							y comunicación del usuario con el sistema.
+						</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="imagenes/parque.jpeg" class="d-block w-100" alt="Confort tranquilidad" loading="lazy">
+					<div class="carousel-caption d-none d-md-block carrusel-text">
+						<h2>Nuestro objetivo</h2>
+						<p>
+							El objetivo perseguido por nuestra organización es modernizar nuestros hogares para poder
+							garantizar un ambiente sustentable, hogares seguros y confortables,
+							y un uso inteligente de la energía.
+						</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="imagenes/nosotros.jpeg" class="d-block w-100" alt="Sobre nosotros domotica" loading="lazy">
+					<div class="carousel-caption d-none d-md-block carrusel-text">
+						<h2>Sobre nosotros</h2>
+						<p>
+							Somos una empresa joven y en crecimiento, que tuvo su origen en la automatización y el
+							cuidado de parquizaciones. <br><br>
+							Desde entonces nos hemos enfocado en ofrecer soluciones integrales que abarquen la
+							totalidad de las necesidades de un hogar.
+						</p>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</section>
+	<!-- Fin carrusel -->
+
+	<!-- Servicios -->
+	<!-- Tres cards: 1 img + 1 subtitulo + 1 parrafo-->
+	<section id="servicios" class="container">
+		<div class="row justify-content-md-center justify-content-sm-center my-3 my-md-3 px-3 px-sm-0">
+			<div class="col-12 text-center title-container" data-aos="fade-up" data-aos-duration="1200" data-aos-anchor-placement="top-bottom">
+				<h3>Servicios</h3>
+				<p class="text-secondary">
+					Conoce todos nuestros servicios y animate a modernizar tu hogar con nuestros profesionales!
+					Confort, seguridad y calidad al alcance de tu mano.
+				</p>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-10 col-12 d-flex align-items-stretch mb-4" 
+				data-aos="flip-left" data-aos-duration="1200" data-aos-anchor-placement="top-bottom"
+			>
+				<!-- Card 1 -->
+				<div class="card card-transition shadow">
+					<img src="imagenes/proyecto.jpeg" class="card-img-top" alt="Desarrollo del sistema de automatización del hogar" loading="lazy">
+					<div class="card-body d-flex flex-column justify-content-around">
+						<h3 class="card-title">Desarrollo</h3>
+						<p class="card-text text-secondary">
+							El servicio de diseño es la realización del proyecto de domótica en cuestión.
+							Dicho proyecto consta de tres partes diferentes pero interrelacionadas entre sí,
+							que son la parte electrónica (sistema domótico),
+							la parte eléctrica (encargada de alimentar el sistema domótico),
+							y el software que controla la electrónica.
+						</p>
+					</div>
+				</div>
+				<!-- Fin card -->
+			</div>
+
+			<div class="col-lg-4 col-md-6 col-sm-10 col-12 d-flex align-items-stretch mb-4" 
+				data-aos="flip-left" data-aos-duration="1200" data-aos-delay="300" data-aos-anchor-placement="top-bottom"
+			>
+				<!-- Card 2 -->
+				<div class="card card-transition shadow">
+					<img src="imagenes/instalacion.jpeg" class="card-img-top" alt="Instalacion del sistema domotico" loading="lazy">
+					<div class="card-body d-flex flex-column justify-content-around">
+						<h3 class="card-title">Instalación y mantenimiento</h3>
+						<p class="card-text text-secondary">
+							Entregamos soluciones llave en mano que van desde las modificaciones de obra hasta la instalación
+							eléctrica y configuración de los equipos y componentes.
+							Además de ofrecer garantía de profesionalidad y experiencia en nuestro trabajo,
+							ofrecemos la posibilidad de contratar un servicio de mantenimiento a medida.
+						</p>
+					</div>
+				</div>
+				<!-- Fin card -->
+			</div>
+
+			<div class="col-lg-4 col-md-6 col-sm-10 col-12 d-flex align-items-stretch mb-4" 
+				data-aos="flip-left" data-aos-duration="1200" data-aos-delay="600" data-aos-anchor-placement="top-bottom"
+			>
+				<!-- Card 3 -->
+				<div class="card card-transition shadow">
+					<img src="imagenes/capacitar.jpeg" class="card-img-top" alt="Capacitaciones a usuarios" loading="lazy">
+					<div class="card-body d-flex flex-column justify-content-around">
+						<h3 class="card-title">Capacitación</h3>
+						<p class="card-text text-secondary">
+							En toda instalación incluimos una sesión de formación para explicar a los usuarios
+							del sistema domótico el funcionamiento de todos los equipos instalados y su configuración.
+							Además se ofrecen capacitaciones específicas para terceros que quieran instalar nuestros productos.
+						</p>
+					</div>
+				</div>
+				<!-- Fin card -->
+			</div>
+		</div>
+	</section>
+	<!-- Fin servicios -->
+
+	<!-- Sistema -->
+	<section id="sistema" class="container-fluid bg-dark" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+		<div class="container">
+			<div class="row justify-content-between align-content-around align-items-center">
+				<!-- Titulo de seccion -->
+				<h4 class="col-lg-12 col-md-11 col-sm-12 offset-sm-0 offset-md-1 offset-lg-0 text-light my-3" 
+					data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
+					Nuestro sistema
+				</h4>
+				<!-- Video y parrafo explicativo -->
+				<div class="col-lg-6 col-md-10 col-sm-12 offset-sm-0 offset-md-1 offset-lg-0 text-light mb-4 sist-text"
+					data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400" data-aos-offset="20" data-aos-once="true"
+				>
+					<p>
+						Nuestro sistema consiste por un lado de una aplicación que le permitirá al usuario monitorear el
+						estado de su hogar, parque o huerta.<br> <br>
+						Podrá conocer el estado actual de las luces (on/off), calefacción, temperatura de los ambientes,
+						visualizar cámaras, estado de las entradas al hogar, estado del riego del parque, humedad en cultivos,
+						filtrado de la piscina, etc.
+						<br>Además le permitirá configurar parámetros y programar avisos y alarmas, como por ejemplo: horario
+						de encendido automático de luces, calefacción o riego.
+						<br> <br>Por otro lado, todas estas acciones serán ejecutadas por el hardware de más alta calidad y
+						migrando a la tecnología que se crea más conveniente según el caso. Trabajamos con varias marcas de
+						PLC y sistemas embebidos como raspberry,
+						lo que le permitirá a usted acceder a toda la información de manera remota cuando lo requiera.
+					</p>
+				</div>
+
+				<div class="col-lg-5 col-md-8 col-sm-12 offset-sm-0 offset-md-2 offset-lg-0 mb-4 h-100 sist-video"
+					data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400" data-aos-offset="20" data-aos-once="true"
+				>
+					<iframe 
+						src="https://www.youtube.com/embed/xuAFCSRtJhU?start=124" title="YouTube video de automatización"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+						loading="lazy"
+						>
+					</iframe>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row justify-content-between align-content-around align-items-start py-3">
+				<!-- Cards de sistema -->
+				<!-- 1 img + 1 subtitulo + 1 parrafo -->
+				<div class="col-lg-5 col-md-6 col-sm-12 bg-dark mb-3 mb-md-0" data-aos="fade-up" 
+				data-aos-duration="1200" data-aos-delay="400" data-aos-offset="50" data-aos-once="true">
+					<!-- Card 1 -->
+					<div class="card mi-card bg-dark text-light border-none">
+						<div class="card-img-top mi-card-img-top d-flex flex-column justify-content-between">
+							<div class="cover-container">
+								<div class="cover">
+									<p><a href="galery.html">Mira un poco +</a></p>
+								</div>
+								<div class="sist-img">
+									<img src="imagenes/app.jpeg" class="card-img-top" alt="Aplicacion de monitoreo y control - Mi empresa domotica" loading="lazy">
+								</div>
+							</div>
+							<div class="card-body">
+								<h4 class="card-title">Nuestra Aplicación</h4>
+								<p class="card-text">
+									Esta será la herramienta que tendrá el usuario para comunicarse con el sistema. La misma ha
+									sido desarrollada por los mejores profesionales del area, por lo que usted aprendera a
+									utilizarla de manera facil e intuitiva.
+									Ademas podra acceder a sus datos de manera remota desde cualquier tipo de dispositivo.
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- Fin card -->
+				</div>
+
+				<div class="col-lg-5 col-md-6 col-sm-12 bg-dark" data-aos="fade-up"
+				data-aos-duration="1200" data-aos-delay="400" data-aos-offset="50" data-aos-once="true">
+					<!-- Card 2 -->
+					<div class="card mi-card bg-dark text-light border-none">
+						<div class="card-img-top mi-card-img-top d-flex flex-column justify-content-between">
+							<div class="cover-container">
+								<div class="cover">
+									<p><a href="galery.html">Mira un poco +</a></p>
+								</div>
+								<div class="sist-img">
+									<img src="imagenes/variables.jpeg" class="card-img-top" alt="Control de variables y parametros del hogar" loading="lazy">
+								</div>
+							</div>
+							<div class="card-body">
+								<h4 class="card-title">Visualización del estado del sistema</h4>
+								<p class="card-text">
+									Una vez que se encuentre navegando por nuestra aplicación podrá conocer el estado de su hogar
+									en tiempo real, programar avisos y cambiar el estado de los parametros.
+									Entre todos las funcionalidades que usted podra controlar se destacan iluminación exterior e
+									interior, calefacción, alarmas, riego y mucho más.
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- Fin card -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Fin sistema -->
+
+	<!-- Contacto -->
+	<section id="contacto" class="container-fluid d-flex align-items-center">
+		<div class="container h-100">
+			<div class="row align-items-center justify-content-between">
+				<!-- Formulario de consulta -->
+				<div class="col-lg-5 col-md-6 col-sm-12">
+					<div class="bg-dark py-3 px-4 my-4 opacity whity d-flex flex-column">
+						<h4>Contacto</h4>
+						<div class="mb-3">
+							<label for="cliente-name" class="form-label">Nombre</label>
+							<input type="text" class="form-control" id="cliente-name" placeholder="">
+						</div>
+						<div class="mb-3">
+							<label for="cliente-last-name" class="form-label">Apellido</label>
+							<input type="text" class="form-control" id="cliente-last-name" placeholder="">
+						</div>
+						<div class="mb-3">
+							<label for="mail" class="form-label">E-mail</label>
+							<input type="email" class="form-control" id="mail" placeholder="name@example.com">
+						</div>
+						<div class="mb-3">
+							<label for="consulta" class="form-label">Su consulta</label>
+							<textarea class="form-control" id="consulta" rows="3"></textarea>
+						</div>
+						<div class="align-self-end">
+							<button type="submit" class="btn btn-outline-warning">Enviar</button>
+						</div>
+					</div>
+				</div>
+				<!-- Fin formulario -->
+
+				<!-- Google map -->
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="py-lg-3 my-4 map-container">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d817.7080409196175!2d-57.96328817081816!3d-34.935745999342586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e87e3ca490fd%3A0xcf11b24346cb1451!2sAv.%2025%201240%2C%20B1900ERT%20La%20Plata%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1619306575292!5m2!1ses!2sar"
+							title="Maps - Ciudad: La Plata - Barrio: la Cumbre" style="border:0;" allowfullscreen="" loading="lazy"
+							>
+						</iframe>
+					</div>
+				</div>
+				<!-- Fin map -->
+			</div>
+		</div>
+	</section>
+	<!-- Fin contacto -->
+
+	<!-- Footer -->
+	<footer class="bg-dark container-fluid footer">
+		<div class="container">
+			<div class="row align-items-center text-center">
+				<!-- Enlaces a redes sociales-->
+				<div class="col-lg-4 col-md-12">
+					<a href="https://instagram.com">
+						<img src="imagenes/instagram.svg" alt="Logo de instagram" class="logo-social" loading="lazy">
+					</a>
+					<a href="https://facebook.com">
+						<img src="imagenes/facebook.svg" alt="Logo de facebook" class="logo-social" loading="lazy">
+					</a>
+					<a href="https://linkedin.com">
+						<img src="imagenes/linkedin.svg" alt="Logo de linkedin" class="logo-social" loading="lazy">
+					</a>
+				</div>
+				<!-- Fin redes -->
+
+				<!-- Copyright -->
+				<div class="col-lg-4 col-md-6 col-sm-12 text-light">
+					<p>- Copyright -</p>
+					<ul>
+						<li>Teléfono: (221)6221175</li>
+						<li>Email: domotik@gmail.com</li>
+					</ul>
+				</div>
+				<!-- Fin copyright -->
+
+				<!-- Proveedores -->
+				<div class="col-lg-4 col-md-6 col-sm-12 text-light">
+					<p class="mt-2">Nuestros proveedores</p>
+					<ul>
+						<li>
+							<a href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley.html" class="text-light">Allen Bradley</a>
+						</li>
+						<li>
+							<a href="https://new.siemens.com/ar/es.html" class="text-light">Siemens</a>
+						</li>
+						<li>
+							<a href="https://new.abb.com/plc" class="text-light">ABB</a>
+						</li>
+						<li>
+							<a href="https://www.se.com/ww/en/product-category/3900-plc,-pac-and-dedicated-controllers/" class="text-light">Schneider</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Fin proveedores -->
+			</div>
+		</div>
+	</footer>
+	<!-- Fin footer -->
+
+	<!-- AOS script-->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+	<!-- Optional JavaScript; choose one of the two! -->
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+		crossorigin="anonymous"></script>
+
+	<!-- Option 2: Separate Popper and Bootstrap JS -->
+	<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+
+</body>
+
+</html>

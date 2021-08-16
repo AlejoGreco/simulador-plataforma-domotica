@@ -1,0 +1,9 @@
+@import 'basis/variables';
+
+.container-plataform {
+    color: $font-primario;
+
+    h2 {
+        font-size: $font-size-section-titles + .4em;
+    }
+}

@@ -1,0 +1,28 @@
+/* Extends */
+
+/* Contenedores de parrafo y video */
+%sistema-block {
+    min-width: 21em;
+    text-align: justify;
+}
+
+%img-default {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Flex */ 
+%flex-vertical-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+%flex-horizontal-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

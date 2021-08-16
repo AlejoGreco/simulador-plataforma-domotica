@@ -1,0 +1,29 @@
+/* Form de loggin */
+@import '../basis/variables';
+
+
+.form-border {
+    border: $border-form;
+    border-radius: nth($padding, 4) / 2;
+    padding: nth($padding, 4);
+    margin-bottom: nth($margin, 1);
+    color: $font-primario;
+
+    .btn-color-hover:hover {
+        color: $font-secundario;
+    }
+
+    @media (max-width:575px) {
+        width: 100%;
+    }
+    @media (min-width:576px) and (max-width:767px) {
+        width: 80%;
+    }
+    @media (min-width:768px) and (max-width:991px) {
+        width: 60%;
+    }
+    @media (min-width:992px) {
+        width: 40%;
+    }
+}
+/* Fin form */

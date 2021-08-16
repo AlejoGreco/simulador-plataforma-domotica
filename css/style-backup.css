@@ -1,0 +1,300 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+/*Color en fondos blancos */
+.whity {
+    color:#f7963f;
+}
+
+.opacity {
+    opacity: .5;
+}
+
+/* Sacar bordes */
+.border-none {
+    border: none;
+}
+
+/* Reseteo listas y enlaces */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* z-index */
+.z-index-1000 {
+    z-index: 1000;
+}
+
+/* Encabezado */
+#header .logo {
+    width: 4em;
+    border-radius: 2em;
+    box-shadow: 0 0 5px 0 #666;
+}
+/* Fin encabezado */
+
+/* Carrusel */
+/* Bloque de texto */
+#carrusel .carrusel-text{
+    background-color: #222;
+    text-align: left;
+    font-size: 1em;
+    width: 310px;
+    color: beige;
+    padding: .8em;    
+    opacity: 0.7;
+    z-index: 10;
+}
+/* Fin carrusel */
+
+/* Sistema */
+/* Dimensiones de contenedores de parrafo y video */
+#sistema .container .sist-text,
+#sistema .container .sist-video {
+    min-width: 21em;
+    text-align: justify;
+}
+
+#sistema .sist-video iframe {
+    width: 100%;
+    height: 21em;
+}
+
+/* Dimensiones asociadas con contenedores de cards */
+/* y su posicionamiento para cobertura transparente */
+#sistema .card img{
+    width: 100%;
+    height: 14em;
+    object-fit: cover;
+    object-position: center;
+}
+
+#sistema .mi-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#sistema .card .mi-card-img-top {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#sistema .card .cover-container {
+    width: 100%;
+    height: 50%;
+    position: relative;
+}
+
+#sistema .card .sist-img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Covertura transparente de img en hover */
+#sistema .card .cover {
+    width: 100%;
+    height: 100%;
+    opacity: .65;
+    font-size: 2em;
+    color: beige;
+    background-color: #222;
+    position: absolute;
+    transition: all .6s ease-in-out;
+    left: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Fin sistema */
+
+/* Contacto */
+#contacto {
+    background-image: url(imagenes/imagen_formulario.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: left top;
+    min-height: 90vh;
+}
+
+#contacto .map-container {
+    height: 18em;
+}
+
+#contacto .map-container iframe{
+    width: 100%;
+    height: 100%;
+}
+/* Fin contacto */
+
+/* Footer */
+.footer img{
+    width: 2.5em;
+    border-radius: 1em;
+    margin: 2em .5em 1em;
+}
+/* Fin footer */
+
+/* Plataforma */
+.form-border {
+    border: 2px solid #f7963f;
+    border-radius: 1em;
+    padding: 2em;
+    margin-bottom: .5em;
+}
+/* Fin plataforma */
+
+/* Animaciones y transiciones */
+.logo-animation {
+    animation: logo-rotate 2s ease-out .2s 1;
+}
+
+.navbar a:hover, .footer li:hover a {
+    transition: .5s;
+    color: rgb(148, 148, 148) !important;
+}
+
+#carrusel .carrusel-text:hover {
+    transition: all 1s;
+    outline: solid 2px #f7963f;
+}
+
+#servicios .card:hover{
+    transform: scale(1.04);
+}
+
+.card-transition {
+    transition: all .4s ease;
+}
+
+.btn-color-hover:hover {
+    color: white;
+}
+/* Fin de animaciones */
+
+/* Frames */
+@keyframes logo-rotate {
+    from{
+        transform: rotateY(360deg) scale(1.5);
+    }
+}
+/* Fin frames */
+
+/* Estilos mobile y pequenios dispositivos */
+@media only screen and (max-width:575px) {
+    /* Encabezado */
+    #header .logo {
+        width: 3em;
+    }
+    /* Fin encabezado */
+
+    /* Tamanios */
+    .w-mi-100 {
+        width: 100%;
+    }
+}
+@media only screen and (min-width:576px) and (max-width:767px) {
+    /* Tamanios */
+    .w-sm-100 {
+        width: 100% !important;
+    }
+
+    .w-sm-80 {
+        width: 80%;
+    }
+}
+/* Fin mobile */
+
+/* Estilos tables y desktop */
+@media only screen and (min-width:768px) and (max-width:991px) {
+    /* Carrusel */
+    /* Ubicacion sobre la img de los cuadros transparentes */
+    #carrusel .carousel-item:first-child .carrusel-text {
+        top: 6%;
+        left: 12%;
+        height: 20em;
+    }
+
+    #carrusel .carousel-item:nth-child(2) .carrusel-text {
+        top: 20%;
+        left: 45%;
+        height: 13.5em;
+    }
+
+    #carrusel .carousel-item:last-child .carrusel-text {
+        top: 10%;
+        left: 13%;
+        height: 18.5em;
+    }
+    /* Fin carrusel */
+
+    /* Sistema card transition */
+    #sistema .card .cover-container:hover .cover {
+        transform: translateX(-100%);
+    }
+    /* Fin transition */
+
+    /* Tamanios */
+    .w-md-70 {
+        width: 70%;
+    }
+
+    .w-md-60 {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width:992px) {
+    /* Carrusel */
+    /* Bloque de texto */
+    #carrusel .carrusel-text{
+        font-size: 1.1em;
+    }
+
+    /* Ubicacion sobre la img de los cuadros transparentes */
+    #carrusel .carousel-item:first-child .carrusel-text {
+        top: 8%;
+        left: 12%;
+        height: 21.5em;
+    }
+
+    #carrusel .carousel-item:nth-child(2) .carrusel-text {
+        top: 40%;
+        left: 50%;
+        height: 14em;
+    }
+
+    #carrusel .carousel-item:last-child .carrusel-text {
+        top: 10%;
+        left: 13%;
+        height: 18.5em;
+        width: 310px;
+    }
+    /* Fin carrusel */
+
+    /* Sistema card transition */
+    #sistema .card .cover-container:hover .cover {
+        transform: translateX(-100%);
+    }
+    /* Fin transition */
+
+    /* Tamanios */
+    .w-lg-40 {
+        width: 45%;
+    }
+
+    .w-lg-70 {
+        width: 70%;
+    }
+    
+}

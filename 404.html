@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 not found</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            font-size: 16px;
+        }
+
+        .container {
+            background-color: #f7963f;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Contenedor de boton disco y aro */
+        .container-1 {
+            position: relative; /* Referencia del aro */
+            display: flex;
+            justify-content: center;
+            align-items: center;        
+        }
+
+        /* Aro blanco*/
+        .border-container {
+            border: beige solid 3px;
+            height: 350px;
+            width: 350px;
+            border-radius: 50%;
+            position: absolute; /* Para que se superponga con el disco */
+        }
+
+        /* Contenedor de 404*/
+        .error-container {
+            background-color: beige;
+            color: #f7963f;
+            font-size: 8em;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 320px;
+            width: 320px;
+            padding: 20px;
+            border-radius: 50%;
+        }
+
+        /* Cntenedores pequenios */
+        .letters-container {
+            display: flex;
+            justify-content: center;
+            font-family: 'Limelight', cursive;
+        }
+
+        .found {
+            font-size: 40px;
+            font-weight: 500;
+            font-family: 'Limelight', cursive;
+        }
+
+        /* Boton para regresar */
+        .link-container {
+            background-color: #555;
+            margin-top: 2.5rem;
+            padding: 1em;
+            border-radius: .5em;
+            color: beige;
+        }
+
+        .link-container  a{
+            font-family: 'Roboto', sans-serif;
+            color: beige;
+            text-decoration: none;
+        }
+        .botton {
+            transition: transform ease 1s, background-color ease .1s;
+        }
+
+        /* Animaciones y transiciones */
+        .botton a:hover {
+            text-decoration: underline;
+        }
+        .botton:hover {
+            transform: scale(1.5);
+            background-color: #333;
+        }
+        .botton:active {
+            background-color: #333;
+        }
+        .border-animation {
+            animation-name: border-rotation;
+            animation-duration: 4s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+        }
+
+        .number-animation {
+            animation-name: number-rotation;
+            animation-duration: 4s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            animation-delay: 2s;
+        }
+
+        /* Key frames */
+        @keyframes border-rotation {
+            25% {
+                transform: rotateY(180deg);
+            }
+            50% {
+                transform: rotateY(180deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        @keyframes number-rotation {
+            25% {
+                
+            }
+            50% {
+                transform: rotateY(360deg);
+            }
+            75% {
+                transform: rotateX(360deg);
+            }
+        }
+
+        /* Monitares grandes */
+        @media only screen and (min-width:1500px) {
+            .border-container {
+                height: 580px;
+                width: 580px;
+            }
+            
+            .error-container {
+                font-size: 13em;
+                height: 520px;
+                width: 520px;
+                padding: 40px;
+            }
+
+            .found {
+                font-size: 3.7rem;
+                font-weight: 500;
+            }
+
+            .link-container {
+                font-size: 1.4rem;
+                margin-top: 6rem;
+                padding: 1em;
+                border-radius: .5em;
+            }
+        }
+
+        /* Escritorio */
+        @media only screen and (min-width:992px) and (max-width:1199px) {
+            .border-container {
+                height: 350px;
+                width: 350px;
+            }
+            
+            .error-container {
+                font-size: 9em;
+                height: 320px;
+                width: 320px;
+                padding: 20px;
+        }
+            
+        }
+
+        /* Tablet */
+        @media only screen and (min-width:768px) and (max-width:991px) {
+            .border-container {
+                height: 350px;
+                width: 350px;
+            }
+            
+            .error-container {
+                font-size: 8em;
+                height: 320px;
+                width: 320px;
+                padding: 20px;
+            }
+        }
+
+        /* Mobile */
+        @media only screen and (max-width:576px) {
+            .border-container {
+                height: 60vw;
+                width: 60vw;
+                min-width: 255px;
+                min-height: 255px;
+            }
+            
+            .error-container {
+                font-size: 6em;
+                height: 50vw;
+                width: 50vw;
+                min-width: 240px;
+                min-height: 240px;
+                padding: .3rem;
+            }
+
+            .found {
+                font-size: 2rem;
+                font-weight: 500;
+            }
+
+            .link-container {
+                font-size: 1rem;
+                margin-top: 4rem;
+                padding: 1em;
+                border-radius: .5em;
+            }
+
+            .botton:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="container-1">
+            <div class="border-container border-animation">
+            </div>
+            
+            <section class="error-container">
+                <div class="letters-container">
+                    <span>4</span>
+                    <span class="number-animation">0</span>
+                    <span>4</span>
+                </div>
+                <div class="found">Not found!</div>
+            </section>
+        </div>
+
+        <div class="link-container botton">
+            <a target="_blank" href="index.html" class="more-link">Disculpe las molestias, vuelva a nuestra Home</a>
+        </div>
+    </main>
+</body>
+</html>

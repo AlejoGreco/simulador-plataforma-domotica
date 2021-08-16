@@ -1,0 +1,33 @@
+/* Navbar */
+@import 'special/mixins';
+@import 'basis/variables';
+
+.navbar {
+    z-index: 1000;
+    
+    .container {
+        @media (max-width:575px) {
+            width: 100%;
+        }
+        @media (min-width:576px) and (max-width:767px) {
+            width: 100%;
+        }
+        @media (min-width:768px) and (max-width:991px) {
+            width: 70%;
+        }
+        @media (min-width:992px) {
+            width: 70%;
+        }
+        .navbar-nav {
+            a {
+                &:hover {
+                    @media (min-width:992px) {
+                        @include transition(all .3s ease-out);
+                        @include transform(scale(1.12, 1.12));
+                        color: $font-hover !important;
+                    } 
+                }
+            }
+        }
+    }
+}

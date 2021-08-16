@@ -1,0 +1,17 @@
+@import 'basis/reset';
+@import 'basis/fonts';
+@import 'header';
+@import 'navbar';
+@import 'carrusel';
+@import 'servicios';
+@import 'sistema';
+@import 'contacto';
+@import 'footer';
+@import 'components/loggin';
+@import 'plataforma';
+@import 'galery';
+
+body {
+    font-family: $font-family-principal;
+    font-size: $font-size-base;
+}

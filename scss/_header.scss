@@ -1,0 +1,24 @@
+/* Encabezado */
+@import 'basis/variables';
+@import 'special/mixins';
+
+/* Logo */
+#header {
+    color: $font-primario;
+
+    div {
+        a {            
+            .logo{
+                width: $logo-size;
+                border-radius: $logo-size / 2;
+                box-shadow: 0 0 5px 0 $hover-dark;
+                @include animation(logo-rotate 2s ease-out .2s 1);
+                    
+                @media (max-width: 575px){
+                    width: $logo-size - 1em;
+                }
+            }
+        }
+    }
+}
+/* Fin encabezado */

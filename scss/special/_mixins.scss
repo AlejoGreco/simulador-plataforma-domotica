@@ -1,0 +1,50 @@
+/* Mixins */
+@import '../basis/variables';
+@import 'frames';
+
+/* Sistema */
+@mixin sist-card-size-position ($height, $position) {
+    width: 100%;
+    height: $height;
+    position: $position;
+}
+
+/* Contacto */
+@mixin bg-img ($img, $attach){
+    background-image: $img;
+    background-repeat: no-repeat;
+    background-attachment: $attach;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Transiciones */
+@mixin transition ($transition){
+    transition: $transition;
+    -moz-transition: $transition;
+    -webkit-transition: $transition;
+    -o-transition: $transition;
+}
+
+@mixin transition-1 ($transition1, $transition2){
+    transition: $transition1, $transition2;
+    -moz-transition: $transition1, $transition2;
+    -webkit-transition: $transition1, $transition2;
+    -o-transition: $transition1, $transition2;
+}
+
+/* Transformaciones */
+@mixin transform ($transform){
+    transform: $transform;
+    -moz-transform: $transform;
+    -webkit-transform: $transform;
+    -o-transform: $transform;
+}
+
+/* Animaciones */
+@mixin animation ($animation){
+    animation: $animation;
+    -moz-animation: $animation;
+    -webkit-animation: $animation;
+    -o-animation: $animation;
+}
