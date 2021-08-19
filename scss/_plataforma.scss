@@ -1,9 +1,136 @@
 @import 'basis/variables';
+@import 'basis/fonts';
+@import 'special/mixins';
 
 .container-plataform {
     color: $font-primario;
 
     h2 {
         font-size: $font-size-section-titles + .4em;
+    }
+}
+
+.huerta-container {
+    font-family: $font-family-principal;
+    background-color: #222;
+    color: $font-secundario;
+    width: 80%;
+    border-radius: 1.5em;
+    padding: nth($padding, 4);
+    margin: nth($margin, 2) auto;
+    display: grid;
+    grid-template-areas: 
+                'header header header header header'
+                'sensores1 sensores1 sensores1 riego riego'
+                'sensores2 sensores2 sensores2 riego riego';
+
+    .huerta-encabezado {
+        grid-area: header;
+        display: flex;
+        justify-content: space-around;
+        font-size: $font-size-cards-titles;
+        border-bottom: 1px $font-primario solid;
+        padding-bottom: nth($padding, 1);
+        margin-bottom: nth($margin, 2);
+    }
+
+    .huerta-riego {
+        grid-area: riego;
+        display: flex;
+        flex-direction: column;
+        
+        padding: 0 nth($padding, 1);
+        margin-left: nth($margin, 4);
+        
+        h3 {
+            text-align: center;
+        }
+
+        .sensor {
+            margin-top: nth($margin, 1);
+            padding: nth($padding, 2) nth($padding, 4);
+            background-color: #444;
+            border-radius: 1em;
+            flex-grow: 1;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: flex-start;
+
+            p {
+                padding: 0 nth($margin, 3);
+                text-align: center;
+                flex-basis: 50%;
+            }
+        }
+    }
+
+    .huerta-container-1 {
+        @include sensors-styles(sensores1);
+        border: 1px $font-primario solid;
+        border-radius: 1.5em;
+        padding: nth($padding, 3);
+        margin-bottom: nth($margin, 4);
+    }
+
+    .huerta-container-2 {
+        @include sensors-styles(sensores2);
+        border: 1px $font-primario solid;
+        border-radius: 1.5em;
+        padding: nth($padding, 3);
+    } 
+}
+
+.sist-container {
+    font-family: $font-family-principal;
+    background-color: #222;
+    color: $font-secundario;
+    width: 50%;
+    border-radius: 1em;
+    padding: nth($padding, 4);
+    margin: auto;
+
+    .sist-encabezado {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: $font-size-cards-titles;
+        border-bottom: 1px $font-primario solid;
+        padding-bottom: nth($padding, 1);
+        margin-bottom: nth($margin, 2);
+
+    }
+
+    ul {
+        
+        .sist-elemento-1 {
+            padding: nth($padding, 1) nth($padding, 2);
+            border-radius: .5em;
+            display: grid;
+            grid-template-columns: repeat(3, 33%);
+            justify-items: center;
+            justify-content: space-between;
+            
+
+            &:nth-child(2n+1){
+                background-color: #444;
+            }
+
+            .on {
+                font-weight: 700;
+                color: $font-primario;
+            }
+
+            .off {
+                font-weight: 700;
+                color: #777;
+            }
+        }
+
+        .sist-elemento-2 {
+            @extend .sist-elemento-1;
+            grid-template-columns: repeat(4, 25%);
+        }
     }
 }

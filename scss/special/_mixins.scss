@@ -18,6 +18,26 @@
     background-position: center;
 }
 
+/* Plataforma */
+
+@mixin sensors-styles ($grid-area){
+    grid-area: $grid-area;
+
+        .sensor-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            .sensor {
+                margin: nth($margin, 1) nth($margin, 3);
+                padding: nth($margin, 2);
+                background-color: #444;
+                border-radius: 1em;
+            }
+        }
+}
+
+
 /* Transiciones */
 @mixin transition ($transition){
     transition: $transition;

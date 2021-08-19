@@ -44,6 +44,7 @@ a {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
+/* Plataforma */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -84,6 +85,7 @@ a {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
+/* Plataforma */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -153,6 +155,7 @@ a {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
+/* Plataforma */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -263,6 +266,7 @@ a {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
+/* Plataforma */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -365,6 +369,7 @@ main .galery-container .img-container {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
+/* Plataforma */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -535,6 +540,7 @@ main .galery-container .img-container {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
+/* Plataforma */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -622,11 +628,157 @@ main .galery-container .img-container {
 /* Margenes y paddings */
 /* Bordes */
 /* Tamanios */
+/* Fonts */
+/* Tamanio fonts en textos */
+/* Tamanio fonts en titulos */
+/* Mixins */
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Tamanios */
+/* Frames */
+@keyframes logo-rotate {
+  from {
+    transform: rotateY(360deg) scale(1.5);
+  }
+}
+/* Fin frames */
+/* Sistema */
+/* Contacto */
+/* Plataforma */
+/* Transiciones */
+/* Transformaciones */
+/* Animaciones */
 .container-plataform {
   color: #f7963f;
 }
 .container-plataform h2 {
   font-size: 2.4em;
+}
+
+.huerta-container {
+  font-family: "Montserrat", sans-serif;
+  background-color: #222;
+  color: beige;
+  width: 80%;
+  border-radius: 1.5em;
+  padding: 2em;
+  margin: 1em auto;
+  display: grid;
+  grid-template-areas: "header header header header header" "sensores1 sensores1 sensores1 riego riego" "sensores2 sensores2 sensores2 riego riego";
+}
+.huerta-container .huerta-encabezado {
+  grid-area: header;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5em;
+  border-bottom: 1px #f7963f solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+.huerta-container .huerta-riego {
+  grid-area: riego;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5em;
+  margin-left: 2em;
+}
+.huerta-container .huerta-riego h3 {
+  text-align: center;
+}
+.huerta-container .huerta-riego .sensor {
+  margin-top: 0.5em;
+  padding: 1em 2em;
+  background-color: #444;
+  border-radius: 1em;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+.huerta-container .huerta-riego .sensor p {
+  padding: 0 1.5em;
+  text-align: center;
+  flex-basis: 50%;
+}
+.huerta-container .huerta-container-1 {
+  grid-area: sensores1;
+  border: 1px #f7963f solid;
+  border-radius: 1.5em;
+  padding: 1.5em;
+  margin-bottom: 2em;
+}
+.huerta-container .huerta-container-1 .sensor-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.huerta-container .huerta-container-1 .sensor-container .sensor {
+  margin: 0.5em 1.5em;
+  padding: 1em;
+  background-color: #444;
+  border-radius: 1em;
+}
+.huerta-container .huerta-container-2 {
+  grid-area: sensores2;
+  border: 1px #f7963f solid;
+  border-radius: 1.5em;
+  padding: 1.5em;
+}
+.huerta-container .huerta-container-2 .sensor-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.huerta-container .huerta-container-2 .sensor-container .sensor {
+  margin: 0.5em 1.5em;
+  padding: 1em;
+  background-color: #444;
+  border-radius: 1em;
+}
+
+.sist-container {
+  font-family: "Montserrat", sans-serif;
+  background-color: #222;
+  color: beige;
+  width: 50%;
+  border-radius: 1em;
+  padding: 2em;
+  margin: auto;
+}
+.sist-container .sist-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.5em;
+  border-bottom: 1px #f7963f solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+.sist-container ul .sist-elemento-1, .sist-container ul .sist-elemento-2 {
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  justify-items: center;
+  justify-content: space-between;
+}
+.sist-container ul .sist-elemento-1:nth-child(2n+1), .sist-container ul .sist-elemento-2:nth-child(2n+1) {
+  background-color: #444;
+}
+.sist-container ul .sist-elemento-1 .on, .sist-container ul .sist-elemento-2 .on {
+  font-weight: 700;
+  color: #f7963f;
+}
+.sist-container ul .sist-elemento-1 .off, .sist-container ul .sist-elemento-2 .off {
+  font-weight: 700;
+  color: #777;
+}
+.sist-container ul .sist-elemento-2 {
+  grid-template-columns: repeat(4, 25%);
 }
 
 /* Estilos de la galeria */
@@ -655,6 +807,7 @@ main .galery-container .img-container {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
+/* Plataforma */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
