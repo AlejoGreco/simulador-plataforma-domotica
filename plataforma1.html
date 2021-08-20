@@ -14,27 +14,34 @@
     <!-- Bloque para visualizar elementos simples-->
     <div class="sist-container">
         <div class="sist-encabezado">
-            <h3>Sistema X</h3>
+            <h3>Sistema de luminarias</h3>
             <i class="fa-regular fa-lightbulb">ICO</i>
         </div>
-        <ul>
+        <ul id="lista-luces">
             <li class="sist-elemento-1">
-                Acceso Id <span class="on">Estado</span><i class="fa-solid fa-toggle-on"></i> <!--<i>agregar icono relacionado con el estado</i>-->
+                Luminaria Id<span class="off">Estado</span><i class="fa-solid fa-toggle-off"></i>
             </li>
+        </ul>
+    </div>
+    <div class="sist-container">
+        <div class="sist-encabezado">
+            <h3>Sistema de accesos al hogar</h3>
+            <i class="fa-regular fa-lightbulb">ICO</i>
+        </div>
+        <ul id="lista-accesos">
             <li class="sist-elemento-1">
-                Puerta de calle <span class="on">Abierta</span><i class="fa-solid fa-toggle-on">ICO</i> <!--<i>agregar icono relacionado con el estado</i>-->
+                Acceso Id<span class="off">Estado</span><i class="fa-solid fa-toggle-off"></i>
             </li>
-            <li class="sist-elemento-1">
-                Luminaria Id <span class="off">Estado</span><i class="fa-solid fa-toggle-off"></i><!--<i>agregar icono</i>-->
-            </li>
-            <li class="sist-elemento-1">
-                Luz patio <span class="off">Apagada</span><i class="fa-solid fa-toggle-off">ICO</i><!--<i>agregar icono</i>-->
-            </li>
+        </ul>
+    </div>
+    <div class="sist-container">
+        <div class="sist-encabezado">
+            <h3>Sistema de climatizacion</h3>
+            <i class="fa-regular fa-lightbulb">ICO</i>
+        </div>
+        <ul id="lista-clima">
             <li class="sist-elemento-2">
-                Climatizador Id<span class="off">Estado</span><span class="off">Temperatura</span><i class="fa-solid fa-toggle-off"></i><!--<i>agregar icono</i>-->
-            </li>
-            <li class="sist-elemento-2">
-                Aire living <span class="off">Frio</span><span class="off">T = 24 C</span><i class="fa-solid fa-toggle-off">ICO</i><!--<i>agregar icono</i>-->
+                Climatizador Id<span class="off">Estado</span><span class="off">Temperatura</span><i class="fa-solid fa-toggle-off"></i>
             </li>
         </ul>
     </div>
@@ -43,46 +50,23 @@
     <!-- Bloque para visualizar elementos complejos -->
     <section class="huerta-container">
         <div class="huerta-encabezado">
-            <h3>Sistema X</h3>
+            <h3>Huerta inteligente</h3>
             <i class="fa-regular fa-lightbulb">ICO</i>
         </div>
-        <div class="huerta-riego">
+        <div id="sensorRiego" class="huerta-riego">
             <h3>Riego Automatico</h3>
-            <div class="sensor">
-                <p>Nivel</p>
-                <p>Estado</p>
-            </div>
         </div>
         <div class="huerta-container-1">
             <h4>Sensores de ambiente</h4>
-            <div class="sensor-container">
-                <div class="sensor">
-                    <h6>Sensor t/h</h6>
-                    <p>Valor medido</p>
-                </div>
-            </div>
-            
+            <div id="sensorAmb" class="sensor-container"></div>
         </div>
         <div class="huerta-container-2">
             <h4>Sensores de tierra</h4>
-            <div class="sensor-container">
-                <div class="sensor">
-                    <h6>Sensor humedad 1</h6>
-                    <p>Valor medido</p>
-                </div>
-                <div class="sensor">
-                    <h6>Sensor humedad 2</h6>
-                    <p>Valor medido</p>
-                </div>
-                <div class="sensor">
-                    <h6>Sensor humedad 3</h6>
-                    <p>Valor medido</p>
-                </div>
-            </div>
+            <div id="sensorSub" class="sensor-container"></div>
         </div>
     </section>
 
     <!-- Fin bloque elementos complejos -->
-    <!--<script src="main.js"></script>-->
+    <script src="main.js"></script>
 </body>
 </html>

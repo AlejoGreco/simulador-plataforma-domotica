@@ -29,8 +29,10 @@
             justify-content: flex-start;
 
             .sensor {
-                margin: nth($margin, 1) nth($margin, 3);
-                padding: nth($margin, 2);
+                margin: nth($margin, 1) nth($margin, 2);
+                padding: nth($padding, 2);
+                flex-grow: 1;
+                flex-shrink: 1;
                 background-color: #444;
                 border-radius: 1em;
             }

@@ -166,7 +166,8 @@ class SmartHome {
     }
 
     obtenerSistema(tipoDeSistema){
-        let msg = '';
+        let msg;
+        
         switch(tipoDeSistema){
             case 'luz':
                 if(this.luces.length > 0){
@@ -175,7 +176,7 @@ class SmartHome {
                     }
                 }
                 else{
-                    msg = 'Sistema de control de luminaria no disponible';
+                    msg = `<li class="sist-elemento-1">Sistema de control de luminaria no disponible</li>`;
                 }
                 break;
             case 'climatizador':
@@ -185,7 +186,7 @@ class SmartHome {
                     }
                 }
                 else{
-                    msg = 'Sistema de control de climatizadores no disponible';
+                    msg = `<li class="sist-elemento-1">Sistema de control de climatizadores no disponible</li>`;
                 }
                 break;
             case 'acceso':
@@ -195,17 +196,20 @@ class SmartHome {
                     }
                 }
                 else{
-                    msg = 'Sistema de control de accesos no disponible';
+                    msg = `<li class="sist-elemento-1">Sistema de control de accesos no disponible</li>`;
                 }
                 break;
             case 'huerta':
                 if(this.huertas.length > 0){
+                    const containerAmb = document.getElementById('sensorAmb');
+                    const containerSub = document.getElementById('sensorSub');
+                    const containerRiego = document.getElementById('sensorRiego');
                     for(let huerta of this.huertas){
-                        msg += huerta.obtenerHuerta() + '\n';
+                        msg = huerta.obtenerHuerta(containerAmb, containerSub,containerRiego);
                     }
                 }
                 else{
-                    msg = 'Sistema de huerta no disponible'
+                    msg = 'Sistema de huerta no disponible';
                 }
                 break;
             case 'pool':
@@ -294,12 +298,14 @@ class Luz {
         this.tipo = pTipo;
         this.potencia = pPotencia;
         this.precio = pPrecio;
-        this.estado = false;
+        this.estado = 'off';
     }
 
     obtenerLuzEstado(){
-        return `Luz tipo: ${this.tipo}
-        Estado: ${this.estado}`;
+        return `<li class="sist-elemento-1">
+        ${this.tipo}<span class="on">${this.estado}</span>
+        <i class="fa-solid fa-toggle-on">ICO</i>
+        </li> `;
     }
 }
 
@@ -307,12 +313,14 @@ class Climatizador {
     constructor(pTipo, pPrecio){
         this.tipo = pTipo;
         this.precio = pPrecio;
-        this.estado = false;
+        this.estado = 'off';
     }
 
     obtenerClimatizadorEstado(){
-        return `Climatizador tipo: ${this.tipo}
-        Estado: ${this.estado}`;
+        return `<li class="sist-elemento-2">
+        ${this.tipo}<span class="off">${this.estado}</span><span class="off">T = 24 C</span>
+        <i class="fa-solid fa-toggle-off">ICO</i>
+        </li>`;
     }
 }
 
@@ -320,12 +328,14 @@ class Acceso {
     constructor(pTipo, pPrecio){
         this.tipo = pTipo;
         this.precio = pPrecio;
-        this.estado = false;
+        this.estado = 'close';
     }
 
     obtenerAccesoEstado(){
-        return `Acceso ${this.tipo}
-        Estado: ${this.estado}`;
+        return `<li class="sist-elemento-1">
+        ${this.tipo}<span class="on">${this.estado}</span>
+        <i class="fa-solid fa-toggle-on">ICO</i>
+        </li>`;
     }
 }
 
@@ -336,24 +346,73 @@ class Huerta {
         this.precio = pPrecio * ( 1 + 0.15 * this.sensores.length);
     }
 
-    obtenerHuerta(){
-        let msg = '';
-        if(this.sensores.length > 0){
-            for(let sensor of this.sensores){
-                msg += sensor.obtenerSensor() + '\n';
+    obtenerHuerta(pSensoresA, pSensoresS, pSensoresR){
+        let msg = [];
+        
+        msg[0] = this.obtenerAmbiente(pSensoresA);
+        msg[1] = this.obtenerSubterraneo(pSensoresS);
+        msg[2] = this.obtenerRiego(pSensoresR);
+        console.log(msg);
+    }
+
+    obtenerSubterraneo(pContenedorSub){
+        let resultado = true;
+        let fragmento = document.createDocumentFragment();
+        let sensoresSub = this.sensores.filter((s)=> s.ubicacion == 'suelo')
+        if(sensoresSub.length > 0){
+            for(let sensor of sensoresSub){
+                fragmento.appendChild(sensor.obtenerSensor());
             } 
+            pContenedorSub.appendChild(fragmento);
         }
         else {
-            msg += `Sensores no disponibles\n`;
+            let div = document.createElement('DIV');
+            div.innerHTML = `<h5>Sensores no disponibles</h5>`;
+            div.classList.add('sensor');
+            pContenedorSub.appendChild(div);
+            resultado = false;
         }
-        if(this.riego[1]){
-            msg += `Sistema de riego automatico incluido
-            Estado: ${this.riego[0]}`;
+        return resultado;
+    }
+
+    obtenerAmbiente(pContenedorAmb){
+        let resultado = true;
+        let fragmento = document.createDocumentFragment();
+        let sensoresAmb = this.sensores.filter((s)=> s.ubicacion == 'ambiente')
+        if(sensoresAmb.length > 0){
+            for(let sensor of sensoresAmb){
+                fragmento.appendChild(sensor.obtenerSensor());
+            } 
+            pContenedorAmb.appendChild(fragmento);
         }
-        else{
-            msg += `Sistema de riego automatico NO disponible`;
-        }      
-        return msg;
+        else {
+            let div = document.createElement('DIV');
+            div.innerHTML = `<h5>Sensores no disponibles</h5>`;
+            div.classList.add('sensor');
+            pContenedorAmb.appendChild(div);
+            resultado = false;
+        }
+        return resultado;
+    }
+
+    obtenerRiego(pContenedorRiego){
+        let divRiego;
+        let resultado = true;
+        let sensorRiego = this.sensores.filter((s)=> s.ubicacion == 'riego')
+        if(sensorRiego.length > 0 && this.riego[1]){
+            divRiego = sensorRiego[0].obtenerSensor();
+            let estadoBomba = document.createElement('P');
+            estadoBomba.innerHTML = `Riego: ${this.riego[0]}`;
+            divRiego.appendChild(estadoBomba);
+        }
+        else {
+            divRiego = document.createElement('DIV');
+            divRiego.innerHTML = `<h5>Sensores no disponibles</h5>`;
+            divRiego.classList.add('sensor');
+            resultado = false;
+        }
+        pContenedorRiego.appendChild(divRiego);
+        return resultado;
     }
 
     agregarSensor(){
@@ -367,9 +426,9 @@ class Huerta {
 }
 
 class Sensor {
-    constructor(pTipo, pModelo){
+    constructor(pTipo, pUbicacion){
         this.tipo = pTipo;      
-        this.modelo = pModelo;
+        this.ubicacion = pUbicacion;
     }
 
     leerTemperatura(){
@@ -380,13 +439,17 @@ class Sensor {
 
     leerHumedad(){
         let hum;
-        hum = Math.random() * 100;
+        hum = Math.round((Math.random() * 1000))*0.1;
         return hum;
     }
 
     obtenerSensor(){
-        return `Sensor de ${this.tipo}
-        Modelo: ${this.modelo}`;
+        let objetoHtml = document.createElement('DIV');
+        objetoHtml.innerHTML = `
+        <h5>Sensor de ${this.tipo}</h5>
+        <p>${this.leerHumedad()}</p>`;
+        objetoHtml.classList.add('sensor');
+        return objetoHtml;
     }
 }
 
@@ -433,6 +496,7 @@ let idHome;
 let respuesta = 's';
 let usuario;
 let home;
+let huerta = [];
 
 const admin = new Admin();
 
@@ -481,7 +545,8 @@ while(respuesta){
 }
 
 // Visualizacion de sistema del user logueado(falta implementar en el sistema real)
-usuario = buscarPorId(admin.idUserOn, admin.usuarios)
+usuario = buscarPorId(admin.idUserOn, admin.usuarios);
+
 if(usuario.membresias.length > 0){
     for(let membresia of usuario.membresias){
         if(membresia.idHome != -1){
@@ -490,10 +555,13 @@ if(usuario.membresias.length > 0){
             Id: ${usuario.id}
             Nombre: ${usuario.nombre}
             Apellido: ${usuario.apellido}`);
-            alert('Sistema de iluminacion =>\n' + home.obtenerSistema('luz'));
-            alert('Sistema de climatizacion =>\n' + home.obtenerSistema('climatizador'));
-            alert('Puntos de acceso al hogar =>\n' + home.obtenerSistema('acceso'));
-            alert('Huerta inteligente =>\n' + home.obtenerSistema('huerta'));
+            document.getElementById('lista-luces').innerHTML = home.obtenerSistema('luz');
+            document.getElementById('lista-accesos').innerHTML = home.obtenerSistema('acceso');
+            document.getElementById('lista-clima').innerHTML = home.obtenerSistema('climatizador');
+            huerta = home.obtenerSistema('huerta');
+            document.getElementById('sensorAmb').innerHTML = huerta[0];
+            document.getElementById('sensorSub').innerHTML = huerta[1];
+            document.getElementById('sensorRiego').innerHTML = huerta[2];
             alert('Control de piscina =>\n' + home.obtenerSistema('pool'));
             alert(membresia.costoTotal(home));
         }
