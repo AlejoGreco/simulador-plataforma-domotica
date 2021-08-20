@@ -40,30 +40,24 @@
         flex-direction: column;
         
         padding: 0 nth($padding, 1);
-        margin-left: nth($margin, 4);
-        
-        h3 {
-            text-align: center;
-        }
+        text-align: center;
 
-        .sensor {
-            margin-top: nth($margin, 1);
-            padding: nth($padding, 2) nth($padding, 4);
+        .huerta-container-3 {
             background-color: #444;
+            margin-top: nth($margin, 1);
+            padding: 0 nth($padding, 4);
             border-radius: 1em;
             flex-grow: 1;
 
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-content: flex-start;
-
-            p {
-                padding: 0 nth($margin, 2);
-                text-align: center;
-                flex-basis: 50%;
+            .sensor {
+                padding: nth($padding, 2) nth($padding, 4);
+                
+                p {
+                    padding: nth($padding, 1) nth($padding, 2) 0;
+                }
             }
         }
+        
     }
 
     .huerta-container-1 {
@@ -72,6 +66,9 @@
         border-radius: 1.5em;
         padding: nth($padding, 3);
         margin-bottom: nth($margin, 4);
+        @media (max-width:992px) {
+            text-align: center;
+        }
     }
 
     .huerta-container-2 {
@@ -79,6 +76,9 @@
         border: 1px $font-primario solid;
         border-radius: 1.5em;
         padding: nth($padding, 3);
+        @media (max-width:992px) {
+            text-align: center;
+        }
     } 
 }
 

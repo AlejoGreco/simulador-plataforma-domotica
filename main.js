@@ -201,11 +201,8 @@ class SmartHome {
                 break;
             case 'huerta':
                 if(this.huertas.length > 0){
-                    const containerAmb = document.getElementById('sensorAmb');
-                    const containerSub = document.getElementById('sensorSub');
-                    const containerRiego = document.getElementById('sensorRiego');
                     for(let huerta of this.huertas){
-                        msg = huerta.obtenerHuerta(containerAmb, containerSub,containerRiego);
+                        msg = huerta.obtenerHuerta();
                     }
                 }
                 else{
@@ -346,36 +343,16 @@ class Huerta {
         this.precio = pPrecio * ( 1 + 0.15 * this.sensores.length);
     }
 
-    obtenerHuerta(pSensoresA, pSensoresS, pSensoresR){
-        let msg = [];
+    obtenerHuerta(){
+        const huertaHTML = [];
         
-        msg[0] = this.obtenerAmbiente(pSensoresA);
-        msg[1] = this.obtenerSubterraneo(pSensoresS);
-        msg[2] = this.obtenerRiego(pSensoresR);
-        console.log(msg);
+        huertaHTML[0] = this.obtenerAmbiente();
+        huertaHTML[1] = this.obtenerSuelo();
+        huertaHTML[2] = this.obtenerRiego();
+        return huertaHTML;
     }
 
-    obtenerSubterraneo(pContenedorSub){
-        let resultado = true;
-        let fragmento = document.createDocumentFragment();
-        let sensoresSub = this.sensores.filter((s)=> s.ubicacion == 'suelo')
-        if(sensoresSub.length > 0){
-            for(let sensor of sensoresSub){
-                fragmento.appendChild(sensor.obtenerSensor());
-            } 
-            pContenedorSub.appendChild(fragmento);
-        }
-        else {
-            let div = document.createElement('DIV');
-            div.innerHTML = `<h5>Sensores no disponibles</h5>`;
-            div.classList.add('sensor');
-            pContenedorSub.appendChild(div);
-            resultado = false;
-        }
-        return resultado;
-    }
-
-    obtenerAmbiente(pContenedorAmb){
+    obtenerAmbiente(){
         let resultado = true;
         let fragmento = document.createDocumentFragment();
         let sensoresAmb = this.sensores.filter((s)=> s.ubicacion == 'ambiente')
@@ -383,19 +360,37 @@ class Huerta {
             for(let sensor of sensoresAmb){
                 fragmento.appendChild(sensor.obtenerSensor());
             } 
-            pContenedorAmb.appendChild(fragmento);
         }
         else {
             let div = document.createElement('DIV');
             div.innerHTML = `<h5>Sensores no disponibles</h5>`;
             div.classList.add('sensor');
-            pContenedorAmb.appendChild(div);
+            fragmento.appendChild(div);
             resultado = false;
         }
-        return resultado;
+        return fragmento;
     }
 
-    obtenerRiego(pContenedorRiego){
+    obtenerSuelo(){
+        let resultado = true;
+        let fragmento = document.createDocumentFragment();
+        let sensoresSub = this.sensores.filter((s)=> s.ubicacion == 'suelo')
+        if(sensoresSub.length > 0){
+            for(let sensor of sensoresSub){
+                fragmento.appendChild(sensor.obtenerSensor());
+            } 
+        }
+        else {
+            let div = document.createElement('DIV');
+            div.innerHTML = `<h5>Sensores no disponibles</h5>`;
+            div.classList.add('sensor');
+            fragmento.appendChild(div);
+            resultado = false;
+        }
+        return fragmento;
+    }
+
+    obtenerRiego(){
         let divRiego;
         let resultado = true;
         let sensorRiego = this.sensores.filter((s)=> s.ubicacion == 'riego')
@@ -411,8 +406,7 @@ class Huerta {
             divRiego.classList.add('sensor');
             resultado = false;
         }
-        pContenedorRiego.appendChild(divRiego);
-        return resultado;
+        return divRiego;
     }
 
     agregarSensor(){
@@ -439,14 +433,14 @@ class Sensor {
 
     leerHumedad(){
         let hum;
-        hum = Math.round((Math.random() * 1000))*0.1;
+        hum = Math.round((Math.random() * 100));
         return hum;
     }
 
     obtenerSensor(){
         let objetoHtml = document.createElement('DIV');
         objetoHtml.innerHTML = `
-        <h5>Sensor de ${this.tipo}</h5>
+        <h5>Sensor ${this.tipo}</h5>
         <p>${this.leerHumedad()}</p>`;
         objetoHtml.classList.add('sensor');
         return objetoHtml;
@@ -559,9 +553,9 @@ if(usuario.membresias.length > 0){
             document.getElementById('lista-accesos').innerHTML = home.obtenerSistema('acceso');
             document.getElementById('lista-clima').innerHTML = home.obtenerSistema('climatizador');
             huerta = home.obtenerSistema('huerta');
-            document.getElementById('sensorAmb').innerHTML = huerta[0];
-            document.getElementById('sensorSub').innerHTML = huerta[1];
-            document.getElementById('sensorRiego').innerHTML = huerta[2];
+            document.getElementById('sensorAmb').appendChild(huerta[0]);
+            document.getElementById('sensorSub').appendChild(huerta[1]);
+            document.querySelector('.huerta-container-3').appendChild(huerta[2]);
             alert('Control de piscina =>\n' + home.obtenerSistema('pool'));
             alert(membresia.costoTotal(home));
         }
