@@ -10,25 +10,24 @@ class Admin {
         this.idHomeOn;
     }
 
-    crearUsuario(){
+    crearUsuario(pForm){
+        const form = pForm;
+        const elementos = form.children;
+        let contenido = [];
         let nuevoId = this.usuarios.length + 1;
-        let nombre;
-        let apellido;
-        let email;
-        let password = [];
-
-        nombre = prompt('Ingrese el nombre del nuevo usuario');
-        apellido = prompt('Ingrese el apellido');
-        email = prompt('Ingrese el email');
-        password[0] = prompt('Ingrese su clave');
-        password[1] = prompt('Ingrese nuevamente su clave');
-
-        while(password[0] != password [1]){
-            password[0] = prompt('Error al ingresar su clave, intente nuevamente');
-            password[1] = prompt('Ingrese nuevamente su clave');
+        let i = 0;
+    
+        for(let elemento of elementos){
+            if(elemento.type != 'submit'){
+                contenido[i++] = elemento.lastElementChild.value;
+            }  
         }
-        this.usuarios.push(new Usuario(nuevoId, nombre, apellido, email, password[0]));
-        return nuevoId;
+        
+        while(this.usuarios.filter(u => u.id == nuevoId).length > 0){
+            nuevoId++;
+        } 
+        this.usuarios.push(new Usuario(nuevoId, contenido[0], contenido[1], contenido[2], contenido[3]));
+        return this.usuarios;
     }
 
     crearSmartHome(){
@@ -133,6 +132,15 @@ class Usuario {
     crearMembresia(pTipo, pDate, pDuracion){
         this.membresias.push(new Membresia(pTipo, pDate, pDuracion));
         return true;
+    }
+
+    obtenerUsuario(){
+        return `<p>Nombre: ${this.nombre}</p>
+        <p>Apellido: ${this.apellido}</p>
+        <p>Email: ${this.email}</p>
+        <p>Password: ${this.password}</p>
+        <p>Id de usuario: ${this.id}</p>
+        <button>Borrar usuario</button>`;
     }
 
     logIn(email, contra){
@@ -286,11 +294,13 @@ class SmartHome {
         return creado;
     }
 }
-// Fin de clases principales //
-///////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////      Fin de clases principales       /////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////
-// Clases de elementos del sistema domotico //
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////        Clases de elementos del sistema domotico       /////////
+//////////////////////////////////////////////////////////////////////////////////////
 class Luz {
     constructor(pTipo, pPotencia, pPrecio){
         this.tipo = pTipo;
@@ -483,11 +493,39 @@ const buscarPorId = (pId, pArreglo) => {
     return false;
 }
 
+
+const mostrarUsuarios = (pUsuarios) => {
+    const fragmento = document.createDocumentFragment();
+    const listaDeUsuarios = document.getElementById('lista-user');
+    let userInfo;
+    for(let user of pUsuarios){
+        userInfo = document.createElement('LI');
+        userInfo.classList.add('user-item');
+        userInfo.innerHTML = user.obtenerUsuario();
+        fragmento.appendChild(userInfo);
+    }
+    listaDeUsuarios.innerHTML = '';
+    listaDeUsuarios.appendChild(fragmento);
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////            Progrograma para admin (creacion de usuarios y sistemas)              ////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+// Variables creacion de usuarios
+const admin = new Admin();
+const formUser = document.getElementById('user-form');
+
+// Events listeners
+formUser.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    mostrarUsuarios(admin.crearUsuario(form));
+    //form.submit();
+});
+
+mostrarUsuarios(admin.usuarios);
 
 
 

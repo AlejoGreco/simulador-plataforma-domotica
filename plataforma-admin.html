@@ -4,10 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
+    <main>
+        <div class="user-container">
+            <form action="" id="user-form">
+                <div class="input-container">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="input-container">
+                    <label for="last-name">Apellido</label>
+                    <input type="text" id="last-name" required>
+                </div>
+                <div class="input-container">
+                    <label for="mail" required>Email</label>
+                    <input type="email" id="mail">
+                </div>
+                <div class="input-container">
+                    <label for="contra" required>Contrasenia</label>
+                    <input type="password" id="contra">
+                </div>
+                <div class="input-container">
+                    <label for="contra2" required>Confirme Contrasenia</label>
+                    <input type="password" id="contra2">
+                </div>
+                <input type="submit" value="Crear usuario">
+            </form>
 
+            <div class="user-list-container">
+                <div class="sist-encabezado">
+                    <h3>Usuarios registrados</h3>
+                </div>
+                <ul id="lista-user"></ul>
+            </div>
+
+
+
+        </div>
+        
+
+
+
+    </main>
     <script src="main.js"></script>
 </body>
 </html>

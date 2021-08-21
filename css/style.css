@@ -904,6 +904,101 @@ main .galery-container .img-container {
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
+.user-container {
+  font-family: "Montserrat", sans-serif;
+  background-color: #222;
+  color: beige;
+  width: 80%;
+  border-radius: 1em;
+  padding: 2em;
+  margin: auto;
+}
+.user-container #user-form {
+  display: grid;
+  grid-template-columns: 35% 35% 30%;
+  grid-template-rows: 4em;
+  justify-items: center;
+  align-items: center;
+}
+.user-container #user-form .input-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+.user-container #user-form .input-container input {
+  padding: 0.35em 0.5em;
+  margin: 0.25em 0;
+  background-color: #222;
+  color: #f7963f;
+  border-radius: 0.7em;
+  border: 1px #f7963f solid;
+  outline: none;
+}
+.user-container #user-form .input-container input:focus {
+  background-color: #333;
+}
+.user-container #user-form input[type=submit] {
+  width: 75%;
+  font-size: 1em;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+  align-self: flex-end;
+  background-color: #222;
+  color: #f7963f;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+}
+.user-container #user-form input[type=submit]:hover {
+  background-color: #f7963f;
+  color: #222;
+}
+.user-container .user-list-container {
+  width: 100%;
+  border-radius: 1em;
+  padding: 2em 2em 0;
+  margin: auto;
+}
+.user-container .user-list-container .sist-encabezado {
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 1px #f7963f solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+.user-container .user-list-container ul .user-item {
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(2, 2em);
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-container .user-list-container ul .user-item:nth-child(2n+1) {
+  background-color: #333;
+}
+.user-container .user-list-container ul .user-item:nth-child(2n+1) button:hover {
+  background-color: #f7963f;
+  color: #333;
+}
+.user-container .user-list-container ul .user-item button {
+  width: 75%;
+  font-size: 1em;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+  background-color: transparent;
+  color: #f7963f;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+}
+.user-container .user-list-container ul .user-item button:hover {
+  background-color: #f7963f;
+  color: #222;
+}
+
 /* Estilos de la galeria */
 /* Fonts */
 /* Tamanio fonts en textos */
