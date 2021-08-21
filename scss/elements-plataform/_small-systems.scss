@@ -1,0 +1,56 @@
+@import '../basis/variables';
+@import '../basis/fonts';
+@import '../special/mixins';
+
+.sist-container {
+    font-family: $font-family-principal;
+    background-color: #222;
+    color: $font-secundario;
+    width: 50%;
+    border-radius: 1em;
+    padding: nth($padding, 4);
+    margin: auto;
+
+    .sist-encabezado {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: $font-size-cards-titles;
+        border-bottom: 1px $font-primario solid;
+        padding-bottom: nth($padding, 1);
+        margin-bottom: nth($margin, 2);
+
+    }
+
+    ul {
+        
+        .sist-elemento-1 {
+            padding: nth($padding, 1) nth($padding, 2);
+            border-radius: .5em;
+            display: grid;
+            grid-template-columns: repeat(3, 33%);
+            justify-items: center;
+            justify-content: space-between;
+            
+
+            &:nth-child(2n+1){
+                background-color: #444;
+            }
+
+            .on {
+                font-weight: 700;
+                color: $font-primario;
+            }
+
+            .off {
+                font-weight: 700;
+                color: #777;
+            }
+        }
+
+        .sist-elemento-2 {
+            @extend .sist-elemento-1;
+            grid-template-columns: repeat(4, 25%);
+        }
+    }
+}

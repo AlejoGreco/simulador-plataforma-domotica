@@ -658,6 +658,35 @@ main .galery-container .img-container {
   font-size: 2.4em;
 }
 
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Tamanios */
+/* Fonts */
+/* Tamanio fonts en textos */
+/* Tamanio fonts en titulos */
+/* Mixins */
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Tamanios */
+/* Frames */
+@keyframes logo-rotate {
+  from {
+    transform: rotateY(360deg) scale(1.5);
+  }
+}
+/* Fin frames */
+/* Sistema */
+/* Contacto */
+/* Plataforma */
+/* Transiciones */
+/* Transformaciones */
+/* Animaciones */
 .huerta-container {
   font-family: "Montserrat", sans-serif;
   background-color: #222;
@@ -776,6 +805,35 @@ main .galery-container .img-container {
   }
 }
 
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Tamanios */
+/* Fonts */
+/* Tamanio fonts en textos */
+/* Tamanio fonts en titulos */
+/* Mixins */
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Tamanios */
+/* Frames */
+@keyframes logo-rotate {
+  from {
+    transform: rotateY(360deg) scale(1.5);
+  }
+}
+/* Fin frames */
+/* Sistema */
+/* Contacto */
+/* Plataforma */
+/* Transiciones */
+/* Transformaciones */
+/* Animaciones */
 .sist-container {
   font-family: "Montserrat", sans-serif;
   background-color: #222;
@@ -817,6 +875,35 @@ main .galery-container .img-container {
   grid-template-columns: repeat(4, 25%);
 }
 
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Tamanios */
+/* Fonts */
+/* Tamanio fonts en textos */
+/* Tamanio fonts en titulos */
+/* Mixins */
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Tamanios */
+/* Frames */
+@keyframes logo-rotate {
+  from {
+    transform: rotateY(360deg) scale(1.5);
+  }
+}
+/* Fin frames */
+/* Sistema */
+/* Contacto */
+/* Plataforma */
+/* Transiciones */
+/* Transformaciones */
+/* Animaciones */
 /* Estilos de la galeria */
 /* Fonts */
 /* Tamanio fonts en textos */

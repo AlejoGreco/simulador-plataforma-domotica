@@ -8,7 +8,10 @@
 @import 'contacto';
 @import 'footer';
 @import 'components/loggin';
-@import 'plataforma';
+@import 'elements-plataform/plataforma';
+@import 'elements-plataform/huerta';
+@import 'elements-plataform/small-systems';
+@import 'elements-plataform/load-elements/clientes';
 @import 'galery';
 
 body {
