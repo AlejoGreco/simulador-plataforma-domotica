@@ -138,7 +138,7 @@ class Usuario {
         return true;
     }
 
-    obtenerUsuario(){
+    obtenerInfoRegistro(){
         return `<p>Nombre: ${this.nombre}</p>
         <p>Apellido: ${this.apellido}</p>
         <p>Email: ${this.email}</p>
@@ -179,20 +179,9 @@ class SmartHome {
     }
 
     crearIluminationSystem(pFormIlumination){
-        const form = pFormIlumination;
-        const elementos = form.children;
-        let contenido = [];
-        let i = 0;
-    
-        // Recorro los elementos del formulario y extraigo los datos
-        for(let elemento of elementos){
-            if(elemento.type != 'submit'){
-                contenido[i++] = elemento.lastElementChild.value;
-            }  
-        }
-
+        let info = extraerInfoForm(pFormIlumination);
         // Creo la nueva luminaria y la agrego al arregle de la smart home temporal
-        this.luces.push(new Luz(contenido[0], contenido[1], contenido[2]));
+        this.luces.push(new Luz(info[0], info[1], info[2]));
         return this.luces;
 
     }
@@ -202,6 +191,13 @@ class SmartHome {
         // Creo el nuevo accesoy la agrego al arregle de la smart home temporal
         this.accesos.push(new Acceso(info[0], info[1]));
         return this.accesos;
+    }
+
+    crearClimaSystem(pFormClima){
+        let info = extraerInfoForm(pFormClima);
+        // Creo el nuevo accesoy la agrego al arregle de la smart home temporal
+        this.climatizadores.push(new Climatizador(info[0], info[1]));
+        return this.climatizadores;
     }
     ////////////////////////////////////////////////////////////////////
 
@@ -340,7 +336,7 @@ class Luz {
         this.estado = 'off';
     }
 
-    obtenerLuzInfo(){
+    obtenerInfoRegistro(){
         return `<p>Id: ${this.id}</p>
         <p>Tipo: ${this.tipoPot}</p>
         <p>Precio: $${this.precio}</p>
@@ -356,10 +352,16 @@ class Luz {
 }
 
 class Climatizador {
-    constructor(pTipo, pPrecio){
-        this.tipo = pTipo;
+    constructor(pId, pPrecio){
+        this.id = pId;
         this.precio = pPrecio;
         this.estado = 'off';
+    }
+
+    obtenerInfoRegistro(){
+        return `<p>Id: ${this.id}</p>
+        <p>Precio: $${this.precio}</p>
+        <button>Eliminar</button>`;
     }
 
     obtenerClimatizadorEstado(){
@@ -377,7 +379,7 @@ class Acceso {
         this.estado = 'close';
     }
 
-    obtenerAccesoInfo(){
+    obtenerInfoRegistro(){
         return `<p>Id: ${this.id}</p>
         <p>Precio: $${this.precio}</p>
         <button>Eliminar</button>`;
@@ -588,7 +590,7 @@ const mostrarAccesos = (pAccesos) => {
     let accesoInfo;
     for(let acceso of pAccesos){
         accesoInfo = document.createElement('LI');
-        accesoInfo.classList.add('access-item');
+        accesoInfo.classList.add('access-clima-item');
         accesoInfo.innerHTML = acceso.obtenerAccesoInfo();
         fragmento.appendChild(accesoInfo);
     }
@@ -596,6 +598,39 @@ const mostrarAccesos = (pAccesos) => {
     listaDeAccesos.appendChild(fragmento);
 }
 
+const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
+    const fragmento = document.createDocumentFragment();
+    let listaId = '';
+    let classNameLI = '';
+    switch (pSistema){
+        case 'usuarios':
+            listaId= 'lista-user';
+            classNameLI = 'user-item';
+            break;
+        case 'luces':
+            listaId= 'lista-luminarias';
+            classNameLI = 'luz-item';
+            break;
+        case 'accesos':
+            listaId= 'lista-accesos';
+            classNameLI = 'access-clima-item';
+            break;
+        case 'clima':
+            listaId= 'lista-climas';
+            classNameLI = 'access-clima-item';
+        break;
+    }
+    const listaDeItems = document.getElementById(listaId);
+    let itemInfo;
+    for(let item of pArrayItems){
+        itemInfo = document.createElement('LI');
+        itemInfo.classList.add(classNameLI);
+        itemInfo.innerHTML = item.obtenerInfoRegistro();
+        fragmento.appendChild(itemInfo);
+    }
+    listaDeItems.innerHTML = '';
+    listaDeItems.appendChild(fragmento);
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////            Progrograma para admin (creacion de usuarios y sistemas)              ////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -612,13 +647,15 @@ const actualSmartHome = new SmartHome(-1,[],[],[],[],[]);
 const formIlumination = document.getElementById('ilumination-form');
 // Accesos
 const formAccess = document.getElementById('access-form');
+// Climatizadores
+const formClima = document.getElementById('clima-form');
 
 // Events listeners
 // User form
 formUser.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
-    mostrarUsuarios(admin.crearUsuario(form));
+    mostrarItemsRegistrados(admin.crearUsuario(form), 'usuarios');
     //form.submit();
 });
 
@@ -626,7 +663,7 @@ formUser.addEventListener('submit', (e) => {
 formIlumination.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
-    mostrarLuminarias(actualSmartHome.crearIluminationSystem(form));
+    mostrarItemsRegistrados(actualSmartHome.crearIluminationSystem(form), 'luces');
     //form.submit();
 });
 
@@ -634,9 +671,16 @@ formIlumination.addEventListener('submit', (e) => {
 formAccess.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
-    mostrarAccesos(actualSmartHome.crearAccessSystem(form));
+    mostrarItemsRegistrados(actualSmartHome.crearAccessSystem(form), 'accesos');
     //form.submit();
 })
+
+// Climatizador form
+formClima.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    mostrarItemsRegistrados(actualSmartHome.crearClimaSystem(form), 'clima');
+});
 
 mostrarUsuarios(admin.usuarios);
 

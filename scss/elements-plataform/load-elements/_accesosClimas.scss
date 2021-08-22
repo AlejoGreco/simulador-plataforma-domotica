@@ -5,7 +5,7 @@
 
 .system-container {
 
-    #access-form {
+    #access-form, #clima-form {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
         grid-auto-rows: 3em;
@@ -27,16 +27,16 @@
         }
     }
 
-    .access-list-container {
+    .access-clima-list-container {
         @extend %container-dinamic-list;
     
         .sist-encabezado {
             @extend %header-dinamic-list;
         }
 
-        #lista-accesos {
+        #lista-accesos, #lista-climas {
 
-            .access-item {
+            .access-clima-item {
                 @include list-item(3);
                 align-items: center;
 

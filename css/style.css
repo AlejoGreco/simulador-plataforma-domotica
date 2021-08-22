@@ -363,7 +363,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #access-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
+.system-container #access-form .input-container input, .system-container #clima-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -372,11 +372,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #access-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
+.system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #access-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
+.system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -388,19 +388,19 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #access-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
+.system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
 }
 
-.system-container .access-list-container, .system-container .ilumination-list-container {
+.system-container .access-clima-list-container, .system-container .ilumination-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .access-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+.system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -408,7 +408,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .access-list-container #lista-accesos .access-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -419,7 +419,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .access-list-container #lista-accesos .access-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
@@ -1012,7 +1012,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #access-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
+.system-container #access-form .input-container input, .system-container #clima-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1021,11 +1021,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #access-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
+.system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #access-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
+.system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1037,19 +1037,19 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #access-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
+.system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
 }
 
-.system-container .access-list-container, .system-container .ilumination-list-container {
+.system-container .access-clima-list-container, .system-container .ilumination-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .access-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+.system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -1057,7 +1057,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .access-list-container #lista-accesos .access-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1068,7 +1068,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .access-list-container #lista-accesos .access-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
@@ -1128,7 +1128,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #access-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
+.system-container #access-form .input-container input, .system-container #clima-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1137,11 +1137,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #access-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
+.system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #access-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
+.system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1153,19 +1153,19 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #access-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
+.system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
 }
 
-.system-container .access-list-container, .system-container .ilumination-list-container {
+.system-container .access-clima-list-container, .system-container .ilumination-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .access-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+.system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -1173,7 +1173,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .access-list-container #lista-accesos .access-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1184,7 +1184,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .access-list-container #lista-accesos .access-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
@@ -1342,7 +1342,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #access-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input {
+.system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1351,11 +1351,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #access-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus {
+.system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #access-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit] {
+.system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1367,19 +1367,19 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #access-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover {
+.system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
 }
 
-.system-container .access-list-container, .system-container .ilumination-list-container {
+.system-container .access-clima-list-container, .system-container .ilumination-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .access-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+.system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -1387,7 +1387,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .access-list-container #lista-accesos .access-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1398,7 +1398,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .access-list-container #lista-accesos .access-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
@@ -1489,7 +1489,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #access-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input {
+.system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1498,11 +1498,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #access-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus {
+.system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #access-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit] {
+.system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1514,19 +1514,19 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #access-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover {
+.system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
 }
 
-.system-container .access-list-container, .system-container .ilumination-list-container {
+.system-container .access-clima-list-container, .system-container .ilumination-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .access-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+.system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -1534,7 +1534,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .access-list-container #lista-accesos .access-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1545,24 +1545,24 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .access-list-container #lista-accesos .access-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
 
-.system-container #access-form {
+.system-container #access-form, .system-container #clima-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
   grid-auto-rows: 3em;
   justify-items: center;
   align-items: center;
 }
-.system-container #access-form .input-container {
+.system-container #access-form .input-container, .system-container #clima-form .input-container {
   display: flex;
   flex-direction: column;
   width: 75%;
 }
-.system-container .access-list-container #lista-accesos .access-item {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item, .system-container .access-clima-list-container #lista-climas .access-clima-item {
   padding: 0.5em 1em;
   border-radius: 0.5em;
   display: grid;
@@ -1571,10 +1571,10 @@ main .galery-container .img-container {
   justify-content: space-between;
   align-items: center;
 }
-.system-container .access-list-container #lista-accesos .access-item:nth-child(2n+1) {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item:nth-child(2n+1), .system-container .access-clima-list-container #lista-climas .access-clima-item:nth-child(2n+1) {
   background-color: #333;
 }
-.system-container .access-list-container #lista-accesos .access-item:nth-child(2n+1) button:hover {
+.system-container .access-clima-list-container #lista-accesos .access-clima-item:nth-child(2n+1) button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item:nth-child(2n+1) button:hover {
   color: #333;
   background-color: #f7963f;
 }
@@ -1634,7 +1634,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #access-form .input-container input {
+.system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #access-form .input-container input, .system-container #clima-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1643,11 +1643,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #access-form .input-container input:focus {
+.system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #access-form input[type=submit] {
+.system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1659,19 +1659,19 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover {
+.system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
 }
 
-.system-container .ilumination-list-container, .system-container .access-list-container {
+.system-container .ilumination-list-container, .system-container .access-clima-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .ilumination-list-container .sist-encabezado, .system-container .access-list-container .sist-encabezado {
+.system-container .ilumination-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -1679,7 +1679,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .ilumination-list-container #lista-luminarias .luz-item button, .system-container .access-list-container #lista-accesos .access-item button {
+.system-container .ilumination-list-container #lista-luminarias .luz-item button, .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1690,7 +1690,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .system-container .access-list-container #lista-accesos .access-item button:hover {
+.system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
