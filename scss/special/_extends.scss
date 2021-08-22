@@ -26,3 +26,74 @@
     align-items: center;
     justify-content: center;
 }
+
+/* Formularios de carga de datos */
+// Inputs
+
+%inputs-forms-platform {
+    color: $font-primario;
+    background-color: $dark-opacity;
+    border-radius: $base-radius * .7;
+    border: $border-platform;
+    outline: none;
+    padding: nth($padding, 1)*.7 nth($padding, 1);
+    margin: nth($padding, 1)/2 0;
+
+    &:focus {
+        background-color: $dark-middle;
+    }
+}
+
+// Input type button
+
+%input-button-platform{
+    font-size: $font-size-base;
+    color: $font-primario;
+    background-color: $dark-opacity;
+    border-radius: $base-radius;
+    border: $border-platform;
+    outline: none;
+    align-self: flex-end;
+    width: 75%;
+    margin: nth($margin, 1)/2 0;
+    padding: nth($padding, 1)/2 0;
+
+    &:hover {
+        color: $dark-opacity;
+        background-color: $font-primario;
+    }
+}
+
+// Lista dinamica plataforma
+%container-dinamic-list {
+    border-radius: $base-radius;
+    width: 100%;
+    padding: nth($padding, 4) nth($padding, 4) 0;
+    margin: auto;
+}
+
+%header-dinamic-list {
+    text-align: center;
+    font-size: $font-size-cards-titles;
+    border-bottom: $border-platform;
+    padding-bottom: nth($padding, 1);
+    margin-bottom: nth($margin, 2);
+}
+
+// Buttons
+%buttons-dinamic-list {
+    color: $font-primario;
+    font-size: $font-size-base;
+    background-color: transparent;
+    border-radius: $base-radius;
+    border: $border-platform;
+    outline: none;
+    margin: nth($padding, 1)/2 0;
+    padding: nth($padding, 1)/2 0;
+    width: 75%;
+
+    &:hover {
+        color: $dark-opacity;
+        background-color: $font-primario;
+    }
+}

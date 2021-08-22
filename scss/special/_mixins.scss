@@ -18,8 +18,20 @@
     background-position: center;
 }
 
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 
+// Items de la lista dinamica
+@mixin list-item ($numColums) {
+    padding: nth($padding, 1) nth($padding, 2);
+    border-radius: .5em;
+    display: grid;
+    grid-template-columns: repeat($numColums, 1fr);
+    justify-items: center;
+    justify-content: space-between;
+}
+
+
+//////////////////////////////////////
 @mixin sensors-styles ($grid-area){
     grid-area: $grid-area;
     margin-right: nth($margin, 4);

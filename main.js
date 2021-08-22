@@ -17,15 +17,19 @@ class Admin {
         let nuevoId = this.usuarios.length + 1;
         let i = 0;
     
+        // Recorro los elementos del formulario y extraigo los datos
         for(let elemento of elementos){
             if(elemento.type != 'submit'){
                 contenido[i++] = elemento.lastElementChild.value;
             }  
         }
         
+        // Creo un Id de usuario que no este repetido
         while(this.usuarios.filter(u => u.id == nuevoId).length > 0){
             nuevoId++;
         } 
+        // Agrego el nuevo usuario al arreglo de admin
+        // y retorno el nuevo arreglo (para funcion de visualizacion)
         this.usuarios.push(new Usuario(nuevoId, contenido[0], contenido[1], contenido[2], contenido[3]));
         return this.usuarios;
     }
@@ -174,6 +178,33 @@ class SmartHome {
         this.pool = pPool;
     }
 
+    crearIluminationSystem(pFormIlumination){
+        const form = pFormIlumination;
+        const elementos = form.children;
+        let contenido = [];
+        let i = 0;
+    
+        // Recorro los elementos del formulario y extraigo los datos
+        for(let elemento of elementos){
+            if(elemento.type != 'submit'){
+                contenido[i++] = elemento.lastElementChild.value;
+            }  
+        }
+
+        // Creo la nueva luminaria y la agrego al arregle de la smart home temporal
+        this.luces.push(new Luz(contenido[0], contenido[1], contenido[2]));
+        return this.luces;
+
+    }
+
+    crearAccessSystem(pFormAccess){
+        let info = extraerInfoForm(pFormAccess);
+        // Creo el nuevo accesoy la agrego al arregle de la smart home temporal
+        this.accesos.push(new Acceso(info[0], info[1]));
+        return this.accesos;
+    }
+    ////////////////////////////////////////////////////////////////////
+
     obtenerSistema(tipoDeSistema){
         let msg;
         
@@ -302,16 +333,23 @@ class SmartHome {
 //////////////////////        Clases de elementos del sistema domotico       /////////
 //////////////////////////////////////////////////////////////////////////////////////
 class Luz {
-    constructor(pTipo, pPotencia, pPrecio){
-        this.tipo = pTipo;
-        this.potencia = pPotencia;
+    constructor(pIdentificacion, pTipoPot, pPrecio){
+        this.id = pIdentificacion;
+        this.tipoPot = pTipoPot;
         this.precio = pPrecio;
         this.estado = 'off';
     }
 
+    obtenerLuzInfo(){
+        return `<p>Id: ${this.id}</p>
+        <p>Tipo: ${this.tipoPot}</p>
+        <p>Precio: $${this.precio}</p>
+        <button>Eliminar</button>`;
+    }
+
     obtenerLuzEstado(){
         return `<li class="sist-elemento-1">
-        ${this.tipo}<span class="on">${this.estado}</span>
+        ${this.id}<span class="on">${this.estado}</span>
         <i class="fa-solid fa-toggle-on">ICO</i>
         </li> `;
     }
@@ -333,10 +371,16 @@ class Climatizador {
 }
 
 class Acceso {
-    constructor(pTipo, pPrecio){
-        this.tipo = pTipo;
+    constructor(pId, pPrecio){
+        this.id = pId;
         this.precio = pPrecio;
         this.estado = 'close';
+    }
+
+    obtenerAccesoInfo(){
+        return `<p>Id: ${this.id}</p>
+        <p>Precio: $${this.precio}</p>
+        <button>Eliminar</button>`;
     }
 
     obtenerAccesoEstado(){
@@ -493,7 +537,23 @@ const buscarPorId = (pId, pArreglo) => {
     return false;
 }
 
+// Extrar informacion de formularios de smart home
+const extraerInfoForm = pForm => {
+    const form = pForm;
+    const elementos = form.children;
+    let contenido = [];
+    let i = 0;
 
+    // Recorro los elementos del formulario y extraigo los datos
+    for(let elemento of elementos){
+        if(elemento.type != 'submit'){
+            contenido[i++] = elemento.lastElementChild.value;
+        }  
+    }
+    return contenido;
+}
+
+// Visualizacion de usuarios 
 const mostrarUsuarios = (pUsuarios) => {
     const fragmento = document.createDocumentFragment();
     const listaDeUsuarios = document.getElementById('lista-user');
@@ -508,22 +568,75 @@ const mostrarUsuarios = (pUsuarios) => {
     listaDeUsuarios.appendChild(fragmento);
 }
 
+const mostrarLuminarias = (pLuminarias) => {
+    const fragmento = document.createDocumentFragment();
+    const listaDeLuminarias = document.getElementById('lista-luminarias');
+    let luzInfo;
+    for(let luz of pLuminarias){
+        luzInfo = document.createElement('LI');
+        luzInfo.classList.add('luz-item');
+        luzInfo.innerHTML = luz.obtenerLuzInfo();
+        fragmento.appendChild(luzInfo);
+    }
+    listaDeLuminarias.innerHTML = '';
+    listaDeLuminarias.appendChild(fragmento);
+}
+
+const mostrarAccesos = (pAccesos) => {
+    const fragmento = document.createDocumentFragment();
+    const listaDeAccesos = document.getElementById('lista-accesos');
+    let accesoInfo;
+    for(let acceso of pAccesos){
+        accesoInfo = document.createElement('LI');
+        accesoInfo.classList.add('access-item');
+        accesoInfo.innerHTML = acceso.obtenerAccesoInfo();
+        fragmento.appendChild(accesoInfo);
+    }
+    listaDeAccesos.innerHTML = '';
+    listaDeAccesos.appendChild(fragmento);
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////            Progrograma para admin (creacion de usuarios y sistemas)              ////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Variables para el sistema de carga de datos
+const admin = new Admin();
 
 // Variables creacion de usuarios
-const admin = new Admin();
 const formUser = document.getElementById('user-form');
 
+// Variables creacion smart home
+const actualSmartHome = new SmartHome(-1,[],[],[],[],[]);
+// Luminarias
+const formIlumination = document.getElementById('ilumination-form');
+// Accesos
+const formAccess = document.getElementById('access-form');
+
 // Events listeners
+// User form
 formUser.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
     mostrarUsuarios(admin.crearUsuario(form));
     //form.submit();
 });
+
+// Ilumination form
+formIlumination.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    mostrarLuminarias(actualSmartHome.crearIluminationSystem(form));
+    //form.submit();
+});
+
+// Access form
+formAccess.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    mostrarAccesos(actualSmartHome.crearAccessSystem(form));
+    //form.submit();
+})
 
 mostrarUsuarios(admin.usuarios);
 

@@ -27,6 +27,7 @@ a {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Mixins */
 /* Variable */
@@ -34,6 +35,7 @@ a {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Frames */
 @keyframes logo-rotate {
@@ -44,7 +46,7 @@ a {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -75,6 +77,7 @@ a {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Frames */
 @keyframes logo-rotate {
@@ -85,7 +88,7 @@ a {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -94,6 +97,7 @@ a {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 .navbar {
   z-index: 1000;
@@ -138,6 +142,7 @@ a {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Mixins */
 /* Variable */
@@ -145,6 +150,7 @@ a {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Frames */
 @keyframes logo-rotate {
@@ -155,7 +161,7 @@ a {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -249,6 +255,7 @@ a {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Mixins */
 /* Variable */
@@ -256,6 +263,7 @@ a {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Frames */
 @keyframes logo-rotate {
@@ -266,7 +274,7 @@ a {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -329,6 +337,7 @@ a {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Extends */
 /* Contenedores de parrafo y video */
@@ -353,12 +362,75 @@ main .galery-container .img-container {
   justify-content: center;
 }
 
+/* Formularios de carga de datos */
+.system-container #access-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 0.7em;
+  border: 1px #f7963f solid;
+  outline: none;
+  padding: 0.35em 0.5em;
+  margin: 0.25em 0;
+}
+.system-container #access-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
+  background-color: #333;
+}
+
+.system-container #access-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
+  font-size: 1em;
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  align-self: flex-end;
+  width: 75%;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+}
+.system-container #access-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+.system-container .access-list-container, .system-container .ilumination-list-container {
+  border-radius: 1em;
+  width: 100%;
+  padding: 2em 2em 0;
+  margin: auto;
+}
+
+.system-container .access-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 1px #f7963f solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.system-container .access-list-container #lista-accesos .access-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+  color: #f7963f;
+  font-size: 1em;
+  background-color: transparent;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+  width: 75%;
+}
+.system-container .access-list-container #lista-accesos .access-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
 /* Mixins */
 /* Variable */
 /* Colores */
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Frames */
 @keyframes logo-rotate {
@@ -369,7 +441,7 @@ main .galery-container .img-container {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -489,6 +561,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 #contacto {
   /* Imagen de fondo */
@@ -523,6 +596,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Mixins */
 /* Variable */
@@ -530,6 +604,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Frames */
 @keyframes logo-rotate {
@@ -540,7 +615,7 @@ main .galery-container .img-container {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -589,6 +664,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 .form-border {
   border: 2px solid #f7963f;
@@ -627,6 +703,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Fonts */
 /* Tamanio fonts en textos */
@@ -637,6 +714,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Frames */
 @keyframes logo-rotate {
@@ -647,7 +725,7 @@ main .galery-container .img-container {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -663,6 +741,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Fonts */
 /* Tamanio fonts en textos */
@@ -673,6 +752,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Frames */
 @keyframes logo-rotate {
@@ -683,7 +763,7 @@ main .galery-container .img-container {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -810,6 +890,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Fonts */
 /* Tamanio fonts en textos */
@@ -820,6 +901,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Frames */
 @keyframes logo-rotate {
@@ -830,7 +912,7 @@ main .galery-container .img-container {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -880,6 +962,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Fonts */
 /* Tamanio fonts en textos */
@@ -890,6 +973,7 @@ main .galery-container .img-container {
 /* Opacidad */
 /* Margenes y paddings */
 /* Bordes */
+/* Border radius */
 /* Tamanios */
 /* Frames */
 @keyframes logo-rotate {
@@ -900,132 +984,7 @@ main .galery-container .img-container {
 /* Fin frames */
 /* Sistema */
 /* Contacto */
-/* Plataforma */
-/* Transiciones */
-/* Transformaciones */
-/* Animaciones */
-.user-container {
-  font-family: "Montserrat", sans-serif;
-  background-color: #222;
-  color: beige;
-  width: 80%;
-  border-radius: 1em;
-  padding: 2em;
-  margin: auto;
-}
-.user-container #user-form {
-  display: grid;
-  grid-template-columns: 35% 35% 30%;
-  grid-template-rows: 4em;
-  justify-items: center;
-  align-items: center;
-}
-.user-container #user-form .input-container {
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-}
-.user-container #user-form .input-container input {
-  padding: 0.35em 0.5em;
-  margin: 0.25em 0;
-  background-color: #222;
-  color: #f7963f;
-  border-radius: 0.7em;
-  border: 1px #f7963f solid;
-  outline: none;
-}
-.user-container #user-form .input-container input:focus {
-  background-color: #333;
-}
-.user-container #user-form input[type=submit] {
-  width: 75%;
-  font-size: 1em;
-  margin: 0.25em 0;
-  padding: 0.25em 0;
-  align-self: flex-end;
-  background-color: #222;
-  color: #f7963f;
-  border-radius: 1em;
-  border: 1px #f7963f solid;
-  outline: none;
-}
-.user-container #user-form input[type=submit]:hover {
-  background-color: #f7963f;
-  color: #222;
-}
-.user-container .user-list-container {
-  width: 100%;
-  border-radius: 1em;
-  padding: 2em 2em 0;
-  margin: auto;
-}
-.user-container .user-list-container .sist-encabezado {
-  text-align: center;
-  font-size: 1.5em;
-  border-bottom: 1px #f7963f solid;
-  padding-bottom: 0.5em;
-  margin-bottom: 1em;
-}
-.user-container .user-list-container ul .user-item {
-  padding: 0.5em 1em;
-  border-radius: 1em;
-  display: grid;
-  grid-template-columns: repeat(3, 33%);
-  grid-template-rows: repeat(2, 2em);
-  justify-items: center;
-  align-items: center;
-  justify-content: space-between;
-}
-.user-container .user-list-container ul .user-item:nth-child(2n+1) {
-  background-color: #333;
-}
-.user-container .user-list-container ul .user-item:nth-child(2n+1) button:hover {
-  background-color: #f7963f;
-  color: #333;
-}
-.user-container .user-list-container ul .user-item button {
-  width: 75%;
-  font-size: 1em;
-  margin: 0.25em 0;
-  padding: 0.25em 0;
-  background-color: transparent;
-  color: #f7963f;
-  border-radius: 1em;
-  border: 1px #f7963f solid;
-  outline: none;
-}
-.user-container .user-list-container ul .user-item button:hover {
-  background-color: #f7963f;
-  color: #222;
-}
-
-/* Estilos de la galeria */
-/* Fonts */
-/* Tamanio fonts en textos */
-/* Tamanio fonts en titulos */
-/* Variable */
-/* Colores */
-/* Opacidad */
-/* Margenes y paddings */
-/* Bordes */
-/* Tamanios */
-/* Mixins */
-/* Variable */
-/* Colores */
-/* Opacidad */
-/* Margenes y paddings */
-/* Bordes */
-/* Tamanios */
-/* Frames */
-@keyframes logo-rotate {
-  from {
-    transform: rotateY(360deg) scale(1.5);
-  }
-}
-/* Fin frames */
-/* Sistema */
-/* Contacto */
-/* Plataforma */
+/* Plataforma - formularios de carga de datos */
 /* Transiciones */
 /* Transformaciones */
 /* Animaciones */
@@ -1050,6 +1009,690 @@ main .galery-container .img-container {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+/* Formularios de carga de datos */
+.system-container #access-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 0.7em;
+  border: 1px #f7963f solid;
+  outline: none;
+  padding: 0.35em 0.5em;
+  margin: 0.25em 0;
+}
+.system-container #access-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
+  background-color: #333;
+}
+
+.system-container #access-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
+  font-size: 1em;
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  align-self: flex-end;
+  width: 75%;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+}
+.system-container #access-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+.system-container .access-list-container, .system-container .ilumination-list-container {
+  border-radius: 1em;
+  width: 100%;
+  padding: 2em 2em 0;
+  margin: auto;
+}
+
+.system-container .access-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 1px #f7963f solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.system-container .access-list-container #lista-accesos .access-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+  color: #f7963f;
+  font-size: 1em;
+  background-color: transparent;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+  width: 75%;
+}
+.system-container .access-list-container #lista-accesos .access-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Border radius */
+/* Tamanios */
+/* Fonts */
+/* Tamanio fonts en textos */
+/* Tamanio fonts en titulos */
+/* Mixins */
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Border radius */
+/* Tamanios */
+/* Frames */
+@keyframes logo-rotate {
+  from {
+    transform: rotateY(360deg) scale(1.5);
+  }
+}
+/* Fin frames */
+/* Sistema */
+/* Contacto */
+/* Plataforma - formularios de carga de datos */
+/* Transiciones */
+/* Transformaciones */
+/* Animaciones */
+/* Extends */
+/* Contenedores de parrafo y video */
+#sistema .container:last-child div .mi-card .mi-card-img-top .cover-container .sist-img img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Flex */
+main .title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main .galery-container .img-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Formularios de carga de datos */
+.system-container #access-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 0.7em;
+  border: 1px #f7963f solid;
+  outline: none;
+  padding: 0.35em 0.5em;
+  margin: 0.25em 0;
+}
+.system-container #access-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
+  background-color: #333;
+}
+
+.system-container #access-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
+  font-size: 1em;
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  align-self: flex-end;
+  width: 75%;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+}
+.system-container #access-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+.system-container .access-list-container, .system-container .ilumination-list-container {
+  border-radius: 1em;
+  width: 100%;
+  padding: 2em 2em 0;
+  margin: auto;
+}
+
+.system-container .access-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 1px #f7963f solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.system-container .access-list-container #lista-accesos .access-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+  color: #f7963f;
+  font-size: 1em;
+  background-color: transparent;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+  width: 75%;
+}
+.system-container .access-list-container #lista-accesos .access-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+.system-container #ilumination-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  grid-auto-rows: 3em;
+  justify-items: center;
+  align-items: center;
+}
+.system-container #ilumination-form .input-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+.system-container #ilumination-form input[type=submit] {
+  grid-column: 3/4;
+}
+.system-container .ilumination-list-container #lista-luminarias .luz-item {
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.system-container .ilumination-list-container #lista-luminarias .luz-item:nth-child(2n+1) {
+  background-color: #333;
+}
+.system-container .ilumination-list-container #lista-luminarias .luz-item:nth-child(2n+1) button:hover {
+  color: #333;
+  background-color: #f7963f;
+}
+.user-container, .system-container {
+  font-family: "Montserrat", sans-serif;
+  color: beige;
+  background-color: #222;
+  border-radius: 1em;
+  width: 80%;
+  padding: 2em;
+  margin: auto;
+}
+.user-container #user-form, .system-container #user-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(13em, 1fr));
+  grid-template-rows: 4em;
+  justify-items: center;
+  align-items: center;
+}
+.user-container #user-form .input-container, .system-container #user-form .input-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+.user-container .user-list-container, .system-container .user-list-container {
+  border-radius: 1em;
+  width: 100%;
+  padding: 2em 2em 0;
+  margin: auto;
+}
+.user-container .user-list-container .sist-encabezado, .system-container .user-list-container .sist-encabezado {
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 1px #f7963f solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+.user-container .user-list-container ul .user-item, .system-container .user-list-container ul .user-item {
+  border-radius: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(2, 2em);
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+}
+.user-container .user-list-container ul .user-item:nth-child(2n+1), .system-container .user-list-container ul .user-item:nth-child(2n+1) {
+  background-color: #333;
+}
+.user-container .user-list-container ul .user-item:nth-child(2n+1) button:hover, .system-container .user-list-container ul .user-item:nth-child(2n+1) button:hover {
+  color: #333;
+  background-color: #f7963f;
+}
+.user-container .user-list-container ul .user-item button, .system-container .user-list-container ul .user-item button {
+  color: #f7963f;
+  font-size: 1em;
+  background-color: transparent;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+  width: 75%;
+}
+.user-container .user-list-container ul .user-item button:hover, .system-container .user-list-container ul .user-item button:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Border radius */
+/* Tamanios */
+/* Fonts */
+/* Tamanio fonts en textos */
+/* Tamanio fonts en titulos */
+/* Mixins */
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Border radius */
+/* Tamanios */
+/* Frames */
+@keyframes logo-rotate {
+  from {
+    transform: rotateY(360deg) scale(1.5);
+  }
+}
+/* Fin frames */
+/* Sistema */
+/* Contacto */
+/* Plataforma - formularios de carga de datos */
+/* Transiciones */
+/* Transformaciones */
+/* Animaciones */
+/* Extends */
+/* Contenedores de parrafo y video */
+#sistema .container:last-child div .mi-card .mi-card-img-top .cover-container .sist-img img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Flex */
+main .title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main .galery-container .img-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Formularios de carga de datos */
+.system-container #access-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input {
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 0.7em;
+  border: 1px #f7963f solid;
+  outline: none;
+  padding: 0.35em 0.5em;
+  margin: 0.25em 0;
+}
+.system-container #access-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus {
+  background-color: #333;
+}
+
+.system-container #access-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit] {
+  font-size: 1em;
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  align-self: flex-end;
+  width: 75%;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+}
+.system-container #access-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+.system-container .access-list-container, .system-container .ilumination-list-container {
+  border-radius: 1em;
+  width: 100%;
+  padding: 2em 2em 0;
+  margin: auto;
+}
+
+.system-container .access-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 1px #f7963f solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.system-container .access-list-container #lista-accesos .access-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+  color: #f7963f;
+  font-size: 1em;
+  background-color: transparent;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+  width: 75%;
+}
+.system-container .access-list-container #lista-accesos .access-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+.system-container #ilumination-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  grid-auto-rows: 3em;
+  justify-items: center;
+  align-items: center;
+}
+.system-container #ilumination-form .input-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+.system-container #ilumination-form input[type=submit] {
+  grid-column: 3/4;
+}
+.system-container .ilumination-list-container #lista-luminarias .luz-item {
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.system-container .ilumination-list-container #lista-luminarias .luz-item:nth-child(2n+1) {
+  background-color: #333;
+}
+.system-container .ilumination-list-container #lista-luminarias .luz-item:nth-child(2n+1) button:hover {
+  color: #333;
+  background-color: #f7963f;
+}
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Border radius */
+/* Tamanios */
+/* Fonts */
+/* Tamanio fonts en textos */
+/* Tamanio fonts en titulos */
+/* Mixins */
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Border radius */
+/* Tamanios */
+/* Frames */
+@keyframes logo-rotate {
+  from {
+    transform: rotateY(360deg) scale(1.5);
+  }
+}
+/* Fin frames */
+/* Sistema */
+/* Contacto */
+/* Plataforma - formularios de carga de datos */
+/* Transiciones */
+/* Transformaciones */
+/* Animaciones */
+/* Extends */
+/* Contenedores de parrafo y video */
+#sistema .container:last-child div .mi-card .mi-card-img-top .cover-container .sist-img img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Flex */
+main .title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main .galery-container .img-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Formularios de carga de datos */
+.system-container #access-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input {
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 0.7em;
+  border: 1px #f7963f solid;
+  outline: none;
+  padding: 0.35em 0.5em;
+  margin: 0.25em 0;
+}
+.system-container #access-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus {
+  background-color: #333;
+}
+
+.system-container #access-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit] {
+  font-size: 1em;
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  align-self: flex-end;
+  width: 75%;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+}
+.system-container #access-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+.system-container .access-list-container, .system-container .ilumination-list-container {
+  border-radius: 1em;
+  width: 100%;
+  padding: 2em 2em 0;
+  margin: auto;
+}
+
+.system-container .access-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 1px #f7963f solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.system-container .access-list-container #lista-accesos .access-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+  color: #f7963f;
+  font-size: 1em;
+  background-color: transparent;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+  width: 75%;
+}
+.system-container .access-list-container #lista-accesos .access-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+.system-container #access-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  grid-auto-rows: 3em;
+  justify-items: center;
+  align-items: center;
+}
+.system-container #access-form .input-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+.system-container .access-list-container #lista-accesos .access-item {
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.system-container .access-list-container #lista-accesos .access-item:nth-child(2n+1) {
+  background-color: #333;
+}
+.system-container .access-list-container #lista-accesos .access-item:nth-child(2n+1) button:hover {
+  color: #333;
+  background-color: #f7963f;
+}
+/* Estilos de la galeria */
+/* Fonts */
+/* Tamanio fonts en textos */
+/* Tamanio fonts en titulos */
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Border radius */
+/* Tamanios */
+/* Mixins */
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Border radius */
+/* Tamanios */
+/* Frames */
+@keyframes logo-rotate {
+  from {
+    transform: rotateY(360deg) scale(1.5);
+  }
+}
+/* Fin frames */
+/* Sistema */
+/* Contacto */
+/* Plataforma - formularios de carga de datos */
+/* Transiciones */
+/* Transformaciones */
+/* Animaciones */
+/* Extends */
+/* Contenedores de parrafo y video */
+#sistema .container:last-child div .mi-card .mi-card-img-top .cover-container .sist-img img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Flex */
+main .title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main .galery-container .img-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Formularios de carga de datos */
+.system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #access-form .input-container input {
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 0.7em;
+  border: 1px #f7963f solid;
+  outline: none;
+  padding: 0.35em 0.5em;
+  margin: 0.25em 0;
+}
+.system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #access-form .input-container input:focus {
+  background-color: #333;
+}
+
+.system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #access-form input[type=submit] {
+  font-size: 1em;
+  color: #f7963f;
+  background-color: #222;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  align-self: flex-end;
+  width: 75%;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+}
+.system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover {
+  color: #222;
+  background-color: #f7963f;
+}
+
+.system-container .ilumination-list-container, .system-container .access-list-container {
+  border-radius: 1em;
+  width: 100%;
+  padding: 2em 2em 0;
+  margin: auto;
+}
+
+.system-container .ilumination-list-container .sist-encabezado, .system-container .access-list-container .sist-encabezado {
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 1px #f7963f solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.system-container .ilumination-list-container #lista-luminarias .luz-item button, .system-container .access-list-container #lista-accesos .access-item button {
+  color: #f7963f;
+  font-size: 1em;
+  background-color: transparent;
+  border-radius: 1em;
+  border: 1px #f7963f solid;
+  outline: none;
+  margin: 0.25em 0;
+  padding: 0.25em 0;
+  width: 75%;
+}
+.system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .system-container .access-list-container #lista-accesos .access-item button:hover {
+  color: #222;
+  background-color: #f7963f;
 }
 
 main .title-container {

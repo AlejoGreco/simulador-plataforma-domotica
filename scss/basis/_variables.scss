@@ -4,6 +4,7 @@ $font-primario: #f7963f;
 $font-secundario: beige;
 $font-hover: rgb(148, 148, 148);
 $dark: #444;
+$dark-middle: #333;
 $hover-dark: #666;
 $dark-opacity: #222;
 
@@ -16,6 +17,9 @@ $padding: .5em, 1em, 1.5em, 2em;
 
 /* Bordes */
 $border-form: 2px solid $font-primario;
+$border-platform: 1px $font-primario solid;
+/* Border radius */
+$base-radius: 1em;
 
 /* Tamanios */
 $logo-size: 4em;

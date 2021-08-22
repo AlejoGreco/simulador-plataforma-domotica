@@ -10,6 +10,7 @@
 </head>
 <body>
     <main>
+        <!-- Creacion de usuarios y visualizacion -->
         <div class="user-container">
             <form action="" id="user-form">
                 <div class="input-container">
@@ -39,13 +40,78 @@
                 <div class="sist-encabezado">
                     <h3>Usuarios registrados</h3>
                 </div>
-                <ul id="lista-user"></ul>
+                <ul id="lista-user">
+                    <!-- Usuarios agregados dinamicamento con js -->
+                </ul>
             </div>
-
-
-
+            <!-- Fin carga de usuarios y visualizacion -->
         </div>
         
+        <!-- Creacion de Smart homes -->
+        <!-- Creando Iluminacion -->
+        <div class="system-container">
+            <form action="" id="ilumination-form">
+                <div class="input-container">
+                    <label for="name">Nombre de luminaria</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="input-container">
+                    <label for="tipo">Tipo y potencia</label>
+                    <input type="text" id="tipo" required>
+                </div>
+                <div class="input-container">
+                    <label for="precio" required>Precio</label>
+                    <input type="text" id="precio">
+                </div>
+                <input type="submit" value="Crear luminaria">
+            </form>
+
+            <div class="ilumination-list-container">
+                <div class="sist-encabezado">
+                    <h3>Luminarias registradas</h3>
+                </div>
+                <ul id="lista-luminarias">
+                    <!-- Usuarios agregados dinamicamento con js -->
+                    <!-- <li class="luz-item">
+                        <p>Id: Patio 1</p>
+                        <p>Tipo: Led - Exterior</p>
+                        <p>Precio: 1500$</p>
+                        <button>Eliminar</button>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- Fin carga de usuarios y visualizacion -->
+        </div>
+        
+        <!-- Creando Accesos -->
+        <div class="system-container">
+            <form action="" id="access-form">
+                <div class="input-container">
+                    <label for="name">Nombre de acceso</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="input-container">
+                    <label for="tipo">Precio</label>
+                    <input type="text" id="tipo" required>
+                </div>
+                <input type="submit" value="Crear acceso">
+            </form>
+
+            <div class="access-list-container">
+                <div class="sist-encabezado">
+                    <h3>Accesos registrados</h3>
+                </div>
+                <ul id="lista-accesos">
+                    <!-- Usuarios agregados dinamicamento con js -->
+                    <li class="access-item">
+                        <p>Id: Puerta de calle</p>
+                        <p>Precio: 1500$</p>
+                        <button>Eliminar</button>
+                    </li>
+                </ul>
+            </div>
+            <!-- Fin carga de usuarios y visualizacion -->
+        </div>
 
 
 

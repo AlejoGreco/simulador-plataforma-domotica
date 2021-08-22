@@ -1,19 +1,21 @@
 @import '../../basis/variables';
 @import '../../basis/fonts';
 @import '../../special/mixins';
+@import '../../special/extends';
+@import 'luminarias';
 
 .user-container {
     font-family: $font-family-principal;
-    background-color: #222;
     color: $font-secundario;
+    background-color: $dark-opacity;
+    border-radius: $base-radius;
     width: 80%;
-    border-radius: 1em;
     padding: nth($padding, 4);
     margin: auto;
 
     #user-form {
         display: grid;
-        grid-template-columns: 35% 35% 30%;
+        grid-template-columns: repeat(3, minmax(13em,1fr));
         grid-template-rows: 4em;
         justify-items: center;
         align-items: center;
@@ -24,50 +26,27 @@
             width: 75%;
 
             input {
-                padding: nth($padding, 1)*.7 nth($padding, 1);
-                margin: nth($padding, 1)/2 0;
-                background-color: #222;
-                color: $font-primario;
-                border-radius: .7em;
-                border: 1px $font-primario solid;
-                outline: none;
+                @extend %inputs-forms-platform;
 
-                &:focus {
-                    background-color: #333;
-                }
             } 
         }
 
         input[type='submit'] {
-            width: 75%;
-            font-size: $font-size-base;
-            margin: nth($padding, 1)/2 0;
-            padding: nth($padding, 1)/2 0;
-            align-self: flex-end;
-            background-color: #222;
-            color: $font-primario;
-            border-radius: 1em;
-            border: 1px $font-primario solid;
-            outline: none;
-
-            &:hover {
-                background-color: $font-primario;
-                color: #222;
-            }
+            @extend %input-button-platform;
         }
     }
 
     // Lista de usuarios cargados
     .user-list-container {
+        border-radius: $base-radius;
         width: 100%;
-        border-radius: 1em;
         padding: nth($padding, 4) nth($padding, 4) 0;
         margin: auto;
     
         .sist-encabezado {
             text-align: center;
             font-size: $font-size-cards-titles;
-            border-bottom: 1px $font-primario solid;
+            border-bottom: $border-platform;
             padding-bottom: nth($padding, 1);
             margin-bottom: nth($margin, 2);
         }
@@ -75,38 +54,38 @@
         ul {
         
             .user-item {
-                padding: nth($padding, 1) nth($padding, 2);
-                border-radius: 1em;
+                border-radius: $base-radius;
                 display: grid;
                 grid-template-columns: repeat(3, 33%);
                 grid-template-rows: repeat(2, 2em);
                 justify-items: center;
                 align-items: center;
                 justify-content: space-between;
+                padding: nth($padding, 1) nth($padding, 2);
     
                 &:nth-child(2n+1){
-                    background-color: #333;
+                    background-color: $dark-middle;
                     
                     button:hover {
-                        background-color: $font-primario;
-                        color: #333;
+                       color: $dark-middle;
+                       background-color: $font-primario;
                     }
                 }   
                 
                 button {
-                    width: 75%;
+                    color: $font-primario;
                     font-size: $font-size-base;
+                    background-color: transparent;
+                    border-radius: $base-radius;
+                    border: $border-platform;
+                    outline: none;
                     margin: nth($padding, 1)/2 0;
                     padding: nth($padding, 1)/2 0;
-                    background-color: transparent;
-                    color: $font-primario;
-                    border-radius: 1em;
-                    border: 1px $font-primario solid;
-                    outline: none;
+                    width: 75%;
 
                     &:hover {
+                        color: $dark-opacity;
                         background-color: $font-primario;
-                        color: #222;
                     }
                 }
             }
