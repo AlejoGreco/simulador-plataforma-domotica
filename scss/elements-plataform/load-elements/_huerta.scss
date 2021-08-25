@@ -1,0 +1,145 @@
+@import '../../basis/variables';
+@import '../../basis/fonts';
+@import '../../special/mixins';
+@import '../../special/extends';
+
+.system-container {
+    @extend .user-container;
+
+    #huerta-form {
+
+        .sensors-container {
+            
+            .sub-form {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+                grid-auto-rows: 3em;
+                justify-items: center;
+                align-items: center;
+    
+                .input-container {
+                    display: flex;
+                    flex-direction: column;
+                    width: 75%;
+        
+                    select {
+                        @extend %inputs-forms-platform;
+                    }   
+    
+                }
+    
+                input[type='button'] {
+                    @extend %buttons-dinamic-list;
+                    align-self: flex-end;
+                }
+            }
+
+            .sensores-list-container {
+                @extend %container-dinamic-list;
+            
+                .sist-encabezado {
+                    font-size: $font-size-cards-titles * 0.7;
+                    
+                    h4 {
+                        display: inline-block;
+                        border-bottom: $border-platform;
+                        border-right: $border-platform;
+                        padding: 0 nth($padding, 2) nth($padding, 1) 0;
+                        margin-bottom: nth($margin, 2);
+                    }
+                    
+                }
+        
+                #lista-sensores {
+        
+                    .sensor-item {
+                        @include list-item(3);
+                        align-items: center;
+        
+                        &:nth-child(2n+1){
+                            background-color: $dark-middle;
+        
+                            button:hover {
+                                color: $dark-middle;
+                                background-color: $font-primario;
+                             }
+                        }
+        
+                        input[type="button"] {
+                            @extend %buttons-dinamic-list;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sub-form:nth-child(2) {
+            margin-top: nth($margin, 3);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+            grid-auto-rows: 3em;
+            justify-items: center;
+            align-items: center;
+
+            .input-container {
+                display: flex;
+                flex-direction: column;
+                width: 75%;
+
+                &:first-child{
+                    flex-direction: row;
+                }
+    
+                input {
+                    @extend %inputs-forms-platform;
+
+                }   
+                input[type='checkbox']{
+                    margin-left: nth($margin, 2 );
+                }
+
+            }
+
+            input[type='submit'] {
+                @extend %buttons-dinamic-list;
+                align-self: flex-end;
+            }
+        }
+    }
+
+    .huerta-list-container {
+        @extend %container-dinamic-list;
+
+        .sist-encabezado {
+            @extend %header-dinamic-list;
+        }
+
+        #lista-huertas {
+
+            .huerta-item {
+                @include list-item(2);
+                align-items: center;
+
+                &:nth-child(2n+1){
+                    background-color: $dark-middle;
+
+                    button:hover {
+                        color: $dark-middle;
+                        background-color: $font-primario;
+                     }
+                }
+                
+                p {
+                    margin-top: nth($margin, 2);
+                }
+
+                button {
+                    @extend %buttons-dinamic-list;
+                    grid-column: 1 / 3;
+                    width: 50% !important;
+                    margin-top: nth($margin, 3) !important;
+                }
+            }
+        }
+    }
+}

@@ -199,6 +199,14 @@ class SmartHome {
         this.climatizadores.push(new Climatizador(info[0], info[1]));
         return this.climatizadores;
     }
+
+    crearHuertaSystem(pFormHuerta){
+        let info = extraerInfoForm(pFormHuerta);
+        // Creo el nuevo accesoy la agrego al arregle de la smart home temporal
+        this.huertas.push(new Huerta(actualSensorsArray, info[0], info[1]));
+        actualSensorsArray = [];
+        return this.huertas;
+    }
     ////////////////////////////////////////////////////////////////////
 
     obtenerSistema(tipoDeSistema){
@@ -400,6 +408,38 @@ class Huerta {
         this.precio = pPrecio * ( 1 + 0.15 * this.sensores.length);
     }
 
+    obtenerInfoRegistro(){
+        let numTem = [0, 0]; // [total, total ambiente]
+        let numHum = [0, 0];
+        let numNivel = 0;
+        let riego = 'NO';
+        for(let sensor of this.sensores){
+            if(sensor.tipo.startsWith('Temperatura')){
+                ++numTem[0];
+                if(sensor.ubicacion.startsWith('Ambiente')){
+                    numTem[1]++;
+                }
+            }else if(sensor.tipo.startsWith('Humedad')){
+                numHum[0]++;
+                if(sensor.ubicacion.startsWith('Ambiente')){
+                    numHum[1]++;
+                }
+            }
+            else{
+                numNivel++;
+            }
+
+            if(this.riego[1]){
+                riego = 'SI';
+            }
+        }
+        return `<p>Sensores de temperatura<br>Ambiente: ${numTem[1]} - Suelo: ${numTem[0] - numTem[1]}</p>
+        <p>Sensores de nivel: ${numNivel}</p>
+        <p>Sensores de humedad<br>Ambiente: ${numHum[1]} - Suelo: ${numHum[0] - numHum[1]}</p>
+        <p>Riego automatico ${riego}</p>
+        <button>Eliminar huerta</button>`;
+    }
+
     obtenerHuerta(){
         const huertaHTML = [];
         
@@ -494,6 +534,12 @@ class Sensor {
         return hum;
     }
 
+    obtenerInfoRegistro(){
+        return `<p>Sensor: ${this.tipo}</p>
+        <p>Ubicacion: ${this.ubicacion}</p>
+        <input type="button" value="Eliminar">`;
+    }
+
     obtenerSensor(){
         let objetoHtml = document.createElement('DIV');
         objetoHtml.innerHTML = `
@@ -549,55 +595,18 @@ const extraerInfoForm = pForm => {
     // Recorro los elementos del formulario y extraigo los datos
     for(let elemento of elementos){
         if(elemento.type != 'submit'){
-            contenido[i++] = elemento.lastElementChild.value;
-        }  
+            if(elemento.lastElementChild.type != 'checkbox'){
+                contenido[i++] = elemento.lastElementChild.value;
+            }
+            else {
+                contenido[i++] = elemento.lastElementChild.checked;
+            }
+        }
     }
     return contenido;
 }
 
-// Visualizacion de usuarios 
-const mostrarUsuarios = (pUsuarios) => {
-    const fragmento = document.createDocumentFragment();
-    const listaDeUsuarios = document.getElementById('lista-user');
-    let userInfo;
-    for(let user of pUsuarios){
-        userInfo = document.createElement('LI');
-        userInfo.classList.add('user-item');
-        userInfo.innerHTML = user.obtenerUsuario();
-        fragmento.appendChild(userInfo);
-    }
-    listaDeUsuarios.innerHTML = '';
-    listaDeUsuarios.appendChild(fragmento);
-}
-
-const mostrarLuminarias = (pLuminarias) => {
-    const fragmento = document.createDocumentFragment();
-    const listaDeLuminarias = document.getElementById('lista-luminarias');
-    let luzInfo;
-    for(let luz of pLuminarias){
-        luzInfo = document.createElement('LI');
-        luzInfo.classList.add('luz-item');
-        luzInfo.innerHTML = luz.obtenerLuzInfo();
-        fragmento.appendChild(luzInfo);
-    }
-    listaDeLuminarias.innerHTML = '';
-    listaDeLuminarias.appendChild(fragmento);
-}
-
-const mostrarAccesos = (pAccesos) => {
-    const fragmento = document.createDocumentFragment();
-    const listaDeAccesos = document.getElementById('lista-accesos');
-    let accesoInfo;
-    for(let acceso of pAccesos){
-        accesoInfo = document.createElement('LI');
-        accesoInfo.classList.add('access-clima-item');
-        accesoInfo.innerHTML = acceso.obtenerAccesoInfo();
-        fragmento.appendChild(accesoInfo);
-    }
-    listaDeAccesos.innerHTML = '';
-    listaDeAccesos.appendChild(fragmento);
-}
-
+// Visualizar la lista de los elemenots de sistemas
 const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
     const fragmento = document.createDocumentFragment();
     let listaId = '';
@@ -618,7 +627,15 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
         case 'clima':
             listaId= 'lista-climas';
             classNameLI = 'access-clima-item';
-        break;
+            break;
+        case 'sensores':
+            listaId= 'lista-sensores';
+            classNameLI = 'sensor-item';
+            break;
+        case 'huerta':
+            listaId= 'lista-huertas';
+            classNameLI = 'huerta-item';
+            break;
     }
     const listaDeItems = document.getElementById(listaId);
     let itemInfo;
@@ -649,6 +666,10 @@ const formIlumination = document.getElementById('ilumination-form');
 const formAccess = document.getElementById('access-form');
 // Climatizadores
 const formClima = document.getElementById('clima-form');
+// Huertas
+const crearSensorButton = document.getElementById('sensor-create-button');
+const formHuerta = document.getElementById('huerta-form');
+let actualSensorsArray = [];
 
 // Events listeners
 // User form
@@ -682,7 +703,49 @@ formClima.addEventListener('submit', (e) => {
     mostrarItemsRegistrados(actualSmartHome.crearClimaSystem(form), 'clima');
 });
 
-mostrarUsuarios(admin.usuarios);
+// Huerta
+// Creacion de sensores para la huerta
+crearSensorButton.addEventListener('click', (e) => {
+    const tipoSensor = document.getElementById('tipo-sensor');
+    const ubiSensor = document.getElementById('ubi-sensor');
+    let tipo;
+    let ubicacion;
+    if(tipoSensor.value != 'Tipo' && ubiSensor.value != 'Ubicacion'){
+        switch (tipoSensor.value){
+            case '1':
+                tipo = 'Temperatura';
+                break;
+            case '2':
+                tipo = 'Humedad';
+                break;
+            case '3':
+                tipo = 'Nivel';
+                break;
+        }
+
+        switch (ubiSensor.value){
+            case '1':
+                ubicacion = 'Ambiente';
+                break;
+            case '2':
+                ubicacion = 'Suelo';
+                break;
+            case '3':
+                ubicacion = 'Riego';
+                break;
+        }
+        actualSensorsArray.push(new Sensor(tipo + ` ${actualSensorsArray.length + 1}`,ubicacion));
+        mostrarItemsRegistrados(actualSensorsArray, 'sensores');
+    }
+});
+
+// Creacion de huerta
+formHuerta.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target.lastElementChild;
+    mostrarItemsRegistrados(actualSmartHome.crearHuertaSystem(form), 'huerta');
+});
+
 
 
 

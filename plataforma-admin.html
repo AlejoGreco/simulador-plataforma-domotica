@@ -132,6 +132,65 @@
             </div>
         </div>
 
+        <!-- Creando huertas -->
+        <div class="system-container">
+            <form action="" id="huerta-form">
+                <div class="sensors-container">
+                    <div class="sub-form">
+                        <div class="input-container">
+                            <label for="tipo-sensor">Tipo de sensor</label>
+                            <select id="tipo-sensor">
+                                <option selected>Tipo</option>
+                                <option value="1">Temperatura</option>
+                                <option value="2">Humedad</option>
+                                <option value="3">Nivel</option>
+                            </select>
+                        </div>
+                        <div class="input-container">
+                            <label for="ubi-sensor">Ubicacion del sensor</label>
+                            <select id="ubi-sensor">
+                                <option selected>Ubicacion</option>
+                                <option value="1">Ambiente</option>
+                                <option value="2">Suelo</option>
+                                <option value="3">Riego</option>
+                            </select>
+                        </div>
+                        <input type="button" value="Crear Sensor" id="sensor-create-button">
+                    </div>
+                    <div class="sensores-list-container">
+                        <div class="sist-encabezado">
+                            <h4>Sensores registrados</h4>
+                        </div>
+                        <ul id="lista-sensores">
+                            <!-- Sensores agregados dinamicamento con js -->
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="sub-form">
+                    <div class="input-container">
+                        <label for="riego">Riego automatico</label>
+                        <input type="checkbox" id="riego">
+                    </div>
+                    <div class="input-container">
+                        <label for="precio">Precio</label>
+                        <input type="text" id="precio" required>
+                    </div>
+                    <input type="submit" value="Crear huerta">
+                </div>
+            </form>
+
+            <div class="huerta-list-container">
+                <div class="sist-encabezado">
+                    <h3>Huertas registrados</h3>
+                </div>
+                <ul id="lista-huertas">
+                    <!-- Huertas agregados dinamicamento con js -->
+                </ul>
+            </div>
+        </div>
+
 
 
     </main>
