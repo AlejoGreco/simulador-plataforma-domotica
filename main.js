@@ -202,11 +202,18 @@ class SmartHome {
 
     crearHuertaSystem(pFormHuerta){
         let info = extraerInfoForm(pFormHuerta);
-        // Creo el nuevo accesoy la agrego al arregle de la smart home temporal
+        // Creo la nueva huerta, la agrego al arregle de la smart home temporal y limpio el arreglo de sensores
         this.huertas.push(new Huerta(actualSensorsArray, info[0], info[1]));
         actualSensorsArray = [];
         return this.huertas;
     }
+
+    crearPoolSystem(pFormPool){
+        let info = traducirInfoPool(extraerInfoPoolForm(pFormPool));
+        // Creo el nuevo control de piscina y la agrego al arregle de la smart home temporal
+        this.pool.push(new Pool([new Luz(info[0], info[1], 0), new Luz(info[3], info[4], 0)], [info[2], info[5]], info[6]));
+        return this.pool;
+    }    
     ////////////////////////////////////////////////////////////////////
 
     obtenerSistema(tipoDeSistema){
@@ -551,16 +558,20 @@ class Sensor {
 }
 
 class Pool {
-    constructor(pLuz, pCantidadLuz, pPrecio){
-        this.luces = [pLuz, pCantidadLuz];
-        this.precio = pPrecio + this.luces[0].precio * this.luces[1];
+    constructor(pLuces, pCantidades, pPrecio){
+        this.luces = pLuces;    // Arreglo de 2 luces
+        this.cantidades = pCantidades;  // Arreglo de cantidades de las 2 luces anteriores
+        this.precio = pPrecio;
         this.estado = 'off';
     }
 
-    obtenerPool(){
-        return `Luces: ${this.luces[0].tipo} - ${this.luces[0].potencia}
-        Cantidad de luces: ${this.luces[1]}
-        Estado de la bomba: ${this.estado}`;
+    obtenerInfoRegistro(){
+        return `<p>Luces exteriores: ${this.cantidades[0]}</p>
+        <p>Luces sumergibles: ${this.cantidades[1]}</p>
+        <p>Precio sistema: $${this.precio}</p>
+        <p>${this.luces[0].tipoPot}</p>
+        <p>${this.luces[1].tipoPot}</p>
+        <button>Eliminar</button>`;
     }
 
     modificarEstado(pEstado){
@@ -606,6 +617,76 @@ const extraerInfoForm = pForm => {
     return contenido;
 }
 
+// Extrar informacion de formulario POOL de smart home
+const extraerInfoPoolForm = pForm => {
+    const form = pForm;
+    const elementos = form.children;
+    let contenido = [];
+    let i = 0;
+
+    // Recorro los elementos del formulario y extraigo los datos
+    for(let elemento of elementos){
+        if(elemento.type != 'submit'){
+            // Chequeo que no sean el div que contiene 4 hijos (las 2 cantidades)
+            if(elemento.classList.contains('input-container')){
+                contenido[i++] = elemento.lastElementChild.value;
+            }
+            else {
+                // Saco la info seleccionando el elemento correcto de cantidad
+                contenido[i++] = elemento.firstElementChild.lastElementChild.value;
+                contenido[i++] = elemento.lastElementChild.lastElementChild.value;
+            }
+        }
+    }
+    return contenido;
+}
+const traducirInfoPool = (pPoolInfo) => {
+    const cantidad = [];
+    const info = [];
+    let indiceCantidad = 0;
+    let indice = 0;
+
+    for(let dato of pPoolInfo){
+        // Si es numerico ya se que son las cantidades de las luces
+        // Si no son tipo y potencia de las luces
+        if(isNaN(parseInt(dato))){
+            switch (dato){
+                case 'a':
+                    info[indice++] = 'RGB';
+                    break;
+                case 'b':
+                    info[indice++] = 'Calida';
+                    break;
+                case 'c':
+                    info[indice++] = 'Fria';
+                    break;
+                case 'd':
+                    info[indice++] = '12 watts';
+                    break;
+                case 'e':
+                    info[indice++] = '16 watts';
+                    break;
+                case 'f':
+                    info[indice++] = '24 watts';
+                    break;
+            }
+        }
+        else {
+            cantidad[indiceCantidad++] = dato;
+        }  
+    }
+    let infoFinal = [];
+    infoFinal[0] = 'Luminarias exteriores';
+    infoFinal[1] = info[0] + ' ' + info[1];
+    infoFinal[2] = cantidad[0];
+    infoFinal[3] = 'Luminarias sumergibles';
+    infoFinal[4] = info[2] + ' ' + info[3];
+    infoFinal[5] = cantidad[1];
+    infoFinal[6] = cantidad[2]; // precio
+    return infoFinal;
+}
+
+
 // Visualizar la lista de los elemenots de sistemas
 const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
     const fragmento = document.createDocumentFragment();
@@ -635,6 +716,10 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
         case 'huerta':
             listaId= 'lista-huertas';
             classNameLI = 'huerta-item';
+            break;
+        case 'pool':
+            listaId= 'lista-pool';
+            classNameLI = 'pool-item';
             break;
     }
     const listaDeItems = document.getElementById(listaId);
@@ -670,6 +755,8 @@ const formClima = document.getElementById('clima-form');
 const crearSensorButton = document.getElementById('sensor-create-button');
 const formHuerta = document.getElementById('huerta-form');
 let actualSensorsArray = [];
+// Pool
+const formPool = document.getElementById('pool-form');
 
 // Events listeners
 // User form
@@ -744,6 +831,18 @@ formHuerta.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target.lastElementChild;
     mostrarItemsRegistrados(actualSmartHome.crearHuertaSystem(form), 'huerta');
+});
+
+// Creacion de piscina
+formPool.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    /* const tipoSensor = document.getElementById('tipo-sensor');
+    const ubiSensor = document.getElementById('ubi-sensor');
+    const tipoSensor = document.getElementById('tipo-sensor');
+    const ubiSensor = document.getElementById('ubi-sensor');
+    if(tipoSensor.value != 'Tipo' && ubiSensor.value != 'Ubicacion'){
+     */mostrarItemsRegistrados(actualSmartHome.crearPoolSystem(form), 'pool');
 });
 
 

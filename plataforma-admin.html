@@ -191,8 +191,71 @@
             </div>
         </div>
 
+        <!-- Creando piletas -->
+        <div class="system-container">
+            <form action="" id="pool-form">
+                <div class="input-container">
+                    <label for="lum-ext">Luminarias exteriores</label>
+                    <select id="lum-ext">
+                        <option selected>Tipo</option>
+                        <option value="a">RGB</option>
+                        <option value="b">Calida</option>
+                        <option value="c">Fria</option>
+                    </select>
+                </div>
+                <div class="input-container">
+                    <label for="potencia-ext">Potencia exteriores</label>
+                    <select id="potencia-ext">
+                        <option selected>Potencia</option>
+                        <option value="d">12 watts</option>
+                        <option value="e">16 watts</option>
+                        <option value="f">24 watts</option>
+                    </select>
+                </div>
+                <div class="input-cantidad-container">
+                    <div class="input-container">
+                        <label for="nro-ext">Nro. Exteriores</label>
+                        <input type="number" id="nro-ext">
+                    </div>
+                    <div class="input-container">
+                        <label for="nro-int">Nro. Sumergibles</label>
+                        <input type="number" id="nro-int">
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="lum-sum">Luminarias sumergibles</label>
+                    <select id="lum-sum">
+                        <option selected>Tipo</option>
+                        <option value="a">RGB</option>
+                        <option value="b">Calida</option>
+                        <option value="c">Fria</option>
+                    </select>
+                </div>
+                <div class="input-container">
+                    <label for="potencia-sum">Potencia sumergibles</label>
+                    <select id="potencia-sum">
+                        <option selected>Potencia</option>
+                        <option value="d">12 watts</option>
+                        <option value="e">16 watts</option>
+                        <option value="f">24 watts</option>
+                    </select>
+                </div>
+                <div class="input-container">
+                    <label for="precio-pool">Precio del sistema</label>
+                    <input type="text" id="precio-pool">
+                </div>
+                <input type="submit" value="Crear piscina">
+            </form>
 
-
+            <div class="pool-list-container">
+                <div class="sist-encabezado">
+                    <h3>Piscinas registradas</h3>
+                </div>
+                <ul id="lista-pool">
+                    <!-- Piscinas agregados dinamicamento con js -->
+                </ul>
+            </div>
+        </div>
     </main>
     <script src="main.js"></script>
 </body>
