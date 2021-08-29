@@ -35,46 +35,6 @@ class Admin {
     }
 
     crearSmartHome(){
-        let nuevoId = this.smartHomes.length + 1;
-        let respuesta = '';
-
-        this.smartHomes.push(new SmartHome(nuevoId,[],[],[],[],[]));
-
-        // Carga de sistema de luminarias
-        respuesta = prompt('Desea agregar luminarias inteligentes (s/n)?');
-        while(respuesta == 's' || respuesta == 'S'){
-            this.smartHomes[nuevoId - 1].agregarElementoDeSistema('luz');
-            respuesta = prompt('Desea agregar una nueva (s/n)?');
-        }
-
-        // Carga de estufas / caloventores / aires
-        respuesta = prompt('Desea agregar elementos climatizadores (aires acondicionados / estufas)(s/n)?');
-        while(respuesta == 's' || respuesta == 'S'){
-            this.smartHomes[nuevoId - 1].agregarElementoDeSistema('climatizador');
-            respuesta = prompt('Desea agregar uno nuevo (s/n)?');
-        }
-
-        // Carga de cerraduras inteligentes
-        respuesta = prompt('Desea agregar cerraduras inteligentes en los accesos al hogar(s/n)?');
-        while(respuesta == 's' || respuesta == 'S'){
-            this.smartHomes[nuevoId - 1].agregarElementoDeSistema('acceso');
-            respuesta = prompt('Desea agregar uno nuevo (s/n)?');
-        }
-
-        respuesta = prompt('Desea agregar huerta inteligente (s/n)?');
-        // Carga de huertas inteligentes
-        while(respuesta == 's' || respuesta == 'S'){
-            this.smartHomes[nuevoId - 1].agregarElementoDeSistema('huerta');
-            respuesta = prompt('Desea agregar otra huerta inteligente (s/n)?');
-        }
-
-        respuesta = prompt('Desea agregar control de piscinas (s/n)?');
-        // Carga de control de piscinas
-        while(respuesta == 's' || respuesta == 'S'){
-            this.smartHomes[nuevoId - 1].agregarElementoDeSistema('pool');
-            respuesta = prompt('Desea agregar otro control de piscinas (s/n)?');
-        }
-        return nuevoId;
     }
 }
 
@@ -511,15 +471,6 @@ class Huerta {
             resultado = false;
         }
         return divRiego;
-    }
-
-    agregarSensor(){
-        let infoAdmin = '';
-        let infoArray = [];
-        infoAdmin = prompt(`Sistema de control de cultivos\nIngrese los parametros de los sensores separados por guiones medios (Tipo-Modelo)\nEj: Temperatura de Suelo-HL 69`);
-        infoArray = infoAdmin.split('-');
-        this.sensores.push(new Sensor(infoArray[0], infoArray[1]));
-        return this.sensores.length;
     }
 }
 
