@@ -710,6 +710,7 @@ let actualSensorsArray = [];
 const formPool = document.getElementById('pool-form');
 
 // Events listeners
+
 // User form
 formUser.addEventListener('submit', (e) => {
     e.preventDefault();

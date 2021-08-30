@@ -363,7 +363,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input {
+.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -372,11 +372,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus {
+.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #pool-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit] {
+.system-container #pool-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -388,9 +388,18 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #pool-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover {
+.system-container #pool-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
+}
+
+.system-container, .user-container {
+  font-family: "Montserrat", sans-serif;
+  color: beige;
+  background-color: #222;
+  border-radius: 1.3em;
+  padding: 2em;
+  margin: auto;
 }
 
 .system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container {
@@ -1012,7 +1021,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input {
+.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1021,11 +1030,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus {
+.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #pool-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit] {
+.system-container #pool-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1037,9 +1046,18 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #pool-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover {
+.system-container #pool-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
+}
+
+.system-container, .user-container {
+  font-family: "Montserrat", sans-serif;
+  color: beige;
+  background-color: #222;
+  border-radius: 1.3em;
+  padding: 2em;
+  margin: auto;
 }
 
 .system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container {
@@ -1073,41 +1091,36 @@ main .galery-container .img-container {
   background-color: #f7963f;
 }
 
-.user-container, .system-container {
-  font-family: "Montserrat", sans-serif;
-  color: beige;
-  background-color: #222;
-  border-radius: 1em;
-  width: 80%;
-  padding: 2em;
-  margin: auto;
+.user-container {
+  width: 85%;
 }
-.user-container #user-form, .system-container #user-form {
+.user-container #user-form {
   display: grid;
   grid-template-columns: repeat(3, minmax(13em, 1fr));
   grid-template-rows: 4em;
+  grid-gap: 0.8em 0;
   justify-items: center;
   align-items: center;
 }
-.user-container #user-form .input-container, .system-container #user-form .input-container {
+.user-container #user-form .input-container {
   display: flex;
   flex-direction: column;
   width: 75%;
 }
-.user-container .user-list-container, .system-container .user-list-container {
+.user-container .user-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
-.user-container .user-list-container .sist-encabezado, .system-container .user-list-container .sist-encabezado {
+.user-container .user-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
   padding-bottom: 0.5em;
   margin-bottom: 1em;
 }
-.user-container .user-list-container ul .user-item, .system-container .user-list-container ul .user-item {
+.user-container .user-list-container ul .user-item {
   border-radius: 1em;
   display: grid;
   grid-template-columns: repeat(3, 33%);
@@ -1117,14 +1130,14 @@ main .galery-container .img-container {
   justify-content: space-between;
   padding: 0.5em 1em;
 }
-.user-container .user-list-container ul .user-item:nth-child(2n+1), .system-container .user-list-container ul .user-item:nth-child(2n+1) {
+.user-container .user-list-container ul .user-item:nth-child(2n+1) {
   background-color: #333;
 }
-.user-container .user-list-container ul .user-item:nth-child(2n+1) button:hover, .system-container .user-list-container ul .user-item:nth-child(2n+1) button:hover {
+.user-container .user-list-container ul .user-item:nth-child(2n+1) button:hover {
   color: #333;
   background-color: #f7963f;
 }
-.user-container .user-list-container ul .user-item button, .system-container .user-list-container ul .user-item button {
+.user-container .user-list-container ul .user-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1135,7 +1148,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.user-container .user-list-container ul .user-item button:hover, .system-container .user-list-container ul .user-item button:hover {
+.user-container .user-list-container ul .user-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
@@ -1195,7 +1208,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input {
+.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #ilumination-form .input-container input, .user-container #user-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1204,11 +1217,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus {
+.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .user-container #user-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #pool-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit] {
+.system-container #pool-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .system-container #ilumination-form input[type=submit], .user-container #user-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1220,9 +1233,18 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #pool-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover {
+.system-container #pool-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
+}
+
+.system-container, .user-container {
+  font-family: "Montserrat", sans-serif;
+  color: beige;
+  background-color: #222;
+  border-radius: 1.3em;
+  padding: 2em;
+  margin: auto;
 }
 
 .system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container {
@@ -1256,10 +1278,14 @@ main .galery-container .img-container {
   background-color: #f7963f;
 }
 
+.system-container {
+  width: 100%;
+}
 .system-container #ilumination-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
-  grid-auto-rows: 3em;
+  grid-auto-rows: 4em;
+  grid-gap: 0.8em 0;
   justify-items: center;
   align-items: center;
 }
@@ -1342,7 +1368,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
+.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .user-container #user-form .input-container input, .system-container #ilumination-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1351,11 +1377,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
+.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .user-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #pool-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
+.system-container #pool-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .user-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1367,9 +1393,18 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #pool-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
+.system-container #pool-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
+}
+
+.user-container, .system-container {
+  font-family: "Montserrat", sans-serif;
+  color: beige;
+  background-color: #222;
+  border-radius: 1.3em;
+  padding: 2em;
+  margin: auto;
 }
 
 .system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container {
@@ -1403,6 +1438,9 @@ main .galery-container .img-container {
   background-color: #f7963f;
 }
 
+.system-container {
+  width: 100%;
+}
 .system-container #access-form, .system-container #clima-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
@@ -1486,7 +1524,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input, .system-container #access-form .input-container input, .system-container #clima-form .input-container input {
+.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .user-container #user-form .input-container input, .system-container #ilumination-form .input-container input, .system-container #access-form .input-container input, .system-container #clima-form .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1495,11 +1533,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus {
+.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .user-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #pool-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit] {
+.system-container #pool-form input[type=submit], .user-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1511,9 +1549,18 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #pool-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover {
+.system-container #pool-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
+}
+
+.user-container, .system-container {
+  font-family: "Montserrat", sans-serif;
+  color: beige;
+  background-color: #222;
+  border-radius: 1.3em;
+  padding: 2em;
+  margin: auto;
 }
 
 .system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .ilumination-list-container, .system-container .access-clima-list-container {
@@ -1547,10 +1594,13 @@ main .galery-container .img-container {
   background-color: #f7963f;
 }
 
+.system-container {
+  width: 100%;
+}
 .system-container #huerta-form .sensors-container .sub-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
-  grid-auto-rows: 3em;
+  grid-auto-rows: 4em;
   justify-items: center;
   align-items: center;
 }
@@ -1562,15 +1612,18 @@ main .galery-container .img-container {
 .system-container #huerta-form .sensors-container .sub-form input[type=button] {
   align-self: flex-end;
 }
+.system-container #huerta-form .sensors-container .sensores-list-container {
+  padding: 1.5em 1.5em 0 !important;
+}
 .system-container #huerta-form .sensors-container .sensores-list-container .sist-encabezado {
-  font-size: 1.05em;
+  font-size: 0.6em;
 }
 .system-container #huerta-form .sensors-container .sensores-list-container .sist-encabezado h4 {
   display: inline-block;
   border-bottom: 1px #f7963f solid;
   border-right: 1px #f7963f solid;
   padding: 0 1em 0.5em 0;
-  margin-bottom: 1em;
+  /* margin-bottom: nth($margin, 2); */
 }
 .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item {
   padding: 0.5em 1em;
@@ -1690,7 +1743,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input {
+.system-container #pool-form .input-container input, .system-container #pool-form .input-container select, .user-container #user-form .input-container input, .system-container #ilumination-form .input-container input, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1699,11 +1752,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus {
+.system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus, .user-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus {
   background-color: #333;
 }
 
-.system-container #pool-form input[type=submit], .user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit] {
+.system-container #pool-form input[type=submit], .user-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1715,9 +1768,18 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.system-container #pool-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover {
+.system-container #pool-form input[type=submit]:hover, .user-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
+}
+
+.user-container, .system-container {
+  font-family: "Montserrat", sans-serif;
+  color: beige;
+  background-color: #222;
+  border-radius: 1.3em;
+  padding: 2em;
+  margin: auto;
 }
 
 .system-container .pool-list-container, .system-container .ilumination-list-container, .system-container .access-clima-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .huerta-list-container {
@@ -1751,10 +1813,13 @@ main .galery-container .img-container {
   background-color: #f7963f;
 }
 
+.system-container {
+  width: 100%;
+}
 .system-container #pool-form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
-  grid-auto-rows: 3em;
+  grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
+  grid-auto-rows: 4.1em;
   justify-items: center;
   align-items: center;
   grid-gap: 0.8em 0;
@@ -1766,12 +1831,12 @@ main .galery-container .img-container {
 }
 .system-container #pool-form .input-cantidad-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 75%;
 }
 .system-container #pool-form .input-cantidad-container .input-container {
-  width: 30%;
-  margin: 0 0.5em;
+  width: 38%;
 }
 .system-container #pool-form input[type=submit] {
   grid-column: 3/4;
@@ -1794,6 +1859,55 @@ main .galery-container .img-container {
   color: #333;
   background-color: #f7963f;
 }
+/* Variable */
+/* Colores */
+/* Opacidad */
+/* Margenes y paddings */
+/* Bordes */
+/* Border radius */
+/* Tamanios */
+/* Fonts */
+/* Tamanio fonts en textos */
+/* Tamanio fonts en titulos */
+.menu-principal {
+  background-color: #222 !important;
+  color: beige;
+  border: none;
+  border-top-left-radius: 0.5em !important;
+  border-top-right-radius: 0.5em !important;
+}
+.menu-principal:hover {
+  color: #f7963f !important;
+  border-bottom: none;
+}
+.menu-principal.active {
+  background-color: #333 !important;
+  color: #f7963f !important;
+  border: none;
+}
+
+.fondo-plataforma {
+  background-color: #333;
+}
+
+.sub-menu {
+  background-color: #222 !important;
+  border-radius: 1em !important;
+  padding: 0.5em;
+}
+.sub-menu .sub-menu-item {
+  background-color: #222 !important;
+  color: beige !important;
+  border-radius: 1em;
+}
+.sub-menu .sub-menu-item.active {
+  background-color: #333 !important;
+  color: #f7963f !important;
+}
+.sub-menu .sub-menu-item:hover {
+  color: #f7963f !important;
+}
+
 /* Estilos de la galeria */
 /* Fonts */
 /* Tamanio fonts en textos */
@@ -1850,7 +1964,7 @@ main .galery-container .img-container {
 }
 
 /* Formularios de carga de datos */
-.user-container #user-form .input-container input, .system-container #user-form .input-container input, .system-container #ilumination-form .input-container input, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #pool-form .input-container input, .system-container #pool-form .input-container select {
+.user-container #user-form .input-container input, .system-container #ilumination-form .input-container input, .system-container #access-form .input-container input, .system-container #clima-form .input-container input, .system-container #huerta-form .sensors-container .sub-form .input-container select, .system-container #huerta-form .sub-form:nth-child(2) .input-container input, .system-container #pool-form .input-container input, .system-container #pool-form .input-container select {
   color: #f7963f;
   background-color: #222;
   border-radius: 0.7em;
@@ -1859,11 +1973,11 @@ main .galery-container .img-container {
   padding: 0.35em 0.5em;
   margin: 0.25em 0;
 }
-.user-container #user-form .input-container input:focus, .system-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus {
+.user-container #user-form .input-container input:focus, .system-container #ilumination-form .input-container input:focus, .system-container #access-form .input-container input:focus, .system-container #clima-form .input-container input:focus, .system-container #huerta-form .sensors-container .sub-form .input-container select:focus, .system-container #huerta-form .sub-form:nth-child(2) .input-container input:focus, .system-container #pool-form .input-container input:focus, .system-container #pool-form .input-container select:focus {
   background-color: #333;
 }
 
-.user-container #user-form input[type=submit], .system-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .system-container #pool-form input[type=submit] {
+.user-container #user-form input[type=submit], .system-container #ilumination-form input[type=submit], .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit], .system-container #pool-form input[type=submit] {
   font-size: 1em;
   color: #f7963f;
   background-color: #222;
@@ -1875,9 +1989,18 @@ main .galery-container .img-container {
   margin: 0.25em 0;
   padding: 0.25em 0;
 }
-.user-container #user-form input[type=submit]:hover, .system-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .system-container #pool-form input[type=submit]:hover {
+.user-container #user-form input[type=submit]:hover, .system-container #ilumination-form input[type=submit]:hover, .system-container #access-form input[type=submit]:hover, .system-container #clima-form input[type=submit]:hover, .system-container #pool-form input[type=submit]:hover {
   color: #222;
   background-color: #f7963f;
+}
+
+.user-container, .system-container {
+  font-family: "Montserrat", sans-serif;
+  color: beige;
+  background-color: #222;
+  border-radius: 1.3em;
+  padding: 2em;
+  margin: auto;
 }
 
 .system-container .ilumination-list-container, .system-container .access-clima-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .huerta-list-container, .system-container .pool-list-container {

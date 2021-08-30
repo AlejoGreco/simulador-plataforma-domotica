@@ -64,6 +64,16 @@
     }
 }
 
+// Contenedor de form de carga
+%load-elemtens-container {
+    font-family: $font-family-principal;
+    color: $font-secundario;
+    background-color: $dark-opacity;
+    border-radius: $base-radius * 1.3;
+    padding: nth($padding, 4);
+    margin: auto;
+}
+
 // Lista dinamica plataforma
 %container-dinamic-list {
     border-radius: $base-radius;

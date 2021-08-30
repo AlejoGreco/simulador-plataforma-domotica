@@ -4,18 +4,14 @@
 @import '../../special/extends';
 
 .user-container {
-    font-family: $font-family-principal;
-    color: $font-secundario;
-    background-color: $dark-opacity;
-    border-radius: $base-radius;
-    width: 80%;
-    padding: nth($padding, 4);
-    margin: auto;
+    @extend %load-elemtens-container;
+    width: 85%;
 
     #user-form {
         display: grid;
         grid-template-columns: repeat(3, minmax(13em,1fr));
         grid-template-rows: 4em;
+        grid-gap: .8em 0;
         justify-items: center;
         align-items: center;
 

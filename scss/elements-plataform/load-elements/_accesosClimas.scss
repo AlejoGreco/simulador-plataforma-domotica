@@ -4,6 +4,8 @@
 @import '../../special/extends';
 
 .system-container {
+    @extend %load-elemtens-container;
+    width: 100%;
 
     #access-form, #clima-form {
         display: grid;

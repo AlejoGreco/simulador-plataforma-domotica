@@ -1,0 +1,45 @@
+@import '../basis/variables';
+@import '../basis/fonts';
+
+.menu-principal {
+    background-color: #222 !important;
+    color: $font-secundario ;
+    border: none;
+    border-top-left-radius: .5em !important;
+    border-top-right-radius: .5em !important;
+    
+    &:hover {
+        color: $font-primario !important;
+        border-bottom: none;
+    }
+
+    &.active {
+        background-color: #333 !important;
+        color: $font-primario !important;
+        border: none;
+     }
+}
+
+.fondo-plataforma {
+    background-color: #333;
+}
+
+.sub-menu {
+    background-color: #222 !important;
+    border-radius: 1em !important;
+    padding: nth($padding, 1);
+    
+    .sub-menu-item {
+        background-color: #222 !important;
+        color: $font-secundario !important;
+        border-radius: 1em;
+    
+        &.active {
+            background-color: #333 !important;
+            color: $font-primario !important;
+        }
+         &:hover {
+            color: $font-primario !important;
+        }
+    }
+}
