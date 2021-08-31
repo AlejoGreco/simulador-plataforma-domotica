@@ -1,5 +1,6 @@
 @import '../../basis/variables';
 @import '../../basis/fonts';
+@import '../../basis/reset';
 @import '../../special/mixins';
 @import '../../special/extends';
 
@@ -7,11 +8,19 @@
     @extend %load-elemtens-container;
     width: 85%;
 
+    .user-header {
+        padding: 0 nth($padding, 4);
+
+        h2 {
+            @extend %header-form-list;
+        }
+    }
+    
     #user-form {
         display: grid;
         grid-template-columns: repeat(3, minmax(13em,1fr));
-        grid-template-rows: 4em;
-        grid-gap: .8em 0;
+        grid-template-rows: $auto-row-size;
+        grid-gap: $gap-base 0;
         justify-items: center;
         align-items: center;
 
@@ -22,7 +31,6 @@
 
             input {
                 @extend %inputs-forms-platform;
-
             } 
         }
 
@@ -33,17 +41,10 @@
 
     // Lista de usuarios cargados
     .user-list-container {
-        border-radius: $base-radius;
-        width: 100%;
-        padding: nth($padding, 4) nth($padding, 4) 0;
-        margin: auto;
+        @extend %container-dinamic-list;
     
         .sist-encabezado {
-            text-align: center;
-            font-size: $font-size-cards-titles;
-            border-bottom: $border-platform;
-            padding-bottom: nth($padding, 1);
-            margin-bottom: nth($margin, 2);
+            @extend %header-dinamic-list;
         }
 
         ul {
@@ -52,9 +53,10 @@
                 border-radius: $base-radius;
                 display: grid;
                 grid-template-columns: repeat(3, 33%);
-                grid-template-rows: repeat(2, 2em);
+                grid-template-rows: repeat(2, $auto-row-size * .7);
                 justify-items: center;
                 align-items: center;
+                align-content: center;
                 justify-content: space-between;
                 padding: nth($padding, 1) nth($padding, 2);
     
@@ -66,22 +68,13 @@
                        background-color: $font-primario;
                     }
                 }   
+
+                p {
+                    margin: 0;
+                }
                 
                 button {
-                    color: $font-primario;
-                    font-size: $font-size-base;
-                    background-color: transparent;
-                    border-radius: $base-radius;
-                    border: $border-platform;
-                    outline: none;
-                    margin: nth($padding, 1)/2 0;
-                    padding: nth($padding, 1)/2 0;
-                    width: 75%;
-
-                    &:hover {
-                        color: $dark-opacity;
-                        background-color: $font-primario;
-                    }
+                    @extend %buttons-dinamic-list;
                 }
             }
         }

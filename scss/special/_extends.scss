@@ -74,6 +74,14 @@
     margin: auto;
 }
 
+%header-form-list {
+    text-align: center;
+    font-size: $font-size-section-titles;
+    padding-bottom: nth($padding, 1);
+    margin-bottom: nth($margin, 2);
+    border-bottom: $border-platform;
+}
+
 // Lista dinamica plataforma
 %container-dinamic-list {
     border-radius: $base-radius;

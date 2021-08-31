@@ -37,7 +37,7 @@
 
             .sensores-list-container {
                 @extend %container-dinamic-list;
-                padding: nth($padding, 3) nth($padding, 3) 0 !important;
+                padding: nth($padding, 3) nth($padding, 4) + .5em 0 !important;
             
                 .sist-encabezado {
                     font-size: $font-size-cards-titles * 0.4;
@@ -46,7 +46,7 @@
                         display: inline-block;
                         border-bottom: $border-platform;
                         border-right: $border-platform;
-                        padding: 0 nth($padding, 2) nth($padding, 1) 0;
+                        padding: 0 nth($padding, 1) nth($padding, 1) 0;
                         /* margin-bottom: nth($margin, 2); */
                     }
                     
@@ -79,7 +79,7 @@
             margin-top: nth($margin, 3);
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
-            grid-auto-rows: 3em;
+            grid-auto-rows: $auto-row-size;
             justify-items: center;
             align-items: center;
 

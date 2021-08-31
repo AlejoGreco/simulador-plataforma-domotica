@@ -7,11 +7,19 @@
     @extend %load-elemtens-container;
     width: 100%;
 
+    .system-header {
+        padding: 0 nth($padding, 4);
+
+        h2 {
+            @extend %header-form-list;
+        }
+    }
+
     #ilumination-form {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
-        grid-auto-rows: 4em;
-        grid-gap: .8em 0;
+        grid-auto-rows: $auto-row-size;
+        grid-gap: $gap-base 0;
         justify-items: center;
         align-items: center;
 

@@ -402,14 +402,22 @@ main .galery-container .img-container {
   margin: auto;
 }
 
-.system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container {
+.system-container .system-header h2, .user-container .user-header h2 {
+  text-align: center;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px #f7963f solid;
+}
+
+.system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container, .user-container .user-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .pool-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+.system-container .pool-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado, .user-container .user-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -417,7 +425,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .pool-list-container #lista-pool .pool-item button, .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+.system-container .pool-list-container #lista-pool .pool-item button, .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button, .user-container .user-list-container ul .user-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -428,7 +436,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .user-container .user-list-container ul .user-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
@@ -976,6 +984,26 @@ main .galery-container .img-container {
 /* Fonts */
 /* Tamanio fonts en textos */
 /* Tamanio fonts en titulos */
+/* Reseteo de listas y enlaces */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  font-size: 16px;
+}
+
 /* Mixins */
 /* Variable */
 /* Colores */
@@ -1060,14 +1088,22 @@ main .galery-container .img-container {
   margin: auto;
 }
 
-.system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container {
+.system-container .system-header h2, .user-container .user-header h2 {
+  text-align: center;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px #f7963f solid;
+}
+
+.system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container, .user-container .user-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .pool-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+.system-container .pool-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado, .user-container .user-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -1075,7 +1111,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .pool-list-container #lista-pool .pool-item button, .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+.system-container .pool-list-container #lista-pool .pool-item button, .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button, .user-container .user-list-container ul .user-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1086,13 +1122,16 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .user-container .user-list-container ul .user-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
 
 .user-container {
   width: 85%;
+}
+.user-container .user-header {
+  padding: 0 2em;
 }
 .user-container #user-form {
   display: grid;
@@ -1107,26 +1146,14 @@ main .galery-container .img-container {
   flex-direction: column;
   width: 75%;
 }
-.user-container .user-list-container {
-  border-radius: 1em;
-  width: 100%;
-  padding: 2em 2em 0;
-  margin: auto;
-}
-.user-container .user-list-container .sist-encabezado {
-  text-align: center;
-  font-size: 1.5em;
-  border-bottom: 1px #f7963f solid;
-  padding-bottom: 0.5em;
-  margin-bottom: 1em;
-}
 .user-container .user-list-container ul .user-item {
   border-radius: 1em;
   display: grid;
   grid-template-columns: repeat(3, 33%);
-  grid-template-rows: repeat(2, 2em);
+  grid-template-rows: repeat(2, 2.8em);
   justify-items: center;
   align-items: center;
+  align-content: center;
   justify-content: space-between;
   padding: 0.5em 1em;
 }
@@ -1137,22 +1164,9 @@ main .galery-container .img-container {
   color: #333;
   background-color: #f7963f;
 }
-.user-container .user-list-container ul .user-item button {
-  color: #f7963f;
-  font-size: 1em;
-  background-color: transparent;
-  border-radius: 1em;
-  border: 1px #f7963f solid;
-  outline: none;
-  margin: 0.25em 0;
-  padding: 0.25em 0;
-  width: 75%;
+.user-container .user-list-container ul .user-item p {
+  margin: 0;
 }
-.user-container .user-list-container ul .user-item button:hover {
-  color: #222;
-  background-color: #f7963f;
-}
-
 /* Variable */
 /* Colores */
 /* Opacidad */
@@ -1247,14 +1261,22 @@ main .galery-container .img-container {
   margin: auto;
 }
 
-.system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container {
+.system-container .system-header h2, .user-container .user-header h2 {
+  text-align: center;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px #f7963f solid;
+}
+
+.system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container, .user-container .user-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .pool-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+.system-container .pool-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado, .user-container .user-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -1262,7 +1284,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .pool-list-container #lista-pool .pool-item button, .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+.system-container .pool-list-container #lista-pool .pool-item button, .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button, .user-container .user-list-container ul .user-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1273,13 +1295,16 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .user-container .user-list-container ul .user-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
 
 .system-container {
   width: 100%;
+}
+.system-container .system-header {
+  padding: 0 2em;
 }
 .system-container #ilumination-form {
   display: grid;
@@ -1407,14 +1432,22 @@ main .galery-container .img-container {
   margin: auto;
 }
 
-.system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .system-container .ilumination-list-container {
+.user-container .user-header h2, .system-container .system-header h2 {
+  text-align: center;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px #f7963f solid;
+}
+
+.system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .access-clima-list-container, .user-container .user-list-container, .system-container .ilumination-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .pool-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
+.system-container .pool-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .user-container .user-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -1422,7 +1455,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .pool-list-container #lista-pool .pool-item button, .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
+.system-container .pool-list-container #lista-pool .pool-item button, .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .user-container .user-list-container ul .user-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1433,7 +1466,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
+.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .user-container .user-list-container ul .user-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
@@ -1444,7 +1477,7 @@ main .galery-container .img-container {
 .system-container #access-form, .system-container #clima-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
-  grid-auto-rows: 3em;
+  grid-auto-rows: 4em;
   justify-items: center;
   align-items: center;
 }
@@ -1452,6 +1485,9 @@ main .galery-container .img-container {
   display: flex;
   flex-direction: column;
   width: 75%;
+}
+.system-container #access-form input[type=submit], .system-container #clima-form input[type=submit] {
+  align-self: flex-end;
 }
 .system-container .access-clima-list-container #lista-accesos .access-clima-item, .system-container .access-clima-list-container #lista-climas .access-clima-item {
   padding: 0.5em 1em;
@@ -1563,14 +1599,22 @@ main .galery-container .img-container {
   margin: auto;
 }
 
-.system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .ilumination-list-container, .system-container .access-clima-list-container {
+.user-container .user-header h2, .system-container .system-header h2 {
+  text-align: center;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px #f7963f solid;
+}
+
+.system-container .pool-list-container, .system-container .huerta-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .user-container .user-list-container, .system-container .ilumination-list-container, .system-container .access-clima-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .pool-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado {
+.system-container .pool-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .user-container .user-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -1578,7 +1622,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .pool-list-container #lista-pool .pool-item button, .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container .ilumination-list-container #lista-luminarias .luz-item button, .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button {
+.system-container .pool-list-container #lista-pool .pool-item button, .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sensors-container .sub-form input[type=button], .user-container .user-list-container ul .user-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button, .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1589,7 +1633,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover {
+.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .user-container .user-list-container ul .user-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
@@ -1613,7 +1657,7 @@ main .galery-container .img-container {
   align-self: flex-end;
 }
 .system-container #huerta-form .sensors-container .sensores-list-container {
-  padding: 1.5em 1.5em 0 !important;
+  padding: 1.5em 2.5em 0 !important;
 }
 .system-container #huerta-form .sensors-container .sensores-list-container .sist-encabezado {
   font-size: 0.6em;
@@ -1622,7 +1666,7 @@ main .galery-container .img-container {
   display: inline-block;
   border-bottom: 1px #f7963f solid;
   border-right: 1px #f7963f solid;
-  padding: 0 1em 0.5em 0;
+  padding: 0 0.5em 0.5em 0;
   /* margin-bottom: nth($margin, 2); */
 }
 .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item {
@@ -1645,7 +1689,7 @@ main .galery-container .img-container {
   margin-top: 1.5em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
-  grid-auto-rows: 3em;
+  grid-auto-rows: 4em;
   justify-items: center;
   align-items: center;
 }
@@ -1782,14 +1826,22 @@ main .galery-container .img-container {
   margin: auto;
 }
 
-.system-container .pool-list-container, .system-container .ilumination-list-container, .system-container .access-clima-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .huerta-list-container {
+.user-container .user-header h2, .system-container .system-header h2 {
+  text-align: center;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px #f7963f solid;
+}
+
+.system-container .pool-list-container, .user-container .user-list-container, .system-container .ilumination-list-container, .system-container .access-clima-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .huerta-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .pool-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado {
+.system-container .pool-list-container .sist-encabezado, .user-container .user-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -1797,7 +1849,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .pool-list-container #lista-pool .pool-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button, .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container .huerta-list-container #lista-huertas .huerta-item button {
+.system-container .pool-list-container #lista-pool .pool-item button, .user-container .user-list-container ul .user-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button, .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container .huerta-list-container #lista-huertas .huerta-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -1808,7 +1860,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .pool-list-container #lista-pool .pool-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover {
+.system-container .pool-list-container #lista-pool .pool-item button:hover, .user-container .user-list-container ul .user-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover {
   color: #222;
   background-color: #f7963f;
 }
@@ -1819,7 +1871,7 @@ main .galery-container .img-container {
 .system-container #pool-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
-  grid-auto-rows: 4.1em;
+  grid-auto-rows: 4em;
   justify-items: center;
   align-items: center;
   grid-gap: 0.8em 0;
@@ -1877,7 +1929,7 @@ main .galery-container .img-container {
   border-top-right-radius: 0.5em !important;
 }
 .menu-principal:hover {
-  color: #f7963f !important;
+  color: #f7963f;
   border-bottom: none;
 }
 .menu-principal.active {
@@ -1888,24 +1940,42 @@ main .galery-container .img-container {
 
 .fondo-plataforma {
   background-color: #333;
+  min-height: 76.5vh;
 }
 
 .sub-menu {
-  background-color: #222 !important;
-  border-radius: 1em !important;
-  padding: 0.5em;
+  background-color: #222;
+  border-radius: 1em;
+  padding: 1em;
 }
 .sub-menu .sub-menu-item {
-  background-color: #222 !important;
-  color: beige !important;
+  background-color: #222;
+  color: beige;
   border-radius: 1em;
 }
 .sub-menu .sub-menu-item.active {
-  background-color: #333 !important;
-  color: #f7963f !important;
+  background-color: #333;
+  color: #f7963f;
 }
 .sub-menu .sub-menu-item:hover {
-  color: #f7963f !important;
+  color: #f7963f;
+}
+.sub-menu .home-button-container {
+  padding-top: 1em;
+  margin-top: 1em;
+  border-top: 1px #f7963f solid;
+}
+.sub-menu .home-button-container button {
+  width: 100%;
+  border: 1px #f7963f solid;
+  background-color: transparent;
+  color: #f7963f;
+  border-radius: 1em;
+  padding: 0.5em;
+}
+.sub-menu .home-button-container button:hover {
+  color: beige;
+  background-color: #f7963f;
 }
 
 /* Estilos de la galeria */
@@ -2003,14 +2073,22 @@ main .galery-container .img-container {
   margin: auto;
 }
 
-.system-container .ilumination-list-container, .system-container .access-clima-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .huerta-list-container, .system-container .pool-list-container {
+.user-container .user-header h2, .system-container .system-header h2 {
+  text-align: center;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px #f7963f solid;
+}
+
+.user-container .user-list-container, .system-container .ilumination-list-container, .system-container .access-clima-list-container, .system-container #huerta-form .sensors-container .sensores-list-container, .system-container .huerta-list-container, .system-container .pool-list-container {
   border-radius: 1em;
   width: 100%;
   padding: 2em 2em 0;
   margin: auto;
 }
 
-.system-container .ilumination-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .pool-list-container .sist-encabezado {
+.user-container .user-list-container .sist-encabezado, .system-container .ilumination-list-container .sist-encabezado, .system-container .access-clima-list-container .sist-encabezado, .system-container .huerta-list-container .sist-encabezado, .system-container .pool-list-container .sist-encabezado {
   text-align: center;
   font-size: 1.5em;
   border-bottom: 1px #f7963f solid;
@@ -2018,7 +2096,7 @@ main .galery-container .img-container {
   margin-bottom: 1em;
 }
 
-.system-container .ilumination-list-container #lista-luminarias .luz-item button, .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container .pool-list-container #lista-pool .pool-item button {
+.user-container .user-list-container ul .user-item button, .system-container .ilumination-list-container #lista-luminarias .luz-item button, .system-container .access-clima-list-container #lista-accesos .access-clima-item button, .system-container .access-clima-list-container #lista-climas .access-clima-item button, .system-container #huerta-form .sensors-container .sub-form input[type=button], .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button], .system-container #huerta-form .sub-form:nth-child(2) input[type=submit], .system-container .huerta-list-container #lista-huertas .huerta-item button, .system-container .pool-list-container #lista-pool .pool-item button {
   color: #f7963f;
   font-size: 1em;
   background-color: transparent;
@@ -2029,7 +2107,7 @@ main .galery-container .img-container {
   padding: 0.25em 0;
   width: 75%;
 }
-.system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container .pool-list-container #lista-pool .pool-item button:hover {
+.user-container .user-list-container ul .user-item button:hover, .system-container .ilumination-list-container #lista-luminarias .luz-item button:hover, .system-container .access-clima-list-container #lista-accesos .access-clima-item button:hover, .system-container .access-clima-list-container #lista-climas .access-clima-item button:hover, .system-container #huerta-form .sensors-container .sub-form input[type=button]:hover, .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item input[type=button]:hover, .system-container #huerta-form .sub-form:nth-child(2) input[type=submit]:hover, .system-container .huerta-list-container #lista-huertas .huerta-item button:hover, .system-container .pool-list-container #lista-pool .pool-item button:hover {
   color: #222;
   background-color: #f7963f;
 }

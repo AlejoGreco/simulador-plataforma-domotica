@@ -2,44 +2,66 @@
 @import '../basis/fonts';
 
 .menu-principal {
-    background-color: #222 !important;
-    color: $font-secundario ;
+    background-color: $dark-opacity !important;
+    color: $font-secundario;
     border: none;
-    border-top-left-radius: .5em !important;
-    border-top-right-radius: .5em !important;
+    border-top-left-radius: $base-radius * .5 !important;
+    border-top-right-radius: $base-radius * .5 !important;
     
     &:hover {
-        color: $font-primario !important;
+        color: $font-primario;
         border-bottom: none;
     }
 
     &.active {
-        background-color: #333 !important;
+        background-color: $dark-middle !important;
         color: $font-primario !important;
         border: none;
      }
 }
 
 .fondo-plataforma {
-    background-color: #333;
+    background-color: $dark-middle;
+    min-height: 76.5vh;
 }
 
 .sub-menu {
-    background-color: #222 !important;
-    border-radius: 1em !important;
-    padding: nth($padding, 1);
+    background-color: $dark-opacity;
+    border-radius: $base-radius;
+    padding: nth($padding, 2);
     
     .sub-menu-item {
-        background-color: #222 !important;
-        color: $font-secundario !important;
-        border-radius: 1em;
+        background-color: $dark-opacity;
+        color: $font-secundario;
+        border-radius: $base-radius;
+        //margin-bottom: nth($margin, 1);
     
         &.active {
-            background-color: #333 !important;
-            color: $font-primario !important;
+            background-color: $dark-middle;
+            color: $font-primario;
         }
-         &:hover {
-            color: $font-primario !important;
+
+        &:hover {
+            color: $font-primario;
         }
     }
+    .home-button-container {
+        padding-top: nth($padding, 2);
+        margin-top: nth($margin, 2);  
+        border-top: $border-platform;      
+
+        button {
+            width: 100%;
+            border: $border-platform;
+            background-color: transparent;
+            color: $font-primario;
+            border-radius: $base-radius;
+            padding: nth($padding, 1);
+
+            &:hover {
+                color: $font-secundario;
+                background-color: $font-primario;
+            }
+        }
+    }   
 }

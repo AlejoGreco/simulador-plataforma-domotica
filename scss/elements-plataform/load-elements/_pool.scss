@@ -10,10 +10,10 @@
     #pool-form {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
-        grid-auto-rows: 4.1em;
+        grid-auto-rows: $auto-row-size;
         justify-items: center;
         align-items: center;
-        grid-gap: .8em 0;
+        grid-gap: $gap-base 0;
 
         .input-container {
             display: flex;
@@ -55,7 +55,7 @@
             .pool-item {
                 @include list-item(3);
                 align-items: center;
-                grid-gap: .8em 0;
+                grid-gap: $gap-base 0;
                 padding: nth($padding, 2) 0 !important;
 
                 &:nth-child(2n+1){
