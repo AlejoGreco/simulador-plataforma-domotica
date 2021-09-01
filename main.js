@@ -34,6 +34,13 @@ class Admin {
         return this.usuarios;
     }
 
+    almacenarUsuarios(){
+        if(localStorage.getItem('usuarios')){
+            localStorage.removeItem('usuarios');
+        }
+        localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
+    }
+
     crearSmartHome(){
     }
 }
@@ -643,42 +650,58 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
     const fragmento = document.createDocumentFragment();
     let listaId = '';
     let classNameLI = '';
+    let noItem = '';
     switch (pSistema){
         case 'usuarios':
             listaId= 'lista-user';
             classNameLI = 'user-item';
+            noItem = 'No hay usuarios registrados';
             break;
         case 'luces':
             listaId= 'lista-luminarias';
             classNameLI = 'luz-item';
+            noItem = 'No hay luminarias cargados';
             break;
         case 'accesos':
             listaId= 'lista-accesos';
             classNameLI = 'access-clima-item';
+            noItem = 'No hay accesos cargados';
             break;
         case 'clima':
             listaId= 'lista-climas';
             classNameLI = 'access-clima-item';
+            noItem = 'No hay climatizadores cargados';
             break;
         case 'sensores':
             listaId= 'lista-sensores';
             classNameLI = 'sensor-item';
+            noItem = 'No hay sensores cargados';
             break;
         case 'huerta':
             listaId= 'lista-huertas';
             classNameLI = 'huerta-item';
+            noItem = 'No hay huertas cargadas';
             break;
         case 'pool':
             listaId= 'lista-pool';
             classNameLI = 'pool-item';
+            noItem = 'No hay piscinas cargadas';
             break;
     }
     const listaDeItems = document.getElementById(listaId);
     let itemInfo;
-    for(let item of pArrayItems){
+    if(pArrayItems.length > 0){
+        for(let item of pArrayItems){
+            itemInfo = document.createElement('LI');
+            itemInfo.classList.add(classNameLI);
+            itemInfo.innerHTML = item.obtenerInfoRegistro();
+            fragmento.appendChild(itemInfo);
+        }
+    }
+    else {
         itemInfo = document.createElement('LI');
-        itemInfo.classList.add(classNameLI);
-        itemInfo.innerHTML = item.obtenerInfoRegistro();
+        itemInfo.classList.add('no-item');
+        itemInfo.innerHTML = noItem;
         fragmento.appendChild(itemInfo);
     }
     listaDeItems.innerHTML = '';
@@ -690,6 +713,8 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
 
 // Variables para el sistema de carga de datos
 const admin = new Admin();
+let usuariosCargados;
+let smartHomesCargadas;
 
 // Variables creacion de usuarios
 const formUser = document.getElementById('user-form');
@@ -716,6 +741,7 @@ formUser.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
     mostrarItemsRegistrados(admin.crearUsuario(form), 'usuarios');
+    admin.almacenarUsuarios(); // Guardo en el storage (reemplazo el submit)
     //form.submit();
 });
 
@@ -796,6 +822,27 @@ formPool.addEventListener('submit', (e) => {
     if(tipoSensor.value != 'Tipo' && ubiSensor.value != 'Ubicacion'){
      */mostrarItemsRegistrados(actualSmartHome.crearPoolSystem(form), 'pool');
 });
+
+// Programa
+
+// Busco mi lista de usuarios creada con anterioridad
+usuariosCargados = localStorage.getItem('usuarios');
+if(usuariosCargados){
+    // JSON.parse devuelve tipo object (no tipo user -> no tengo sus metodos)
+    admin.usuarios = JSON.parse(usuariosCargados).map(userObj => {
+        // Utilizo map para crear un array nuevo de tipo Usuarios
+        const usuario = new Usuario();
+        Object.assign(usuario, userObj);
+        // Con Object.assign asigno las propiedes leidas al usuario
+        return usuario;
+    });
+}
+
+// Busco mi lista de smart homes creada con anterioridad
+/* Codigo */
+
+// Grafico mi lista de usuarios
+mostrarItemsRegistrados(admin.usuarios, 'usuarios');
 
 
 

@@ -48,6 +48,14 @@
         }
 
         ul {
+            .no-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: nth($padding, 1) nth($padding, 2);
+                background-color: $dark-middle;
+                border-radius: $base-radius;
+            }
         
             .user-item {
                 border-radius: $base-radius;

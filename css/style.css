@@ -1146,6 +1146,14 @@ main .galery-container .img-container {
   flex-direction: column;
   width: 75%;
 }
+.user-container .user-list-container ul .no-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  background-color: #333;
+  border-radius: 1em;
+}
 .user-container .user-list-container ul .user-item {
   border-radius: 1em;
   display: grid;
