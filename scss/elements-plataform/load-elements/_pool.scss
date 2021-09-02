@@ -1,5 +1,6 @@
 @import '../../basis/variables';
 @import '../../basis/fonts';
+@import '../../basis/reset';
 @import '../../special/mixins';
 @import '../../special/extends';
 
@@ -51,6 +52,15 @@
         }
 
         #lista-pool {
+
+            .no-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: nth($padding, 1) nth($padding, 2);
+                background-color: $dark-middle;
+                border-radius: $base-radius;
+            }
 
             .pool-item {
                 @include list-item(3);

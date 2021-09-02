@@ -1185,6 +1185,26 @@ main .galery-container .img-container {
 /* Fonts */
 /* Tamanio fonts en textos */
 /* Tamanio fonts en titulos */
+/* Reseteo de listas y enlaces */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  font-size: 16px;
+}
+
 /* Mixins */
 /* Variable */
 /* Colores */
@@ -1330,6 +1350,14 @@ main .galery-container .img-container {
 .system-container #ilumination-form input[type=submit] {
   grid-column: 3/4;
 }
+.system-container .ilumination-list-container #lista-luminarias .no-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  background-color: #333;
+  border-radius: 1em;
+}
 .system-container .ilumination-list-container #lista-luminarias .luz-item {
   padding: 0.5em 1em;
   border-radius: 0.5em;
@@ -1356,6 +1384,26 @@ main .galery-container .img-container {
 /* Fonts */
 /* Tamanio fonts en textos */
 /* Tamanio fonts en titulos */
+/* Reseteo de listas y enlaces */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  font-size: 16px;
+}
+
 /* Mixins */
 /* Variable */
 /* Colores */
@@ -1497,6 +1545,14 @@ main .galery-container .img-container {
 .system-container #access-form input[type=submit], .system-container #clima-form input[type=submit] {
   align-self: flex-end;
 }
+.system-container .access-clima-list-container #lista-accesos .no-item, .system-container .access-clima-list-container #lista-climas .no-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  background-color: #333;
+  border-radius: 1em;
+}
 .system-container .access-clima-list-container #lista-accesos .access-clima-item, .system-container .access-clima-list-container #lista-climas .access-clima-item {
   padding: 0.5em 1em;
   border-radius: 0.5em;
@@ -1523,6 +1579,26 @@ main .galery-container .img-container {
 /* Fonts */
 /* Tamanio fonts en textos */
 /* Tamanio fonts en titulos */
+/* Reseteo de listas y enlaces */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  font-size: 16px;
+}
+
 /* Mixins */
 /* Variable */
 /* Colores */
@@ -1677,6 +1753,14 @@ main .galery-container .img-container {
   padding: 0 0.5em 0.5em 0;
   /* margin-bottom: nth($margin, 2); */
 }
+.system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .no-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  background-color: #333;
+  border-radius: 1em;
+}
 .system-container #huerta-form .sensors-container .sensores-list-container #lista-sensores .sensor-item {
   padding: 0.5em 1em;
   border-radius: 0.5em;
@@ -1715,6 +1799,14 @@ main .galery-container .img-container {
 .system-container #huerta-form .sub-form:nth-child(2) input[type=submit] {
   align-self: flex-end;
 }
+.system-container .huerta-list-container #lista-huertas .no-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  background-color: #333;
+  border-radius: 1em;
+}
 .system-container .huerta-list-container #lista-huertas .huerta-item {
   padding: 0.5em 1em;
   border-radius: 0.5em;
@@ -1750,6 +1842,26 @@ main .galery-container .img-container {
 /* Fonts */
 /* Tamanio fonts en textos */
 /* Tamanio fonts en titulos */
+/* Reseteo de listas y enlaces */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  font-size: 16px;
+}
+
 /* Mixins */
 /* Variable */
 /* Colores */
@@ -1901,6 +2013,14 @@ main .galery-container .img-container {
 .system-container #pool-form input[type=submit] {
   grid-column: 3/4;
 }
+.system-container .pool-list-container #lista-pool .no-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  background-color: #333;
+  border-radius: 1em;
+}
 .system-container .pool-list-container #lista-pool .pool-item {
   padding: 0.5em 1em;
   border-radius: 0.5em;
@@ -1926,6 +2046,26 @@ main .galery-container .img-container {
 /* Bordes */
 /* Border radius */
 /* Tamanios */
+/* Reseteo de listas y enlaces */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  font-size: 16px;
+}
+
 /* Fonts */
 /* Tamanio fonts en textos */
 /* Tamanio fonts en titulos */
@@ -1972,6 +2112,10 @@ main .galery-container .img-container {
   padding-top: 1em;
   margin-top: 1em;
   border-top: 1px #f7963f solid;
+}
+.sub-menu .home-button-container:last-child {
+  margin-top: 0;
+  border-top: none;
 }
 .sub-menu .home-button-container button {
   width: 100%;

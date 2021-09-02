@@ -102,7 +102,8 @@
                         <a class="nav-link sub-menu-item" id="v-pills-climas-tab" data-bs-toggle="pill" href="#v-pills-climas" role="tab" aria-controls="v-pills-climas" aria-selected="false">Climatizadores</a>
                         <a class="nav-link sub-menu-item" id="v-pills-huertas-tab" data-bs-toggle="pill" href="#v-pills-huertas" role="tab" aria-controls="v-pills-huertas" aria-selected="false">Huertas</a>
                         <a class="nav-link sub-menu-item" id="v-pills-pools-tab" data-bs-toggle="pill" href="#v-pills-pools" role="tab" aria-controls="v-pills-pools" aria-selected="false">Piscinas</a>
-                        <div class="home-button-container"><button>Crear Home</button></div>     
+                        <div class="home-button-container"><button id="create-home-button">Crear Home</button></div>
+                        <div class="home-button-container"><button id="descartar-home-button">Descartar home</button></div>     
                     </div>
                     <div class="tab-content w-100 px-3" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-luces" role="tabpanel" aria-labelledby="v-pills-luces-tab">
@@ -133,6 +134,7 @@
                                     </div>
                                     <ul id="lista-luminarias">
                                         <!-- Lumunarias agregadas dinamicamente con js -->
+                                        <li class="no-item">No hay luminarias cargadas en la home actual</li>
                                     </ul>
                                 </div>
                                 <!-- Fin carga de Luminarias y visualizacion -->
@@ -162,6 +164,7 @@
                                     </div>
                                     <ul id="lista-accesos">
                                         <!-- Accesos agregados dinamicamento con js -->
+                                        <li class="no-item">No hay accesos cargados en la home actual</li>
                                     </ul>
                                 </div>
                                 <!-- Fin carga de accesos y visualizacion -->
@@ -191,6 +194,7 @@
                                     </div>
                                     <ul id="lista-climas">
                                         <!-- Usuarios agregados dinamicamento con js -->
+                                        <li class="no-item">No hay climatizadores cargados en la home actual</li>
                                     </ul>
                                 </div>
                             </div>
@@ -230,6 +234,7 @@
                                             </div>
                                             <ul id="lista-sensores">
                                                 <!-- Sensores agregados dinamicamento con js -->
+                                                <li class="no-item">No hay sensores cargados</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -253,6 +258,7 @@
                                     </div>
                                     <ul id="lista-huertas">
                                         <!-- Huertas agregados dinamicamento con js -->
+                                        <li class="no-item">No hay huertas cargadas en la home actual</li>
                                     </ul>
                                 </div>
                             </div>
@@ -323,6 +329,7 @@
                                     </div>
                                     <ul id="lista-pool">
                                         <!-- Piscinas agregados dinamicamento con js -->
+                                        <li class="no-item">No hay piscinas cargadas en la home actual</li>
                                     </ul>
                                 </div>
                             </div>

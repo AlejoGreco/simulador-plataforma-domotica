@@ -34,14 +34,33 @@ class Admin {
         return this.usuarios;
     }
 
-    almacenarUsuarios(){
-        if(localStorage.getItem('usuarios')){
-            localStorage.removeItem('usuarios');
+    almacenarEnStorage(pClave){
+        if(localStorage.getItem(pClave)){
+            localStorage.removeItem(pClave);
         }
-        localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
+        if(pClave == 'usuarios'){
+            localStorage.setItem(pClave, JSON.stringify(this.usuarios));
+        }
+        else {
+            localStorage.setItem(pClave, JSON.stringify(this.smartHomes));
+        }
+        /*
+        if(localStorage.getItem('homes')){
+            localStorage.removeItem('homes');
+        }
+        localStorage.setItem('homes', JSON.stringify(this.smartHomes));
+        */
     }
 
-    crearSmartHome(){
+    crearSmartHome(pHomeActual){
+        let nuevoId = this.smartHomes.length + 1;
+        // Creo y chequeo la unicidad del id y agrego la home al arreglo
+        while(this.smartHomes.filter(h => h.id == nuevoId).length > 0){
+            nuevoId++;
+        }
+        pHomeActual.id = nuevoId;
+        this.smartHomes.push(pHomeActual);
+        return new SmartHome(-1,[],[],[],[],[]);
     }
 }
 
@@ -660,17 +679,17 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
         case 'luces':
             listaId= 'lista-luminarias';
             classNameLI = 'luz-item';
-            noItem = 'No hay luminarias cargados';
+            noItem = 'No hay luminarias cargadas en la home actual';
             break;
         case 'accesos':
             listaId= 'lista-accesos';
             classNameLI = 'access-clima-item';
-            noItem = 'No hay accesos cargados';
+            noItem = 'No hay accesos cargados en la home actual';
             break;
         case 'clima':
             listaId= 'lista-climas';
             classNameLI = 'access-clima-item';
-            noItem = 'No hay climatizadores cargados';
+            noItem = 'No hay climatizadores cargados en la home actual';
             break;
         case 'sensores':
             listaId= 'lista-sensores';
@@ -680,12 +699,12 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
         case 'huerta':
             listaId= 'lista-huertas';
             classNameLI = 'huerta-item';
-            noItem = 'No hay huertas cargadas';
+            noItem = 'No hay huertas cargadas en la home actual';
             break;
         case 'pool':
             listaId= 'lista-pool';
             classNameLI = 'pool-item';
-            noItem = 'No hay piscinas cargadas';
+            noItem = 'No hay piscinas cargadas en la home actual';
             break;
     }
     const listaDeItems = document.getElementById(listaId);
@@ -720,7 +739,7 @@ let smartHomesCargadas;
 const formUser = document.getElementById('user-form');
 
 // Variables creacion smart home
-const actualSmartHome = new SmartHome(-1,[],[],[],[],[]);
+let actualSmartHome = new SmartHome(-1,[],[],[],[],[]);
 // Luminarias
 const formIlumination = document.getElementById('ilumination-form');
 // Accesos
@@ -733,6 +752,10 @@ const formHuerta = document.getElementById('huerta-form');
 let actualSensorsArray = [];
 // Pool
 const formPool = document.getElementById('pool-form');
+// Boton de creacion de home
+const crearHomeButton = document.getElementById('create-home-button');
+// Boton de descarte de cambian 
+const descartarHomeButton = document.getElementById('descartar-home-button');
 
 // Events listeners
 
@@ -741,7 +764,7 @@ formUser.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
     mostrarItemsRegistrados(admin.crearUsuario(form), 'usuarios');
-    admin.almacenarUsuarios(); // Guardo en el storage (reemplazo el submit)
+    admin.almacenarEnStorage('usuarios'); // Guardo en el storage (reemplazo el submit)
     //form.submit();
 });
 
@@ -823,6 +846,24 @@ formPool.addEventListener('submit', (e) => {
      */mostrarItemsRegistrados(actualSmartHome.crearPoolSystem(form), 'pool');
 });
 
+// Boton para crear smart house
+crearHomeButton.addEventListener('click', () => {
+    actualSmartHome = admin.crearSmartHome(actualSmartHome);
+    //mostrarItemsRegistrados(admin.smartHomes, 'homes');
+    admin.almacenarEnStorage('homes');
+});
+
+// Boton para borrar la carga de smart house en curso
+descartarHomeButton.addEventListener('click', () => {
+    actualSmartHome = new SmartHome(-1, [], [], [], [], []);
+    mostrarItemsRegistrados([],'luces');
+    mostrarItemsRegistrados([],'accesos');
+    mostrarItemsRegistrados([],'clima');
+    mostrarItemsRegistrados([],'sensores');
+    mostrarItemsRegistrados([],'huerta');
+    mostrarItemsRegistrados([],'pool');
+});
+
 // Programa
 
 // Busco mi lista de usuarios creada con anterioridad
@@ -843,6 +884,9 @@ if(usuariosCargados){
 
 // Grafico mi lista de usuarios
 mostrarItemsRegistrados(admin.usuarios, 'usuarios');
+
+// Grafico mi lista de smart homes
+//mostrarItemsRegistrados(admin.smartHomes, 'homes');
 
 
 
