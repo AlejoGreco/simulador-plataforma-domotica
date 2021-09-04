@@ -49,12 +49,11 @@
 
     .home-button-container {
         padding-top: nth($padding, 2);
-        margin-top: nth($margin, 2);  
-        border-top: $border-platform;     
+        margin-top: 0;       
         
-        &:last-child {
-            margin-top: 0;  
-            border-top: none;  
+        &:first-of-type {
+            border-top: $border-platform;
+            margin-top: nth($margin, 2);  
         }
 
         button {

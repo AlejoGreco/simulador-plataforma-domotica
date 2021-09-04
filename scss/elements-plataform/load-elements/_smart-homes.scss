@@ -1,0 +1,61 @@
+@import '../../basis/variables';
+@import '../../basis/fonts';
+@import '../../basis/reset';
+@import '../../special/mixins';
+@import '../../special/extends';
+
+.homes-container {
+    @extend %load-elemtens-container;
+    margin-top: nth($margin, 3) !important;
+    width: 100%;
+
+    // Lista de smart homes cargadas
+    .homes-list-container {
+        @extend %container-dinamic-list;
+        padding-top: 0 !important;
+
+        .sist-encabezado {
+            @extend %header-dinamic-list;
+        }
+
+        #lista-home {
+
+            .no-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: nth($padding, 1) nth($padding, 2);
+                background-color: $dark-middle;
+                border-radius: $base-radius;
+            }
+        
+            .home-item {
+                border-radius: $base-radius;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
+                grid-auto-rows: $auto-row-size * 1.2;
+                justify-items: center;
+                align-items: center;
+                text-align: center;
+                padding: nth($padding, 1) nth($padding, 2);
+
+                &:nth-child(2n){
+                    background-color: $dark-middle;
+                    
+                    button:hover {
+                    color: $dark-middle;
+                    background-color: $font-primario;
+                    }
+                }   
+
+                p {
+                    margin: 0;
+                }
+                
+                button {
+                    @extend %buttons-dinamic-list;
+                }
+            }
+        }
+    }
+}

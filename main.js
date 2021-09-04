@@ -44,12 +44,11 @@ class Admin {
         else {
             localStorage.setItem(pClave, JSON.stringify(this.smartHomes));
         }
-        /*
+        
         if(localStorage.getItem('homes')){
             localStorage.removeItem('homes');
         }
         localStorage.setItem('homes', JSON.stringify(this.smartHomes));
-        */
     }
 
     crearSmartHome(pHomeActual){
@@ -200,6 +199,43 @@ class SmartHome {
         this.pool.push(new Pool([new Luz(info[0], info[1], 0), new Luz(info[3], info[4], 0)], [info[2], info[5]], info[6]));
         return this.pool;
     }    
+
+    obtenerInfoRegistro(){
+        let info;
+        let infoHuerta;
+        let infoPool;
+
+        if(this.huertas.length > 0){
+            infoHuerta = `<div>
+                <p>T ( A / S ) - H ( A / S ) - R</p>
+                <p>${this.huertas[0].obtenerCantidadesSensor()[0]} / ${this.huertas[0].obtenerCantidadesSensor()[1]} - ${this.huertas[0].obtenerCantidadesSensor()[2]} / ${this.huertas[0].obtenerCantidadesSensor()[3]} - ${this.huertas[0].obtenerCantidadesSensor()[4]}</p>
+            </div>`;
+        }
+        else {
+            infoHuerta = 'No disponible';
+        }
+
+        if(this.pool.length > 0){
+            infoPool = `<div>
+                <p>LE - LS</p>
+                <p>${this.pool[0].cantidades[0]} - ${this.pool[0].cantidades[1]}</p>
+            </div>`;
+        }
+        else {
+            infoPool = 'No disponible';
+        }
+
+        info = `<p>${this.id}</p>
+        <div>
+            <p>L - A - C</p>
+            <p>${this.luces.length} - ${this.accesos.length} - ${this.climatizadores.length}</p>
+        </div>
+        ${infoHuerta}
+        ${infoPool}
+        <button>Eliminar</button>`;
+
+        return info;
+    }
     ////////////////////////////////////////////////////////////////////
 
     obtenerSistema(tipoDeSistema){
@@ -261,65 +297,6 @@ class SmartHome {
                 break;
         }
         return msg;
-    }
-
-    agregarElementoDeSistema(pTipoDeSistema){
-
-        let infoAdmin ='';
-        let infoArray = [];
-        let creado = true;
-        let precio = 0.0;
-
-        switch(pTipoDeSistema){
-            case 'luz':                
-                infoAdmin = prompt(`Sistema de Iluminacion\nIngrese los parametros de la luminaria separados por guiones medios (Tipo-Potencia-Precio)\nEj: Interior-15 watts-600`);
-                infoArray = infoAdmin.split('-');
-                this.luces.push(new Luz(infoArray[0], infoArray[1], infoArray[2]));
-                break;
-            case 'climatizador':
-                infoAdmin = prompt(`Sistema de Climatizacion\nIngrese los parametros de la unidad climatizadora separados por guiones medios (Tipo-Precio)\nEj: Aire acondicionado-1500`);
-                infoArray = infoAdmin.split('-');
-                this.climatizadores.push(new Climatizador(infoArray[0], infoArray[1]));
-                break;
-            case 'acceso':
-                infoAdmin = prompt(`Sistema de acceso al hogar\nIngrese los parametros de los accesos separados por guiones medios (Tipo-Precio)\nEj: Puerta principal-800`);
-                infoArray = infoAdmin.split('-');
-                this.accesos.push(new Acceso(infoArray[0], infoArray[1]));
-                break;
-            case 'huerta':
-                let riego = false;
-
-                // Riego automatico
-                respuesta = prompt('Huerta inteligente\nDesea agregar control de riego (s/n)?');
-                if(respuesta == 's' || respuesta == 'S')
-                    riego = true;         
-
-                // Precio 
-                precio = parseFloat(prompt('Huerta inteligente\nIngrese el precio del sistema'));
-                this.huertas.push(new Huerta([], riego, precio));
-
-                respuesta = prompt('Huerta inteligente\nDesea agregar un sensor (s/n)?');
-                while(respuesta == 's' || respuesta == 'S'){
-                    // Carga de sensores 
-                    this.huertas[this.huertas.length - 1].agregarSensor();
-                    this.huertas[this.huertas.length - 1].precio += precio * 0.15;
-                    respuesta = prompt('Desea agregar uno nuevo (s/n)?');
-                }
-                break;
-            case 'pool':
-                let luces = [];
-                
-                infoAdmin = prompt(`Control de piscina\nSistema de Iluminacion\nIngrese los parametros de la luminaria separados por guiones medios (Tipo-Potencia-Precio)\nEj: Sumergible-15 watts-2300`);
-                infoArray = infoAdmin.split('-');
-                luces.push(new Luz(infoArray[0], infoArray[1], infoArray[2]));
-                luces.push(parseInt(prompt('Control de piscina\nIngrese la cantidad de luces de ese tipo que llevara si piscina?')));
-                precio = parseInt(prompt('Control de piscina\nIngrese el precio del sistema de filtrado'));
-                this.pool.push(new Pool(luces[0], luces[1], precio));
-            default:
-                creado = false;
-                break;
-        }
-        return creado;
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -412,7 +389,8 @@ class Huerta {
                 if(sensor.ubicacion.startsWith('Ambiente')){
                     numTem[1]++;
                 }
-            }else if(sensor.tipo.startsWith('Humedad')){
+            }
+            else if(sensor.tipo.startsWith('Humedad')){
                 numHum[0]++;
                 if(sensor.ubicacion.startsWith('Ambiente')){
                     numHum[1]++;
@@ -431,6 +409,31 @@ class Huerta {
         <p>Sensores de humedad<br>Ambiente: ${numHum[1]} - Suelo: ${numHum[0] - numHum[1]}</p>
         <p>Riego automatico ${riego}</p>
         <button>Eliminar huerta</button>`;
+    }
+
+    obtenerCantidadesSensor(){
+        let numTem = [0, 0]; // [total, total ambiente]
+        let numHum = [0, 0];
+        let riego = 'NO';
+        for(let sensor of this.sensores){
+            if(sensor.tipo.startsWith('Temperatura')){
+                ++numTem[0];
+                if(sensor.ubicacion.startsWith('Ambiente')){
+                    numTem[1]++;
+                }
+            }
+            else if(sensor.tipo.startsWith('Humedad')){
+                numHum[0]++;
+                if(sensor.ubicacion.startsWith('Ambiente')){
+                    numHum[1]++;
+                }
+            }
+
+            if(this.riego[1]){
+                riego = 'SI';
+            }
+        }
+        return  [numTem[1], numTem[0] - numTem[1], numHum[1], numHum[0] - numHum[1], riego];
     }
 
     obtenerHuerta(){
@@ -676,6 +679,19 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
             classNameLI = 'user-item';
             noItem = 'No hay usuarios registrados';
             break;
+        case 'homes':
+            listaId= 'lista-home';
+            classNameLI = 'home-item';
+            noItem = 'No hay smart homes registradas';
+            let headerList = document.createElement('LI');
+            headerList.classList.add(classNameLI);
+            headerList.innerHTML = `<p>Id de home</p>
+                <p>Elementos simples</p>
+                <p>Huertas</p>
+                <p>Piscinas</p>
+                <p> - </p>`;
+            fragmento.appendChild(headerList);
+            break;
         case 'luces':
             listaId= 'lista-luminarias';
             classNameLI = 'luz-item';
@@ -754,6 +770,8 @@ let actualSensorsArray = [];
 const formPool = document.getElementById('pool-form');
 // Boton de creacion de home
 const crearHomeButton = document.getElementById('create-home-button');
+// Boton lista de homes
+const listarHomesButton = document.getElementById('lista-home-button');
 // Boton de descarte de cambian 
 const descartarHomeButton = document.getElementById('descartar-home-button');
 
@@ -838,19 +856,28 @@ formHuerta.addEventListener('submit', (e) => {
 formPool.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
-    /* const tipoSensor = document.getElementById('tipo-sensor');
-    const ubiSensor = document.getElementById('ubi-sensor');
-    const tipoSensor = document.getElementById('tipo-sensor');
-    const ubiSensor = document.getElementById('ubi-sensor');
-    if(tipoSensor.value != 'Tipo' && ubiSensor.value != 'Ubicacion'){
-     */mostrarItemsRegistrados(actualSmartHome.crearPoolSystem(form), 'pool');
+    mostrarItemsRegistrados(actualSmartHome.crearPoolSystem(form), 'pool');
 });
 
 // Boton para crear smart house
 crearHomeButton.addEventListener('click', () => {
     actualSmartHome = admin.crearSmartHome(actualSmartHome);
-    //mostrarItemsRegistrados(admin.smartHomes, 'homes');
+    mostrarItemsRegistrados(admin.smartHomes, 'homes');
     admin.almacenarEnStorage('homes');
+    mostrarItemsRegistrados([],'luces');
+    mostrarItemsRegistrados([],'accesos');
+    mostrarItemsRegistrados([],'clima');
+    mostrarItemsRegistrados([],'sensores');
+    mostrarItemsRegistrados([],'huerta');
+    mostrarItemsRegistrados([],'pool');
+});
+
+listarHomesButton.addEventListener('click', () => {
+    const offsetTop = document.querySelector('.homes-container').offsetTop;
+    window.scroll({
+        top: offsetTop,
+        behavior: "smooth"
+    });
 });
 
 // Boton para borrar la carga de smart house en curso
@@ -880,118 +907,38 @@ if(usuariosCargados){
 }
 
 // Busco mi lista de smart homes creada con anterioridad
-/* Codigo */
+smartHomesCargadas = localStorage.getItem('homes');
+if(smartHomesCargadas){
+    // JSON.parse devuelve tipo object (no tipo user -> no tengo sus metodos)
+    admin.smartHomes = JSON.parse(smartHomesCargadas).map(homeObj => {
+        // Utilizo map para crear un array nuevo de tipo Smart Homr
+        const home = new SmartHome(-1,[],[],[],[],[]);
+        // Con Object.assign asigno las propiedes leidas a la home
+        Object.assign(home, homeObj);       
+
+        // Simil a lo anterior pero con el arreglo de huertas
+        home.huertas = home.huertas.map(hObj => {
+            const h = new Huerta([],[],0);
+            Object.assign(h, hObj); 
+            return h;
+        });
+
+        // Simil a lo anterior pero con el arreglo de piscinas
+        home.pool = home.pool.map(pObj => {
+            const p = new Pool([],[], 0);
+            Object.assign(p, pObj); 
+            return p;
+        });
+        return home;
+    });
+}
 
 // Grafico mi lista de usuarios
 mostrarItemsRegistrados(admin.usuarios, 'usuarios');
 
 // Grafico mi lista de smart homes
-//mostrarItemsRegistrados(admin.smartHomes, 'homes');
+mostrarItemsRegistrados(admin.smartHomes, 'homes');
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* // Declaracion de variables del sistema
-let mail;
-let clave;
-let idUser;
-let idHome;
-let respuesta = 's';
-let usuario;
-let home;
-let huerta = [];
-
-const admin = new Admin();
-
-// Creacion de usuarios
-while(respuesta == 's' || respuesta == 'S'){
-    if(idUser = admin.crearUsuario())
-        respuesta = prompt('Usted ha agregado un nuevo usuario\nDesea ingresar uno nuevo (s/n)?');
-    else
-        alert('Error al crear el usuario');
-}
-
-// Creacion de membresia
-usuario = buscarPorId(idUser, admin.usuarios);
-usuario.crearMembresia('standar', '16/08/2021', '6 meses');
-
-// Creacion de Smart Homes
-respuesta = prompt('Desea crear una nueva Smart House (s/n)?');
-while(respuesta == 's' || respuesta == 'S'){
-    if(idHome = admin.crearSmartHome())
-        respuesta = prompt('Usted ha agregado una nueva Smart Home\nDesea crear una nueva (s/n)?');
-    else
-        alert('Error al crear la nueva Smart Home');
-}
-
-// Vinculo membresia con el sistema creado
-usuario.membresias[usuario.membresias.length - 1].idHome = idHome;
-
-// Login (falta implementar en el sistema real)
-respuesta = true;
-
-while(respuesta){
-    mail = prompt('Login\nIngrese su Email');
-    clave = prompt('Login\nIngrese su clave');
-    let aux = 0;
-    for(let user of admin.usuarios){
-        aux++;
-        if(user.logIn(mail,clave)){
-            alert(`Bienvenido ${user.nombre} ${user.apellido}!`);
-            admin.idUserOn = user.id;
-            respuesta = false;
-        }
-        else if(aux == admin.usuarios.length){
-            alert(`Nombre o clave incorrecta`);
-        }
-    }
-}
-
-// Visualizacion de sistema del user logueado(falta implementar en el sistema real)
-usuario = buscarPorId(admin.idUserOn, admin.usuarios);
-
-if(usuario.membresias.length > 0){
-    for(let membresia of usuario.membresias){
-        if(membresia.idHome != -1){
-            home = buscarPorId(membresia.idHome, admin.smartHomes);
-            alert(`Sistema del usuario:
-            Id: ${usuario.id}
-            Nombre: ${usuario.nombre}
-            Apellido: ${usuario.apellido}`);
-            document.getElementById('lista-luces').innerHTML = home.obtenerSistema('luz');
-            document.getElementById('lista-accesos').innerHTML = home.obtenerSistema('acceso');
-            document.getElementById('lista-clima').innerHTML = home.obtenerSistema('climatizador');
-            huerta = home.obtenerSistema('huerta');
-            document.getElementById('sensorAmb').appendChild(huerta[0]);
-            document.getElementById('sensorSub').appendChild(huerta[1]);
-            document.querySelector('.huerta-container-3').appendChild(huerta[2]);
-            alert('Control de piscina =>\n' + home.obtenerSistema('pool'));
-            alert(membresia.costoTotal(home));
-        }
-    }
-    
-}
-     */
