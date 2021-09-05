@@ -212,7 +212,7 @@ class SmartHome {
             </div>`;
         }
         else {
-            infoHuerta = 'No disponible';
+            infoHuerta = '<div>No disponible</div>';
         }
 
         if(this.pool.length > 0){
@@ -222,7 +222,7 @@ class SmartHome {
             </div>`;
         }
         else {
-            infoPool = 'No disponible';
+            infoPool = '<div>No disponible</div>';
         }
 
         info = `<p>${this.id}</p>
@@ -782,6 +782,12 @@ formUser.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
     mostrarItemsRegistrados(admin.crearUsuario(form), 'usuarios');
+    $('.user-item:last-child').css('display', 'none');
+    $('.user-item:last-child').slideDown(600)
+                            .fadeOut(180)
+                            .fadeIn(180)
+                            .fadeOut(180)
+                            .fadeIn(180);
     admin.almacenarEnStorage('usuarios'); // Guardo en el storage (reemplazo el submit)
     //form.submit();
 });
@@ -791,6 +797,12 @@ formIlumination.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
     mostrarItemsRegistrados(actualSmartHome.crearIluminationSystem(form), 'luces');
+    $('.luz-item:last-child').css('display', 'none');
+    $('.luz-item:last-child').slideDown(600)
+                            .fadeOut(180)
+                            .fadeIn(180)
+                            .fadeOut(180)
+                            .fadeIn(180);
     //form.submit();
 });
 
@@ -799,6 +811,12 @@ formAccess.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
     mostrarItemsRegistrados(actualSmartHome.crearAccessSystem(form), 'accesos');
+    $('.access-clima-item:last-child').css('display', 'none');
+    $('.access-clima-item:last-child').slideDown(600)
+                            .fadeOut(180)
+                            .fadeIn(180)
+                            .fadeOut(180)
+                            .fadeIn(180);
     //form.submit();
 })
 
@@ -807,6 +825,12 @@ formClima.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
     mostrarItemsRegistrados(actualSmartHome.crearClimaSystem(form), 'clima');
+    $('.access-clima-item:last-child').css('display', 'none');
+    $('.access-clima-item:last-child').slideDown(600)
+                                      .fadeOut(180)
+                                      .fadeIn(180)
+                                      .fadeOut(180)
+                                      .fadeIn(180);
 });
 
 // Huerta
@@ -842,6 +866,12 @@ crearSensorButton.addEventListener('click', (e) => {
         }
         actualSensorsArray.push(new Sensor(tipo + ` ${actualSensorsArray.length + 1}`,ubicacion));
         mostrarItemsRegistrados(actualSensorsArray, 'sensores');
+        $('.sensor-item:last-child').css('display', 'none');
+        $('.sensor-item:last-child').slideDown(600)
+                                    .fadeOut(180)
+                                    .fadeIn(180)
+                                    .fadeOut(180)
+                                    .fadeIn(180);
     }
 });
 
@@ -850,6 +880,12 @@ formHuerta.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target.lastElementChild;
     mostrarItemsRegistrados(actualSmartHome.crearHuertaSystem(form), 'huerta');
+    $('.huerta-item:last-child').css('display', 'none');
+    $('.huerta-item:last-child').slideDown(600)
+                                .fadeOut(180)
+                                .fadeIn(180)
+                                .fadeOut(180)
+                                .fadeIn(180);
 });
 
 // Creacion de piscina
@@ -857,12 +893,34 @@ formPool.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
     mostrarItemsRegistrados(actualSmartHome.crearPoolSystem(form), 'pool');
+    $('.pool-item:last-child').css('display', 'none');
+    $('.pool-item:last-child').slideDown(600)
+                              .fadeOut(180)
+                              .fadeIn(180)
+                              .fadeOut(180)
+                              .fadeIn(180);
 });
 
 // Boton para crear smart house
 crearHomeButton.addEventListener('click', () => {
     actualSmartHome = admin.crearSmartHome(actualSmartHome);
     mostrarItemsRegistrados(admin.smartHomes, 'homes');
+    $('.home-item:last-child').css('display', 'none');
+    
+    $('#lista-luminarias').slideUp(300);
+    $('#lista-accesos').slideUp(300);
+    $('#lista-climas').slideUp(300);
+    $('#lista-huertas').slideUp(300);
+    $('#lista-sensores').slideUp(300);
+    $('#lista-pool').slideUp(300);
+
+    $('.home-item:last-child').delay(300)
+                              .slideDown(600)
+                              .fadeOut(180)
+                              .fadeIn(180)
+                              .fadeOut(180)
+                              .fadeIn(180);
+    
     admin.almacenarEnStorage('homes');
     mostrarItemsRegistrados([],'luces');
     mostrarItemsRegistrados([],'accesos');
@@ -870,6 +928,8 @@ crearHomeButton.addEventListener('click', () => {
     mostrarItemsRegistrados([],'sensores');
     mostrarItemsRegistrados([],'huerta');
     mostrarItemsRegistrados([],'pool');
+    //$('.luz-list').show();
+    
 });
 
 listarHomesButton.addEventListener('click', () => {
