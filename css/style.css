@@ -686,32 +686,13 @@ main .galery-container .img-container {
 .form-border {
   border: 2px solid #f7963f;
   border-radius: 1em;
-  padding: 2em;
-  margin-bottom: 0.5em;
   color: #f7963f;
+}
+.form-border form {
+  width: 70%;
 }
 .form-border .btn-color-hover:hover {
   color: beige;
-}
-@media (max-width: 575px) {
-  .form-border {
-    width: 100%;
-  }
-}
-@media (min-width: 576px) and (max-width: 767px) {
-  .form-border {
-    width: 80%;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .form-border {
-    width: 60%;
-  }
-}
-@media (min-width: 992px) {
-  .form-border {
-    width: 40%;
-  }
 }
 
 /* Fin form */
@@ -751,6 +732,44 @@ main .galery-container .img-container {
 }
 .container-plataform h2 {
   font-size: 2.4em;
+}
+.container-plataform .form-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+  grid-template-rows: auto;
+  justify-items: center;
+  padding: 2.8em 0;
+  margin: 2em;
+}
+.container-plataform .form-container #comentarios {
+  width: 65%;
+}
+.container-plataform .form-container #comentarios h3 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+.container-plataform .form-container #comentarios .coment-container {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: max-content max-content;
+  align-items: center;
+  grid-gap: 0.8em 0;
+}
+.container-plataform .form-container #comentarios .coment-container .img-container {
+  margin-right: 2em;
+}
+.container-plataform .form-container #comentarios .coment-container .img-container img {
+  width: 4.5em;
+  height: 4.5em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.container-plataform .form-container #comentarios .coment-container p {
+  margin: 0;
+}
+.container-plataform .form-container #comentarios .coment-container p:last-child {
+  font-style: italic;
+  grid-column: 1/3;
 }
 
 /* Variable */

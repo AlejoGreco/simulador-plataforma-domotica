@@ -70,24 +70,28 @@
         <main>
             <section class="container container-plataform" data-aos="fade-up" data-aos-duration="1200">
                 <h2 class="pt-4 text-center">Inicie sesion</h2>
-                <div class="d-flex justify-content-center mx-4">
-                    <form class="my-4 d-flex flex-column justify-content-around form-border" id="form-login">
-                    <div class="mb-3">
-                        <label for="mail-login" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control" id="mail-login" aria-describedby="emailHelp">
+                <div class="form-container form-border mx-4">
+                    <form class="d-flex flex-column justify-content-around" id="form-login">
+                        <div class="mb-3">
+                            <label for="mail-login" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="mail-login" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contra" class="form-label">Clave</label>
+                            <input type="password" class="form-control" id="contra">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="Check1">
+                            <label class="form-check-label" for="Check1">Acepto terminos y condiciones</label>
+                        </div>
+                        <button type="submit" class="btn btn-outline-warning btn-color-hover">Ingresar</button>
+                    </form>
+                    <div id="comentarios">
+                        <h3>Experiencias</h3>
                     </div>
-                    <div class="mb-3">
-                        <label for="contra" class="form-label">Clave</label>
-                        <input type="password" class="form-control" id="contra">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="Check1">
-                        <label class="form-check-label" for="Check1">Acepto terminos y condiciones</label>
-                    </div>
-                    <button type="submit" class="btn btn-outline-warning btn-color-hover">Ingresar</button>
-                </form>
                 </div>
             </section>
+            
         </main>
 
           <!-- Footer -->

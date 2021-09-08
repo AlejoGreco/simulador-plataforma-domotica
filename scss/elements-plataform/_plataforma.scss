@@ -8,6 +8,53 @@
     h2 {
         font-size: $font-size-section-titles + .4em;
     }
+
+    .form-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+        grid-template-rows: auto;
+        justify-items: center;
+        padding: nth($padding, 4)*1.4 0;
+        margin: nth($margin, 4);
+
+        #comentarios {
+            width: 65%;
+
+            h3 {
+                font-size: $font-size-cards-titles;
+                margin-bottom: nth($margin, 2);
+            }
+
+            .coment-container{
+                display: grid;
+                grid-template-columns: min-content 1fr;
+                grid-template-rows: max-content max-content;
+                align-items: center;
+                grid-gap: $gap-base 0;
+
+                .img-container{
+                    margin-right: nth($margin, 4);
+
+                    img {
+                        width: $social-size * 1.8;
+                        height: $social-size * 1.8;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+                
+                p {
+                    margin: 0;
+                }
+            
+                p:last-child {
+                    font-style: italic;
+                    grid-column: 1 / 3;
+                }
+            }
+        }
+        
+    }
 }
 
 
