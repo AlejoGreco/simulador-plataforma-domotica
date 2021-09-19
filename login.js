@@ -14,9 +14,9 @@ const mostrarComentarios = () => {
     <h3>Experiencias</h3>
     <div class="coment-container">
         <div class="img-container">
-            <img src="${usuariosSatisfechos[i].img}">
+            <img src="${usuariosSatisfechos[i].avatar_url}">
         </div>
-        <p><b>${usuariosSatisfechos[i].nombre}</b> - ${usuariosSatisfechos[i].profesion}</p>
+        <p><b>${usuariosSatisfechos[i].login}</b>
         <p>"${usuariosSatisfechos[i].comentario}"</p>
     </div>`);
     i++;
@@ -28,38 +28,38 @@ formLogin.submit(e => {
     e.preventDefault();
     let usuario = $('#mail-login').val();
     let contra = $(':password').val();
-    console.log(usuario);
-    console.log(contra);
 
     // Chequeo si es admin
     administrador = JSON.parse(localStorage.getItem('admin'));
     if(usuario == administrador.user && contra == administrador.password){
         window.location.assign('file:///home/alejo/Documentos/Coder_js/proyecto_final_js/proyecto/plataforma-admin.html');
     }
-    else{ /* Chequeo si es usuario normal */
-        alert('Aun no esta mplementado login de usuarios');
+    else { /* Chequeo si es usuario normal */
+        alert('Aun no esta implementado login de usuarios');
     }
     
 });
 
 $( document ).ready(function() {
     //Declaramos la url del API
-    const APIURL = 'https://jsonplaceholder.typicode.com/posts';
+    const APIURL = 'https://api.github.com/users';
     
     const userComents = [
-        { nombre: "Ana", profesion: "Programadora", comentario: "Este sistema me ha cambiado la vida, me ahorra tiempo, dinero y hace todo mas simple.\nSuper recomendable", img: "https://global-uploads.webflow.com/5f5a53e153805db840dae2db/6073fbb251fa4540b68570ba_programador-web.jpeg"},
-        { nombre: "Duko", profesion: "Cantante", comentario: "Vengan a conocer a estos chicos, son profesionales y me dejaron la home buenarda", img: "https://comunidad.fan/web/uploads/news/336/0-desktop.jpg?1562757320"},
-        { nombre: "Silvia", profesion: "Medica", comentario: "Estoy mucho tiempo fuera de casa y gracias a este sistema puedo estar tranquila y monitorear mi hogar desde cualquier lugar!", img: "data:image/jpeg;base64,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"}
-    ];
+        "Este sistema me ha cambiado la vida, me ahorra tiempo, dinero y hace todo mas simple.\nSuper recomendable",
+        "Vengan a conocer a estos chicos, son profesionales y me dejaron la home buenarda",
+        "Estoy mucho tiempo fuera de casa y gracias a este sistema puedo estar tranquilo y monitorear mi hogar desde cualquier lugar!",
+        "El sistema genial, la atencion y el trato aun mejor!\nAdemas siempre ofrecen facilidades en los pagos para que todos puedan disfrutar de este sistema!"
+    ]; 
 
-    for(const coment of userComents){
-        $.post(APIURL, coment, (respuesta, estado) => {
-
-            if(estado === "success"){
-                usuariosSatisfechos.push(respuesta);
+    $.getJSON(APIURL, (respuesta, estado) => {
+        if(estado === "success"){
+            for(let i = 0; i < 4; i++){
+                respuesta[i].comentario = userComents[i];
+                usuariosSatisfechos.push(respuesta[i]);
             }
-        });
-    }
+            
+        }
+    });
 });
 
 

@@ -129,7 +129,7 @@ class Usuario {
         <p>Email: ${this.email}</p>
         <p>Password: ${this.password}</p>
         <p>Id de usuario: ${this.id}</p>
-        <button>Borrar usuario</button>`;
+        <button class="clear-user">Borrar usuario</button>`;
     }
 
     logIn(email, contra){
@@ -951,6 +951,21 @@ descartarHomeButton.addEventListener('click', () => {
     mostrarItemsRegistrados([],'pool');
 });
 
+/* // Botones para eliminar usuarios
+document.querySelector(".clear-user").addEventListener('click', (e) => {
+    let textoIdUser = e.target.parentElement.children[4].innerText;
+    let idUser = parseInt(textoIdUser.split(': ')[1]);
+    for(const indice in admin.usuarios){
+        if(admin.usuarios[indice].id == idUser){
+            admin.usuarios.splice(indice,1);
+        }
+    }
+    admin.almacenarEnStorage('usuarios');
+    mostrarItemsRegistrados(admin.usuarios, 'usuarios');
+}); 
+ */
+
+
 // Programa
 
 // Busco mi lista de usuarios creada con anterioridad
@@ -998,7 +1013,4 @@ mostrarItemsRegistrados(admin.usuarios, 'usuarios');
 
 // Grafico mi lista de smart homes
 mostrarItemsRegistrados(admin.smartHomes, 'homes');
-
-
-
 
