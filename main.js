@@ -129,7 +129,7 @@ class Usuario {
         <p>Email: ${this.email}</p>
         <p>Password: ${this.password}</p>
         <p>Id de usuario: ${this.id}</p>
-        <button class="clear-user">Borrar usuario</button>`;
+        <button class="clear-button">Borrar usuario</button>`;
     }
 
     logIn(email, contra){
@@ -232,7 +232,7 @@ class SmartHome {
         </div>
         ${infoHuerta}
         ${infoPool}
-        <button>Eliminar</button>`;
+        <button class="clear-button">Eliminar</button>`;
 
         return info;
     }
@@ -318,7 +318,7 @@ class Luz {
         return `<p>Id: ${this.id}</p>
         <p>Tipo: ${this.tipoPot}</p>
         <p>Precio: $${this.precio}</p>
-        <button>Eliminar</button>`;
+        <button class="clear-button">Eliminar</button>`;
     }
 
     obtenerLuzEstado(){
@@ -339,7 +339,7 @@ class Climatizador {
     obtenerInfoRegistro(){
         return `<p>Id: ${this.id}</p>
         <p>Precio: $${this.precio}</p>
-        <button>Eliminar</button>`;
+        <button class="clear-button">Eliminar</button>`;
     }
 
     obtenerClimatizadorEstado(){
@@ -360,7 +360,7 @@ class Acceso {
     obtenerInfoRegistro(){
         return `<p>Id: ${this.id}</p>
         <p>Precio: $${this.precio}</p>
-        <button>Eliminar</button>`;
+        <button class="clear-button">Eliminar</button>`;
     }
 
     obtenerAccesoEstado(){
@@ -408,7 +408,7 @@ class Huerta {
         <p>Sensores de nivel: ${numNivel}</p>
         <p>Sensores de humedad<br>Ambiente: ${numHum[1]} - Suelo: ${numHum[0] - numHum[1]}</p>
         <p>Riego automatico ${riego}</p>
-        <button>Eliminar huerta</button>`;
+        <button class="clear-button">Eliminar huerta</button>`;
     }
 
     obtenerCantidadesSensor(){
@@ -524,7 +524,7 @@ class Sensor {
     obtenerInfoRegistro(){
         return `<p>Sensor: ${this.tipo}</p>
         <p>Ubicacion: ${this.ubicacion}</p>
-        <input type="button" value="Eliminar">`;
+        <input type="button" value="Eliminar" class="clear-button">`;
     }
 
     obtenerSensor(){
@@ -551,7 +551,7 @@ class Pool {
         <p>Precio sistema: $${this.precio}</p>
         <p>${this.luces[0].tipoPot}</p>
         <p>${this.luces[1].tipoPot}</p>
-        <button>Eliminar</button>`;
+        <button class="clear-button">Eliminar</button>`;
     }
 
     modificarEstado(pEstado){
@@ -673,6 +673,7 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
     let listaId = '';
     let classNameLI = '';
     let noItem = '';
+    // Identifico el istema a visulaizar
     switch (pSistema){
         case 'usuarios':
             listaId= 'lista-user';
@@ -725,11 +726,17 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
     }
     const listaDeItems = document.getElementById(listaId);
     let itemInfo;
+    // Recorro el arreglo del sistema y creo los LI de cada elemento
+    // con su contenido, clase y evento
     if(pArrayItems.length > 0){
         for(let item of pArrayItems){
             itemInfo = document.createElement('LI');
             itemInfo.classList.add(classNameLI);
             itemInfo.innerHTML = item.obtenerInfoRegistro();
+            itemInfo.lastElementChild.addEventListener('click', (e) => {
+                eliminarElemento(e.target);
+                mostrarItemsRegistrados(pArrayItems, pSistema);
+            })
             fragmento.appendChild(itemInfo);
         }
     }
@@ -741,6 +748,60 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
     }
     listaDeItems.innerHTML = '';
     listaDeItems.appendChild(fragmento);
+}
+
+const eliminarElemento = (boton) => {
+    const elementos = boton.parentElement.parentElement;
+    const idList = elementos.getAttribute('id');
+    let indice = 0;
+
+    indice = encontrarPosicion(boton.parentElement);
+    switch (idList){
+        case 'lista-luminarias':
+            actualSmartHome.luces.splice(indice, 1);
+            console.log('Borre una luz');
+            break;
+        case 'lista-accesos':
+            actualSmartHome.accesos.splice(indice, 1);
+            console.log('Borre un acceso');
+            break;
+        case 'lista-climas':
+            actualSmartHome.climatizadores.splice(indice, 1);
+            console.log('Borre un climatizador');
+            break;
+        case 'lista-sensores':
+            actualSensorsArray.splice(indice, 1);
+            console.log('Borre un sensor');
+            break;
+        case 'lista-huertas':
+            actualSmartHome.huertas.splice(indice, 1);
+            console.log('Borre una huerta');
+            break;
+        case 'lista-pool':
+            actualSmartHome.pool.splice(indice, 1);
+            console.log('Borre una piscina ');
+            break;
+        case 'lista-home':
+            admin.smartHomes.splice(indice - 1, 1);
+            admin.almacenarEnStorage('homes');
+            console.log('Borre una smart home');
+            break;
+        case 'lista-user':
+            admin.usuarios.splice(indice, 1);
+            admin.almacenarEnStorage('usuarios');
+            console.log('Borre un usuario');
+            break;
+    }
+}
+
+const encontrarPosicion = (pElementoABorrar) => {
+    let i = 0;
+    let elemento = pElementoABorrar.previousElementSibling;
+    while(elemento){
+        i++;
+        elemento = elemento.previousElementSibling;
+    }
+    return i;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////            Progrograma para admin (creacion de usuarios y sistemas)              ////////////////
@@ -881,11 +942,14 @@ formHuerta.addEventListener('submit', (e) => {
     const form = e.target.lastElementChild;
     mostrarItemsRegistrados(actualSmartHome.crearHuertaSystem(form), 'huerta');
     $('.huerta-item:last-child').css('display', 'none');
-    $('.huerta-item:last-child').slideDown(600)
+    $('#lista-sensores').slideUp(300);
+    $('.huerta-item:last-child').delay(310)
+                                .slideDown(600)
                                 .fadeOut(180)
                                 .fadeIn(180)
                                 .fadeOut(180)
                                 .fadeIn(180);
+    mostrarItemsRegistrados([],'sensores');
 });
 
 // Creacion de piscina
@@ -914,6 +978,13 @@ crearHomeButton.addEventListener('click', () => {
     $('#lista-sensores').slideUp(300);
     $('#lista-pool').slideUp(300);
 
+    mostrarItemsRegistrados([],'luces');
+    mostrarItemsRegistrados([],'accesos');
+    mostrarItemsRegistrados([],'clima');
+    mostrarItemsRegistrados([],'sensores');
+    mostrarItemsRegistrados([],'huerta');
+    mostrarItemsRegistrados([],'pool');
+
     $('.home-item:last-child').delay(300)
                               .slideDown(600)
                               .fadeOut(180)
@@ -921,15 +992,14 @@ crearHomeButton.addEventListener('click', () => {
                               .fadeOut(180)
                               .fadeIn(180);
     
-    admin.almacenarEnStorage('homes');
-    mostrarItemsRegistrados([],'luces');
-    mostrarItemsRegistrados([],'accesos');
-    mostrarItemsRegistrados([],'clima');
-    mostrarItemsRegistrados([],'sensores');
-    mostrarItemsRegistrados([],'huerta');
-    mostrarItemsRegistrados([],'pool');
-    //$('.luz-list').show();
-    
+    admin.almacenarEnStorage('homes'); 
+
+    $("#lista-luminarias").delay(200).fadeIn(300);
+    $("#lista-accesos").delay(200).fadeIn(300);
+    $("#lista-climas").delay(200).fadeIn(300);
+    $("#lista-huertas").delay(200).fadeIn(300);
+    $("#lista-sensores").delay(200).fadeIn(300);
+    $("#lista-pool").delay(200).fadeIn(300);   
 });
 
 listarHomesButton.addEventListener('click', () => {
