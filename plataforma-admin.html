@@ -35,45 +35,92 @@
     </nav>
     <div class="tab-content p-4 fondo-plataforma" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <!-- Creacion de usuarios y visualizacion -->
-            <section class="user-container" id="user-creation">
-                <div class="user-header">
-                    <h2>Creacion de usuarios</h2>
-                </div> 
-                <form action="" id="user-form">
-                    <div class="input-container">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" autocomplete="off" required>
-                    </div>
-                    <div class="input-container">
-                        <label for="last-name">Apellido</label>
-                        <input type="text" id="last-name" autocomplete="off" required>
-                    </div>
-                    <div class="input-container">
-                        <label for="mail" required>Email</label>
-                        <input type="email" id="mail" autocomplete="off">
-                    </div>
-                    <div class="input-container">
-                        <label for="contra" required>Contrasenia</label>
-                        <input type="password" id="contra" autocomplete="off">
-                    </div>
-                    <div class="input-container">
-                        <label for="contra2" required>Confirme Contrasenia</label>
-                        <input type="password" id="contra2" autocomplete="off">
-                    </div>
-                    <input type="submit" value="Crear usuario">
-                </form>
-
-                <div class="user-list-container">
-                    <div class="sist-encabezado">
-                        <h3>Usuarios registrados</h3>
-                    </div>
-                    <ul id="lista-user">
-                        <!-- Usuarios agregados dinamicamento con js -->
-                    </ul>
+            <div class="d-flex align-items-start">
+                <div class="nav flex-column nav-pills sub-menu me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link sub-menu-item active" id="v-pills-users-tab" data-bs-toggle="pill" href="#v-pills-users" role="tab" aria-controls="v-pills-users" aria-selected="true">Usuarios</a>
+                    <a class="nav-link sub-menu-item" id="v-pills-memb-tab" data-bs-toggle="pill" href="#v-pills-memb" role="tab" aria-controls="v-pills-memb" aria-selected="false">Membresias</a>     
                 </div>
-                <!-- Fin carga de usuarios y visualizacion -->
-            </section>
+                <div class="tab-content w-100 px-3" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab">
+                        <!-- Creacion de usuarios y visualizacion -->
+                        <section class="user-container" id="user-creation">
+                            <div class="user-header">
+                                <h2>Creacion de usuarios</h2>
+                            </div> 
+                            <form action="" id="user-form">
+                                <div class="input-container">
+                                    <label for="name">Nombre</label>
+                                    <input type="text" id="name" autocomplete="off" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="last-name">Apellido</label>
+                                    <input type="text" id="last-name" autocomplete="off" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="mail" required>Email</label>
+                                    <input type="email" id="mail" autocomplete="off">
+                                </div>
+                                <div class="input-container">
+                                    <label for="contra" required>Contrasenia</label>
+                                    <input type="password" id="contra" autocomplete="off">
+                                </div>
+                                <div class="input-container">
+                                    <label for="contra2" required>Confirme Contrasenia</label>
+                                    <input type="password" id="contra2" autocomplete="off">
+                                </div>
+                                <input type="submit" value="Crear usuario">
+                            </form>
+
+                            <div class="user-list-container">
+                                <div class="sist-encabezado">
+                                    <h3>Usuarios registrados</h3>
+                                </div>
+                                <ul id="lista-user">
+                                    <!-- Usuarios agregados dinamicamento con js -->
+                                </ul>
+                            </div>
+                            <!-- Fin carga de usuarios y visualizacion -->
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-memb" role="tabpanel" aria-labelledby="v-pills-memb-tab">
+                        <!-- Creancion de membresias y visualizacion -->
+                        <div class="memb-container">
+                            <div class="memb-header">
+                                <h2>Creación de membresias</h2>
+                            </div>
+                            <form action="" id="memb-form">
+                                <div class="input-container">
+                                    <label for="memb-user">Seleccione usuario</label>
+                                    <select id="memb-user"></select>
+                                </div>
+                                <div class="input-container">
+                                    <label for="memb-home">Seleccione home</label>
+                                    <select id="memb-home"></select>
+                                </div>
+                                <div class="input-container">
+                                    <label for="memb-tiempo">Duración (meses)</label>
+                                    <input type="number" id="memb-tiempo" autocomplete="off">
+                                </div>
+                                <div class="input-container">
+                                    <label for="memb-inicio">Inicio</label>
+                                    <input type="date" id="memb-inicio" autocomplete="off">
+                                </div>
+                                <input type="submit" value="Crear membresia">
+                            </form>
+
+                            <div class="memb-list-container">
+                                <div class="sist-encabezado">
+                                    <h3>Membresias activas</h3>
+                                </div>
+                                <ul id="lista-memb">
+                                    <!-- Membresias agregadas dinamicamente con js -->
+                                    <li class="no-item">No hay membresias activas actualmente</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
         </div>
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
             <!-- Creacion de Smart homes -->
@@ -330,7 +377,7 @@
                             </div>
                         </div>
                     </div>
-                  </div>
+                </div>
             </section>
         </div>
     </div>

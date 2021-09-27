@@ -803,6 +803,46 @@ const encontrarPosicion = (pElementoABorrar) => {
     }
     return i;
 }
+
+const cargarSelectMembrecias = (pSelect) => {
+    let select;
+    const fragmento = document.createDocumentFragment();
+    
+    if(pSelect == 'user'){
+        select = document.getElementById('memb-user');
+        select.innerHTML = '';
+        if(admin.usuarios.length > 0){
+            for(const user of admin.usuarios){
+                const option = document.createElement('OPTION');
+                option.setAttribute('value', `${user.id}`);
+                option.innerHTML = `${user.nombre} ${user.apellido}`;
+                fragmento.appendChild(option);
+            }
+            fragmento.firstElementChild.setAttribute('selected','');
+            select.appendChild(fragmento);
+        }
+        else {
+            select.innerHTML = `<option value="0" selected>Usuarios disponibles</option>`              
+        }
+    }
+    else {
+        select = document.getElementById('memb-home');
+        select.innerHTML = '';
+        if(admin.smartHomes.length > 0){
+            for(const home of admin.smartHomes){
+                const option = document.createElement('OPTION');
+                option.setAttribute('value', `${home.id}`);
+                option.innerHTML = `Id home: ${home.id}`;
+                fragmento.appendChild(option);
+            }
+            fragmento.firstElementChild.setAttribute('selected','');
+            select.appendChild(fragmento);
+        }
+        else {
+            select.innerHTML = `<option value="0" selected>Homes no disponibles</option>`              
+        }
+    }
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////            Progrograma para admin (creacion de usuarios y sistemas)              ////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -831,6 +871,8 @@ let actualSensorsArray = [];
 const formPool = document.getElementById('pool-form');
 // Boton de creacion de home
 const crearHomeButton = document.getElementById('create-home-button');
+// Membresias
+const formMembresia = document.getElementById('memb-form');
 // Boton lista de homes
 const listarHomesButton = document.getElementById('lista-home-button');
 // Boton de descarte de cambian 
@@ -850,6 +892,7 @@ formUser.addEventListener('submit', (e) => {
                             .fadeOut(180)
                             .fadeIn(180);
     admin.almacenarEnStorage('usuarios'); // Guardo en el storage (reemplazo el submit)
+    cargarSelectMembrecias('user');
     //form.submit();
 });
 
@@ -993,6 +1036,7 @@ crearHomeButton.addEventListener('click', () => {
                               .fadeIn(180);
     
     admin.almacenarEnStorage('homes'); 
+    cargarSelectMembrecias('home');
 
     $("#lista-luminarias").delay(200).fadeIn(300);
     $("#lista-accesos").delay(200).fadeIn(300);
@@ -1000,6 +1044,19 @@ crearHomeButton.addEventListener('click', () => {
     $("#lista-huertas").delay(200).fadeIn(300);
     $("#lista-sensores").delay(200).fadeIn(300);
     $("#lista-pool").delay(200).fadeIn(300);   
+});
+
+formMembresia.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    mostrarItemsRegistrados(admin.crearMembresia(form), 'membresia');
+    $('.luz-item:last-child').css('display', 'none');
+    $('.luz-item:last-child').slideDown(600)
+                            .fadeOut(180)
+                            .fadeIn(180)
+                            .fadeOut(180)
+                            .fadeIn(180);
+    //form.submit();
 });
 
 listarHomesButton.addEventListener('click', () => {
@@ -1020,21 +1077,6 @@ descartarHomeButton.addEventListener('click', () => {
     mostrarItemsRegistrados([],'huerta');
     mostrarItemsRegistrados([],'pool');
 });
-
-/* // Botones para eliminar usuarios
-document.querySelector(".clear-user").addEventListener('click', (e) => {
-    let textoIdUser = e.target.parentElement.children[4].innerText;
-    let idUser = parseInt(textoIdUser.split(': ')[1]);
-    for(const indice in admin.usuarios){
-        if(admin.usuarios[indice].id == idUser){
-            admin.usuarios.splice(indice,1);
-        }
-    }
-    admin.almacenarEnStorage('usuarios');
-    mostrarItemsRegistrados(admin.usuarios, 'usuarios');
-}); 
- */
-
 
 // Programa
 
@@ -1083,4 +1125,8 @@ mostrarItemsRegistrados(admin.usuarios, 'usuarios');
 
 // Grafico mi lista de smart homes
 mostrarItemsRegistrados(admin.smartHomes, 'homes');
+
+// Cargo los usuarios y homes seleccionables para membresias
+cargarSelectMembrecias('user');
+cargarSelectMembrecias('home');
 

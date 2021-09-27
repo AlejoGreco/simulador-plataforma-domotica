@@ -4,50 +4,52 @@
 @import '../../special/mixins';
 @import '../../special/extends';
 
-.user-container {
+.memb-container {
     @extend %load-elemtens-container;
     width: 100%;
 
-    .user-header {
+    .memb-header {
         padding: 0 nth($padding, 4);
 
         h2 {
             @extend %header-form-list;
         }
     }
-    
-    #user-form {
+
+    #memb-form {
         display: grid;
-        grid-template-columns: repeat(3, minmax(13em,1fr));
-        grid-template-rows: $auto-row-size;
-        grid-gap: $gap-base 0;
+        grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
+        grid-auto-rows: $auto-row-size;
         justify-items: center;
         align-items: center;
+        grid-gap: $gap-base 0;
 
         .input-container {
             display: flex;
             flex-direction: column;
             width: 75%;
 
-            input {
+            input, select {
                 @extend %inputs-forms-platform;
-            } 
+            }   
         }
 
         input[type='submit'] {
             @extend %input-button-platform;
+            grid-column: 3 / 4;
         }
+
     }
 
-    // Lista de usuarios cargados
-    .user-list-container {
+    .memb-list-container {
         @extend %container-dinamic-list;
     
         .sist-encabezado {
             @extend %header-dinamic-list;
         }
 
-        ul {
+        #lista-memb {
+
             .no-item {
                 display: flex;
                 justify-content: center;
@@ -56,31 +58,22 @@
                 background-color: $dark-middle;
                 border-radius: $base-radius;
             }
-        
-            .user-item {
-                border-radius: $base-radius;
-                display: grid;
-                grid-template-columns: repeat(3, 33%);
-                grid-template-rows: repeat(2, $auto-row-size * .7);
-                justify-items: center;
+
+            .memb-item {
+                @include list-item(3);
                 align-items: center;
-                align-content: center;
-                justify-content: space-between;
-                padding: nth($padding, 1) nth($padding, 2);
-    
+                grid-gap: $gap-base 0;
+                padding: nth($padding, 2) 0 !important;
+
                 &:nth-child(2n+1){
                     background-color: $dark-middle;
-                    
-                    button:hover {
-                       color: $dark-middle;
-                       background-color: $font-primario;
-                    }
-                }   
 
-                p {
-                    margin: 0;
+                    button:hover {
+                        color: $dark-middle;
+                        background-color: $font-primario;
+                     }
                 }
-                
+
                 button {
                     @extend %buttons-dinamic-list;
                 }
