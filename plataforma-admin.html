@@ -98,12 +98,19 @@
                                     <select id="memb-home"></select>
                                 </div>
                                 <div class="input-container">
-                                    <label for="memb-tiempo">Duración (meses)</label>
-                                    <input type="number" id="memb-tiempo" autocomplete="off">
+                                    <label for="memb-tipo">Tipo de membresia</label>
+                                    <select id="memb-tipo">
+                                        <option value="Base">Base</option>
+                                        <option value="Full">Full</option>
+                                    </select>
                                 </div>
                                 <div class="input-container">
                                     <label for="memb-inicio">Inicio</label>
-                                    <input type="date" id="memb-inicio" autocomplete="off">
+                                    <input type="date" id="memb-inicio" autocomplete="off" required>
+                                </div>
+                                <div class="input-container">
+                                    <label for="memb-tiempo">Duración (meses)</label>
+                                    <input type="number" id="memb-tiempo" autocomplete="off" required>
                                 </div>
                                 <input type="submit" value="Crear membresia">
                             </form>
@@ -114,7 +121,6 @@
                                 </div>
                                 <ul id="lista-memb">
                                     <!-- Membresias agregadas dinamicamente con js -->
-                                    <li class="no-item">No hay membresias activas actualmente</li>
                                 </ul>
                             </div>
                         </div>

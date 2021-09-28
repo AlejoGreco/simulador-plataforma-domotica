@@ -61,14 +61,56 @@ class Admin {
         this.smartHomes.push(pHomeActual);
         return new SmartHome(-1,[],[],[],[],[]);
     }
+
+    crearMembresia(pFormMembresia){
+        const form = pFormMembresia;
+        const elementos = form.children;
+        let contenido = [];
+        let i = 0;
+    
+        // Recorro los elementos del formulario y extraigo los datos
+        for(let elemento of elementos){
+            if(elemento.type != 'submit'){
+                contenido[i++] = elemento.lastElementChild.value;
+            }  
+        }
+
+        // Encuentro el usuario y creo la membresia
+        for(const user of this.usuarios){
+            if(user.id == parseInt(contenido[0])){
+                user.membresias.push(new Membresia(parseInt(contenido[1]), contenido[2], contenido[3], contenido[4]));
+            }
+        }
+
+        // Marcamos la home como ya asignada a un usuario
+        this.smartHomes.forEach(h => {
+            if(h.id == contenido[1]){ h.libre = false; }
+        });
+    }
+
+    agruparMembresias(){
+        let totalMembresias = [];
+        let idUsuarios = [];
+        let indice = 0;
+
+        for(const user of this.usuarios){
+            if(user.membresias.length > 0){
+                for(const memb of user.membresias){
+                    totalMembresias.push(memb);
+                    idUsuarios[indice++] = user.id;
+                }
+            }
+        }
+        return [totalMembresias, idUsuarios];
+    }
 }
 
 class Membresia {
-    constructor(pTipo, pDate, pDuracion){
-        this.idHome = -1;
+    constructor(pIdHome, pTipo, pDate, pDuracion){
+        this.idHome = pIdHome;
         this.tipo = pTipo;
         this.date = pDate;
-        this.pDuracion = pDuracion;
+        this.duracion = pDuracion;
     }
 
     costoSistema(pSistema){
@@ -103,6 +145,15 @@ class Membresia {
         }
         return msg + `\nTotal = $${total}`;
     }
+
+    obtenerInfoRegistro(pUser){
+        return `<p>Usuario: ${pUser.nombre} ${pUser.apellido}</p>
+        <p>Home: ${this.idHome}</p>
+        <p>Tipo de membresia: ${this.tipo}</p>
+        <p>Inicio: ${this.date}</p>
+        <p>Duración: ${this.duracion}</p>
+        <button class="clear-button">Borrar membresia</button>`;
+    }
 }
 
 class Usuario {
@@ -116,11 +167,6 @@ class Usuario {
         this.password = pContra;
         this.membresias = [];
         this.login = false;
-    }
-
-    crearMembresia(pTipo, pDate, pDuracion){
-        this.membresias.push(new Membresia(pTipo, pDate, pDuracion));
-        return true;
     }
 
     obtenerInfoRegistro(){
@@ -161,6 +207,7 @@ class SmartHome {
         this.accesos = pAccesos;
         this.huertas = phuertas;
         this.pool = pPool;
+        this.libre = true;
     }
 
     crearIluminationSystem(pFormIlumination){
@@ -693,6 +740,11 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
                 <p> - </p>`;
             fragmento.appendChild(headerList);
             break;
+        case 'membresias':
+            listaId= 'lista-memb';
+            classNameLI = 'memb-item';
+            noItem = 'No hay membresias cargadas activas actualmente';
+            break;
         case 'luces':
             listaId= 'lista-luminarias';
             classNameLI = 'luz-item';
@@ -750,6 +802,39 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
     listaDeItems.appendChild(fragmento);
 }
 
+const mostrarMembresias = (pMembresias) => {
+    const membresias = pMembresias[0];
+    const idUsuarios = pMembresias[1];
+    let indice = 0;
+
+    const fragmento = document.createDocumentFragment();
+    const listaDeMembresias = document.getElementById('lista-memb');
+    let membInfo;
+    // Recorro el arreglo del sistema y creo los LI de cada elemento
+    // con su contenido, clase y evento
+    if(membresias.length > 0){
+        for(let item of membresias){
+            let usuario = buscarPorId(idUsuarios[indice++], admin.usuarios);
+            membInfo = document.createElement('LI');
+            membInfo.classList.add('memb-item');
+            membInfo.innerHTML = item.obtenerInfoRegistro(usuario);
+            membInfo.lastElementChild.addEventListener('click', (e) => {
+                eliminarElemento(e.target);
+                mostrarMembresias(admin.agruparMembresias());
+            });
+            fragmento.appendChild(membInfo);
+        }
+    }
+    else {
+        membInfo = document.createElement('LI');
+        membInfo.classList.add('no-item');
+        membInfo.innerHTML = 'No hay membresias activas actualmente';
+        fragmento.appendChild(membInfo);
+    }
+    listaDeMembresias.innerHTML = '';
+    listaDeMembresias.appendChild(fragmento);
+}
+
 const eliminarElemento = (boton) => {
     const elementos = boton.parentElement.parentElement;
     const idList = elementos.getAttribute('id');
@@ -791,6 +876,25 @@ const eliminarElemento = (boton) => {
             admin.almacenarEnStorage('usuarios');
             console.log('Borre un usuario');
             break;
+        case 'lista-memb':
+            let idText = boton.parentElement.children[1].textContent;
+            borrarMembresia(parseInt(idText.slice(6)));
+            admin.almacenarEnStorage('usuarios');
+            console.log('Borre una membresía');
+            break;
+    }
+}
+
+const borrarMembresia = (pIdHome) => {
+    let indiceMemb = 0;
+    for(const user of admin.usuarios){
+        if(user.membresias.length > 0){
+            indiceMemb = user.membresias.findIndex(m => m.idHome == pIdHome);
+            if(indiceMemb >= 0){
+                user.membresias.splice(indiceMemb, 1);
+                break;
+            }     
+        }
     }
 }
 
@@ -804,7 +908,7 @@ const encontrarPosicion = (pElementoABorrar) => {
     return i;
 }
 
-const cargarSelectMembrecias = (pSelect) => {
+const cargarSelectMembresias = (pSelect) => {
     let select;
     const fragmento = document.createDocumentFragment();
     
@@ -830,16 +934,23 @@ const cargarSelectMembrecias = (pSelect) => {
         select.innerHTML = '';
         if(admin.smartHomes.length > 0){
             for(const home of admin.smartHomes){
-                const option = document.createElement('OPTION');
-                option.setAttribute('value', `${home.id}`);
-                option.innerHTML = `Id home: ${home.id}`;
-                fragmento.appendChild(option);
+                if(home.libre){
+                    const option = document.createElement('OPTION');
+                    option.setAttribute('value', `${home.id}`);
+                    option.innerHTML = `Id home: ${home.id}`;
+                    fragmento.appendChild(option);
+                }
             }
-            fragmento.firstElementChild.setAttribute('selected','');
-            select.appendChild(fragmento);
+            if(fragmento.hasChildNodes()){
+                fragmento.firstElementChild.setAttribute('selected','');
+                select.appendChild(fragmento);
+            }
+            else{
+                select.innerHTML = `<option value="0" selected>Homes no disponibles</option>`;
+            }
         }
         else {
-            select.innerHTML = `<option value="0" selected>Homes no disponibles</option>`              
+            select.innerHTML = `<option value="0" selected>Homes no disponibles</option>`;              
         }
     }
 }
@@ -892,7 +1003,7 @@ formUser.addEventListener('submit', (e) => {
                             .fadeOut(180)
                             .fadeIn(180);
     admin.almacenarEnStorage('usuarios'); // Guardo en el storage (reemplazo el submit)
-    cargarSelectMembrecias('user');
+    cargarSelectMembresias('user');
     //form.submit();
 });
 
@@ -1036,7 +1147,7 @@ crearHomeButton.addEventListener('click', () => {
                               .fadeIn(180);
     
     admin.almacenarEnStorage('homes'); 
-    cargarSelectMembrecias('home');
+    cargarSelectMembresias('home');
 
     $("#lista-luminarias").delay(200).fadeIn(300);
     $("#lista-accesos").delay(200).fadeIn(300);
@@ -1046,12 +1157,18 @@ crearHomeButton.addEventListener('click', () => {
     $("#lista-pool").delay(200).fadeIn(300);   
 });
 
+// Crear membresias
 formMembresia.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
-    mostrarItemsRegistrados(admin.crearMembresia(form), 'membresia');
-    $('.luz-item:last-child').css('display', 'none');
-    $('.luz-item:last-child').slideDown(600)
+    admin.crearMembresia(form);
+    cargarSelectMembresias('home');
+    mostrarMembresias(admin.agruparMembresias());
+    admin.almacenarEnStorage('homes');
+    admin.almacenarEnStorage('usuarios');
+
+    $('.memb-item:last-child').css('display', 'none');
+    $('.memb-item:last-child').slideDown(600)
                             .fadeOut(180)
                             .fadeIn(180)
                             .fadeOut(180)
@@ -1087,8 +1204,16 @@ if(usuariosCargados){
     admin.usuarios = JSON.parse(usuariosCargados).map(userObj => {
         // Utilizo map para crear un array nuevo de tipo Usuarios
         const usuario = new Usuario();
-        Object.assign(usuario, userObj);
         // Con Object.assign asigno las propiedes leidas al usuario
+        Object.assign(usuario, userObj);
+        
+        // Simil a lo anterior pero con el arreglo de membresias
+        usuario.membresias = usuario.membresias.map(mObj => {
+            const m = new Membresia();
+            Object.assign(m, mObj); 
+            return m;
+        });
+
         return usuario;
     });
 }
@@ -1096,9 +1221,9 @@ if(usuariosCargados){
 // Busco mi lista de smart homes creada con anterioridad
 smartHomesCargadas = localStorage.getItem('homes');
 if(smartHomesCargadas){
-    // JSON.parse devuelve tipo object (no tipo user -> no tengo sus metodos)
+    // JSON.parse devuelve tipo object (no tipo SmartHome -> no tengo sus metodos)
     admin.smartHomes = JSON.parse(smartHomesCargadas).map(homeObj => {
-        // Utilizo map para crear un array nuevo de tipo Smart Homr
+        // Utilizo map para crear un array nuevo de tipo Smart Home
         const home = new SmartHome(-1,[],[],[],[],[]);
         // Con Object.assign asigno las propiedes leidas a la home
         Object.assign(home, homeObj);       
@@ -1126,7 +1251,10 @@ mostrarItemsRegistrados(admin.usuarios, 'usuarios');
 // Grafico mi lista de smart homes
 mostrarItemsRegistrados(admin.smartHomes, 'homes');
 
+// Grafico la lista de membresias existentes
+mostrarMembresias(admin.agruparMembresias());
+
 // Cargo los usuarios y homes seleccionables para membresias
-cargarSelectMembrecias('user');
-cargarSelectMembrecias('home');
+cargarSelectMembresias('user');
+cargarSelectMembresias('home');
 
