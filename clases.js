@@ -153,8 +153,8 @@ class Membresia {
             <button class="clear-button">Borrar membresia</button>
         </div>
         <div class="costos-container">
-            <p>Costo total del sistema: $${Math.fround(this.costoTotal()[5])}</p>
-            <p>Costo mensual: $${Math.fround(this.costoTotal()[5] / this.duracion)}</p>
+            <p>Costo total del sistema: $ ${Math.fround(this.costoTotal()[5].toFixed(2))}</p>
+            <p>Costo mensual: $ ${Math.fround(this.costoTotal()[5] / this.duracion).toFixed(2)}</p>
         </div>`;
     }
 }

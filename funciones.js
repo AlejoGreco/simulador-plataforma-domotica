@@ -188,43 +188,35 @@ const mostrarItemsRegistrados = (pArrayItems, pSistema) => {
     listaDeItems.appendChild(fragmento);
 }
 
-const mostrarMembresias = (pMembresias) => {
-    const membresias = pMembresias[0];
-    const idUsuarios = pMembresias[1];
-    let indice = 0;
+const encontrarPosicion = (pElementoABorrar) => {
+    let i = 0;
+    let elemento = pElementoABorrar.previousElementSibling;
+    while(elemento){
+        i++;
+        elemento = elemento.previousElementSibling;
+    }
+    return i;
+}
 
-    const fragmento = document.createDocumentFragment();
-    const listaDeMembresias = document.getElementById('lista-memb');
-    let membInfo;
-    // Recorro el arreglo del sistema y creo los LI de cada elemento
-    // con su contenido, clase y evento
-    if(membresias.length > 0){
-        for(let item of membresias){
-            let usuario = buscarPorId(idUsuarios[indice++], admin.usuarios);
-            membInfo = document.createElement('LI');
-            membInfo.classList.add('memb-li');
-            membInfo.innerHTML = item.obtenerInfoRegistro(usuario);
-            membInfo.lastElementChild.addEventListener('click', (e) => {
-                eliminarElemento(e.target);
-                mostrarMembresias(admin.agruparMembresias());
-            });
-            fragmento.appendChild(membInfo);
+const liberarHome = (pIdHome, pHomesArray) => {
+    const home = buscarPorId(pIdHome, pHomesArray);
+    home.libre = true;
+}
+
+const liberarHomesBorradoUser = (pUser, pHomesArray) => {
+    if(pUser.membresias.length > 0){
+        for(const m of pUser.membresias){
+            liberarHome(m.idHome, pHomesArray);
         }
     }
-    else {
-        membInfo = document.createElement('LI');
-        membInfo.classList.add('no-item');
-        membInfo.innerHTML = 'No hay membresias activas actualmente';
-        fragmento.appendChild(membInfo);
-    }
-    listaDeMembresias.innerHTML = '';
-    listaDeMembresias.appendChild(fragmento);
 }
 
 const eliminarElemento = (boton) => {
     const elementos = boton.parentElement.parentElement;
-    const idList = elementos.getAttribute('id');
+    let idList = elementos.getAttribute('id');
+    if(idList == null){ idList = 'lista-memb' }
     let indice = 0;
+    let idText;
 
     indice = encontrarPosicion(boton.parentElement);
     switch (idList){
@@ -253,25 +245,69 @@ const eliminarElemento = (boton) => {
             console.log('Borre una piscina ');
             break;
         case 'lista-home':
-            admin.smartHomes.splice(indice - 1, 1);
+            idText = boton.parentElement.firstElementChild.textContent;
+            borrarMembresia(parseInt(idText));
+            indiceHome = admin.smartHomes.findIndex(h => h.id == parseInt(idText));
+            admin.smartHomes.splice(indiceHome, 1);
             admin.almacenarEnStorage('homes');
+            admin.almacenarEnStorage('usuarios');
             cargarSelectMembresias('home');
+            mostrarMembresias(admin.agruparMembresias());
             console.log('Borre una smart home');
             break;
         case 'lista-user':
-            admin.usuarios.splice(indice, 1);
+            idText = boton.parentElement.children[4].textContent;
+            indiceUsr = admin.usuarios.findIndex(u => u.id == parseInt(idText.slice(15)));
+            liberarHomesBorradoUser(admin.usuarios[indiceUsr], admin.smartHomes);
+            admin.usuarios.splice(indiceUsr, 1);
             admin.almacenarEnStorage('usuarios');
             cargarSelectMembresias('user');
+            cargarSelectMembresias('home');
+            mostrarMembresias(admin.agruparMembresias());
             console.log('Borre un usuario');
             break;
         case 'lista-memb':
-            let idText = boton.parentElement.children[1].textContent;
+            idText = boton.parentElement.children[1].textContent;
+            liberarHome(parseInt(idText.slice(6)), admin.smartHomes);
             borrarMembresia(parseInt(idText.slice(6)));
             admin.almacenarEnStorage('usuarios');
             cargarSelectMembresias('home');
             console.log('Borre una membresía');
             break;
     }
+}
+
+const mostrarMembresias = (pMembresias) => {
+    const membresias = pMembresias[0];
+    const idUsuarios = pMembresias[1];
+    let indice = 0;
+
+    const fragmento = document.createDocumentFragment();
+    const listaDeMembresias = document.getElementById('lista-memb');
+    let membInfo;
+    // Recorro el arreglo del sistema y creo los LI de cada elemento
+    // con su contenido, clase y evento
+    if(membresias.length > 0){
+        for(let item of membresias){
+            let usuario = buscarPorId(idUsuarios[indice++], admin.usuarios);
+            membInfo = document.createElement('LI');
+            membInfo.classList.add('memb-li');
+            membInfo.innerHTML = item.obtenerInfoRegistro(usuario);
+            membInfo.firstElementChild.lastElementChild.addEventListener('click', (e) => {
+                eliminarElemento(e.target);
+                mostrarMembresias(admin.agruparMembresias());
+            });
+            fragmento.appendChild(membInfo);
+        }
+    }
+    else {
+        membInfo = document.createElement('LI');
+        membInfo.classList.add('no-item');
+        membInfo.innerHTML = 'No hay membresias activas actualmente';
+        fragmento.appendChild(membInfo);
+    }
+    listaDeMembresias.innerHTML = '';
+    listaDeMembresias.appendChild(fragmento);
 }
 
 const borrarMembresia = (pIdHome) => {
@@ -285,16 +321,6 @@ const borrarMembresia = (pIdHome) => {
             }     
         }
     }
-}
-
-const encontrarPosicion = (pElementoABorrar) => {
-    let i = 0;
-    let elemento = pElementoABorrar.previousElementSibling;
-    while(elemento){
-        i++;
-        elemento = elemento.previousElementSibling;
-    }
-    return i;
 }
 
 const cargarSelectMembresias = (pSelect) => {

@@ -211,8 +211,8 @@ formMembresia.addEventListener('submit', (e) => {
     admin.almacenarEnStorage('homes');
     admin.almacenarEnStorage('usuarios');
 
-    $('.memb-item:last-child').css('display', 'none');
-    $('.memb-item:last-child').slideDown(600)
+    $('.memb-li:last-child').css('display', 'none');
+    $('.memb-li:last-child').slideDown(600)
                             .fadeOut(180)
                             .fadeIn(180)
                             .fadeOut(180)
