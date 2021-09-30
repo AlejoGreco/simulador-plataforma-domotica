@@ -37,7 +37,7 @@
 
         input[type='submit'] {
             @extend %input-button-platform;
-            grid-column: 3 / 4;
+            //grid-column: 3 / 4;
         }
     }
 
@@ -60,7 +60,7 @@
             }
 
             .luz-item {
-                @include list-item(4);
+                @include list-item(15em);
                 align-items: center;
 
                 &:nth-child(2n+1){

@@ -21,11 +21,11 @@
 /* Plataforma - formularios de carga de datos */
 
 // Items de la lista dinamica
-@mixin list-item ($numColums) {
+@mixin list-item ($anchoCols) {
     padding: nth($padding, 1) nth($padding, 2);
     border-radius: .5em;
     display: grid;
-    grid-template-columns: repeat($numColums, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax($anchoCols, 1fr));
     justify-items: center;
     justify-content: space-between;
 }

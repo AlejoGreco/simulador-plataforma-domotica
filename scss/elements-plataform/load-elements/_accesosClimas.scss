@@ -12,6 +12,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
         grid-auto-rows: $auto-row-size;
+        grid-gap: $gap-base 0;
         justify-items: center;
         align-items: center;
     
@@ -50,7 +51,7 @@
             }
             
             .access-clima-item {
-                @include list-item(3);
+                @include list-item(15em);
                 align-items: center;
 
                 &:nth-child(2n+1){

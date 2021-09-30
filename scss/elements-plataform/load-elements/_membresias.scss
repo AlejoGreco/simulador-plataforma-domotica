@@ -36,7 +36,6 @@
 
         input[type='submit'] {
             @extend %input-button-platform;
-            grid-column: 3 / 4;
         }
 
     }
@@ -77,13 +76,14 @@
                 }
 
                 .memb-item {
-                    @include list-item(3);
+                    @include list-item(15em);
                     align-items: center;
                     grid-gap: $gap-base 0;    
                 }
 
                 .costos-container {
                     display: flex;
+                    flex-wrap: wrap;
                     align-items: center;
                     justify-content: space-around;
                     border-top: $border-platform;

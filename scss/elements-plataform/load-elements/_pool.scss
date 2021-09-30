@@ -39,7 +39,6 @@
 
         input[type='submit'] {
             @extend %input-button-platform;
-            grid-column: 3 / 4;
         }
 
     }
@@ -63,7 +62,7 @@
             }
 
             .pool-item {
-                @include list-item(3);
+                @include list-item(15em);
                 align-items: center;
                 grid-gap: $gap-base 0;
                 padding: nth($padding, 2) 0 !important;
